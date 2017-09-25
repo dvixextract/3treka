@@ -31,6 +31,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -51,6 +53,10 @@ public class AdminViewController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    @FXML
+    private TabPane AdminTabPane;
+
     @FXML
     private TableColumn<Projects, String>  duration;
     
@@ -171,6 +177,7 @@ public class AdminViewController implements Initializable {
     private ObservableList<String> masterData3;
     ArrayList<String> Team_Members = new ArrayList<String>();
     ObservableList TeamList = FXCollections.observableArrayList();
+    ObservableList<String> ClickOutput = FXCollections.observableArrayList();
     
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -211,11 +218,16 @@ public class AdminViewController implements Initializable {
     
     @FXML
     void handleButtonAction(ActionEvent event) {
-
-        String TmNmae = teamname.getText().toString();
+        
+    String TmNmae = teamname.getText().toString();
+    if(TmNmae.isEmpty() || TmNmae ==  null ){
+      DBConnection.infoBox("Unable to create a Team with empty team name", "Error", "Failure to create a Team");
+        }
+    else{
+               
         String sql = " insert into Teams (Teamname, Members)"
         + " values (?, ?)";
- 
+
     try{
 
         preparedStatement = connection.prepareStatement(sql);
@@ -232,7 +244,7 @@ public class AdminViewController implements Initializable {
         DBConnection.infoBox("Error Saving Data", "Fail", null);
         e.printStackTrace();
 }
-        
+    }    
     }
     
    @FXML
@@ -252,8 +264,28 @@ public class AdminViewController implements Initializable {
         DBConnection.infoBox("Error Saving Data", "Fail", null);
         e.printStackTrace();
 }
+            
 
     }   
+    @FXML
+    void handleViewTeams(ActionEvent event) {
+
+              try{
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("TeamsView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());//next page size
+        Stage stage = new Stage();
+        stage.setTitle("View Teams");
+        stage.setScene(scene);
+        stage.show();
+
+}catch(Exception e){
+        DBConnection.infoBox("Error Saving Data", "Fail", null);
+        e.printStackTrace();
+}
+    }
+
     
     public void setMember(String mmber){
     
@@ -272,14 +304,13 @@ public class AdminViewController implements Initializable {
           setAllUserInfoCellTable();
           setAllProjectsInfoCellTable();
           loadDataFromDatabase();
-          loadTeamsDataFromDatabase();
           loadAllUserInformation();
           loadAllProjectsInformation();
           //AssignTeam.setItems(TeamList);
           
         // Add filtered data to the table
         Employees.setItems(filteredData);
-
+        //listvw.setItems();
         // Listen for text changes in the filter text field
         searchEmployee.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -288,13 +319,22 @@ public class AdminViewController implements Initializable {
 
                 updateFilteredData();
             }
-        });   
-       
-
+        });  
         start();
-        
-    }   
 
+        tabChange();
+
+    }   
+    
+    public void tabChange(){
+        
+    AdminTabPane.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
+        AssignTeam.getItems().clear();
+        loadTeamsDataFromDatabase();
+    });
+    
+    }
+    
     public void start(){
     
      Employees.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -307,7 +347,8 @@ public class AdminViewController implements Initializable {
                System.out.println(Employees.getSelectionModel().getSelectedItem().getROLE());
                Team_Members.add(Employees.getSelectionModel().getSelectedItem().getName());
                setMember(Employees.getSelectionModel().getSelectedItem().getName());
-               //listvw.setItems(Employees.getSelectionModel().getSelectedItem().getName());
+               ClickOutput.add( Employees.getSelectionModel().getSelectedItem().getName()+" ->  "+Employees.getSelectionModel().getSelectedItem().getROLE());
+               listvw.setItems(ClickOutput);
             }
                     
         });
