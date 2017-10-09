@@ -104,6 +104,26 @@
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Employees">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="ListAllEmployees" layoutX="9.0" layoutY="77.0" prefHeight="484.0" prefWidth="864.0">
+                          <columns>
+                            <TableColumn fx:id="E_name" prefWidth="98.0" text="Name" />
+                            <TableColumn fx:id="E_surname" prefWidth="91.0" text="Surname" />
+                              <TableColumn fx:id="E_type" prefWidth="128.0" text="Employee type" />
+                              <TableColumn fx:id="Acc_level" prefWidth="95.0" text="Access level" />
+                              <TableColumn fx:id="R_ole" prefWidth="147.0" text="Role" />
+                              <TableColumn fx:id="P_hone" minWidth="2.0" prefWidth="145.0" text="Phone" />
+                              <TableColumn fx:id="E_mail" prefWidth="159.0" text="Email" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="createEmployee" layoutX="225.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleCreateEmployee" prefHeight="27.0" prefWidth="191.0" text="Create Employee" />
+                        <Button fx:id="addResources" layoutX="11.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleAddResourcesButton" prefHeight="27.0" prefWidth="194.0" text="Add Resource" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
           <Tab text="Projects">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -218,43 +238,6 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Employees">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView fx:id="ListAllEmployees" layoutX="9.0" layoutY="77.0" prefHeight="484.0" prefWidth="864.0">
-                          <columns>
-                            <TableColumn fx:id="E_name" prefWidth="98.0" text="Name" />
-                            <TableColumn fx:id="E_surname" prefWidth="91.0" text="Surname" />
-                              <TableColumn fx:id="E_type" prefWidth="128.0" text="Employee type" />
-                              <TableColumn fx:id="Acc_level" prefWidth="95.0" text="Access level" />
-                              <TableColumn fx:id="R_ole" prefWidth="147.0" text="Role" />
-                              <TableColumn fx:id="P_hone" minWidth="2.0" prefWidth="145.0" text="Phone" />
-                              <TableColumn fx:id="E_mail" prefWidth="159.0" text="Email" />
-                          </columns>
-                        </TableView>
-                        <Button fx:id="createEmployee" layoutX="9.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleCreateEmployee" prefHeight="27.0" prefWidth="173.0" text="Create Employee" />
-                     </children></AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="Database">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView layoutX="8.0" layoutY="105.0" prefHeight="453.0" prefWidth="863.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                          </columns>
-                        </TableView>
-                     </children></AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="Risk">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
             <Tab text="Teams">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="857.0">
@@ -276,13 +259,31 @@
                               <Font name="Apple Symbols" size="20.0" />
                            </font>
                         </Label>
-                        <Button fx:id="saveTeam" layoutX="606.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="256.0" style="-fx-background-color: limegreen;" text="Save" textFill="#f8eeee">
+                        <Button fx:id="saveTeam" layoutX="605.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="256.0" style="-fx-background-color: limegreen;" text="Save" textFill="#f8eeee">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Button>
-                        <Button fx:id="ViewTeams" layoutX="606.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleViewTeams" prefHeight="33.0" prefWidth="254.0" text="View Teams" />
+                        <Button fx:id="ViewTeams" layoutX="606.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleViewTeams" prefHeight="33.0" prefWidth="254.0" text="View Teams" />
                      </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Database">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="8.0" layoutY="105.0" prefHeight="453.0" prefWidth="863.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Risk">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
         </tabs>

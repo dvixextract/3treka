@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -113,6 +114,9 @@ public class AdminViewController implements Initializable {
 
     @FXML
     private TextField teamname;
+    
+    @FXML
+    private Button addResources;
 
     @FXML
     private Button saveTeam;
@@ -178,6 +182,8 @@ public class AdminViewController implements Initializable {
     ArrayList<String> Team_Members = new ArrayList<String>();
     ObservableList TeamList = FXCollections.observableArrayList();
     ObservableList<String> ClickOutput = FXCollections.observableArrayList();
+    //ObservableList<String> SelectedTeamMembers = FXCollections.observableArrayList();
+    ArrayList<String> SelectedTeamMembers = new ArrayList<String>();
     
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -229,17 +235,19 @@ public class AdminViewController implements Initializable {
         + " values (?, ?)";
 
     try{
+        
+    Iterator teamdata=SelectedTeamMembers.iterator(); 
+    
+    preparedStatement = connection.prepareStatement(sql);
+    preparedStatement.setString(1, TmNmae);
+    
+  //  while(teamdata.hasNext()){  
 
-        preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, TmNmae);
-        preparedStatement.setString(2, getMember());
-        try{
+        preparedStatement.setString(2, (String) teamdata.next());
         preparedStatement.execute();
+       // }
         DBConnection.infoBox("Team created Successfull", "Success", null);
-        }catch(Exception e){
-        DBConnection.infoBox("Error Saving Data", "Fail", null);
-        e.printStackTrace();
-        }
+
 }catch(Exception e){
         DBConnection.infoBox("Error Saving Data", "Fail", null);
         e.printStackTrace();
@@ -264,7 +272,6 @@ public class AdminViewController implements Initializable {
         DBConnection.infoBox("Error Saving Data", "Fail", null);
         e.printStackTrace();
 }
-            
 
     }   
     @FXML
@@ -287,6 +294,25 @@ public class AdminViewController implements Initializable {
     }
 
     
+   @FXML
+   void handleAddResourcesButton(ActionEvent event) {
+
+    try{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("ResourcesView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());//next page size
+        Stage stage = new Stage();
+        stage.setTitle("Edit Member Resources");
+        stage.setScene(scene);
+        stage.show();
+
+}catch(Exception e){
+        DBConnection.infoBox("Error Opening Edit Resources Page", "Fail", null);
+        e.printStackTrace();
+}
+    }    
+    
+    
     public void setMember(String mmber){
     
        this.mmber = mmber;
@@ -306,7 +332,7 @@ public class AdminViewController implements Initializable {
           loadDataFromDatabase();
           loadAllUserInformation();
           loadAllProjectsInformation();
-          //AssignTeam.setItems(TeamList);
+          AssignTeam.setItems(TeamList);
           
         // Add filtered data to the table
         Employees.setItems(filteredData);
@@ -342,12 +368,15 @@ public class AdminViewController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
           
+               System.out.println("user selected information -------------->>");
                System.out.println(Employees.getSelectionModel().getSelectedItem().getName());
                System.out.println(Employees.getSelectionModel().getSelectedItem().getSurName());
                System.out.println(Employees.getSelectionModel().getSelectedItem().getROLE());
+               System.out.println(Employees.getSelectionModel().getSelectedItem().getUserID());
                Team_Members.add(Employees.getSelectionModel().getSelectedItem().getName());
                setMember(Employees.getSelectionModel().getSelectedItem().getName());
-               ClickOutput.add( Employees.getSelectionModel().getSelectedItem().getName()+" ->  "+Employees.getSelectionModel().getSelectedItem().getROLE());
+               SelectedTeamMembers.add(Employees.getSelectionModel().getSelectedItem().getUserID());
+               ClickOutput.add( Employees.getSelectionModel().getSelectedItem().getName()+":\t  "+Employees.getSelectionModel().getSelectedItem().getROLE());
                listvw.setItems(ClickOutput);
             }
                     
@@ -400,7 +429,7 @@ public String onEdit() {
             resultSet = (ResultSet) preparedStatement.executeQuery();
             while(resultSet.next()){
             
-                masterData.add(new User(""+resultSet.getString(4),""+resultSet.getString(3),""+resultSet.getString(8),""+resultSet.getString(9)));
+                masterData.add(new User(""+resultSet.getString(4),""+resultSet.getString(3),""+resultSet.getString(8),""+resultSet.getString(9),""+resultSet.getString(1)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
