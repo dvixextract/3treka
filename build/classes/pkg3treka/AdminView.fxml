@@ -25,7 +25,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1083.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg3treka.AdminViewController">
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane fx:id="AdminTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Dashboard">
             <content>
@@ -104,6 +104,26 @@
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Employees">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="ListAllEmployees" layoutX="9.0" layoutY="77.0" prefHeight="484.0" prefWidth="864.0">
+                          <columns>
+                            <TableColumn fx:id="E_name" prefWidth="98.0" text="Name" />
+                            <TableColumn fx:id="E_surname" prefWidth="91.0" text="Surname" />
+                              <TableColumn fx:id="E_type" prefWidth="128.0" text="Employee type" />
+                              <TableColumn fx:id="Acc_level" prefWidth="95.0" text="Access level" />
+                              <TableColumn fx:id="R_ole" prefWidth="147.0" text="Role" />
+                              <TableColumn fx:id="P_hone" minWidth="2.0" prefWidth="145.0" text="Phone" />
+                              <TableColumn fx:id="E_mail" prefWidth="159.0" text="Email" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="createEmployee" layoutX="225.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleCreateEmployee" prefHeight="27.0" prefWidth="191.0" text="Create Employee" />
+                        <Button fx:id="addResources" layoutX="11.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleAddResourcesButton" prefHeight="27.0" prefWidth="194.0" text="Add Resource" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
           <Tab text="Projects">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -218,22 +238,33 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Employees">
+            <Tab text="Teams">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="857.0">
                      <children>
-                        <TableView fx:id="ListAllEmployees" layoutX="9.0" layoutY="77.0" prefHeight="484.0" prefWidth="864.0">
+                        <TableView fx:id="Employees" layoutX="7.0" layoutY="111.0" prefHeight="432.0" prefWidth="566.0">
                           <columns>
-                            <TableColumn fx:id="E_name" prefWidth="98.0" text="Name" />
-                            <TableColumn fx:id="E_surname" prefWidth="91.0" text="Surname" />
-                              <TableColumn fx:id="E_type" prefWidth="128.0" text="Employee type" />
-                              <TableColumn fx:id="Acc_level" prefWidth="95.0" text="Access level" />
-                              <TableColumn fx:id="R_ole" prefWidth="147.0" text="Role" />
-                              <TableColumn fx:id="P_hone" minWidth="2.0" prefWidth="145.0" text="Phone" />
-                              <TableColumn fx:id="E_mail" prefWidth="159.0" text="Email" />
+                            <TableColumn fx:id="EID" prefWidth="142.0" text="Employee Surname" />
+                            <TableColumn fx:id="Ename" prefWidth="127.0" text="Name" />
+                              <TableColumn fx:id="Erole" prefWidth="141.0" text="Role" />
+                              <TableColumn fx:id="AccessLvl" prefWidth="155.0" text="Access Level" />
                           </columns>
                         </TableView>
-                        <Button fx:id="createEmployee" layoutX="9.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleCreateEmployee" prefHeight="27.0" prefWidth="173.0" text="Create Employee" />
+                        <TextField fx:id="searchEmployee" layoutX="8.0" layoutY="75.0" prefHeight="30.0" prefWidth="564.0" promptText="Search Employee" />
+                        <ListView fx:id="listvw" layoutX="603.0" layoutY="71.0" prefHeight="369.0" prefWidth="260.0" />
+                        <Label layoutX="603.0" layoutY="42.0" prefHeight="21.0" prefWidth="197.0" text="Selected Team Members" />
+                        <TextField fx:id="teamname" layoutX="9.0" layoutY="39.0" prefHeight="27.0" prefWidth="563.0" promptText="Team Name" />
+                        <Label fx:id="label" layoutX="9.0" layoutY="1.0" prefHeight="26.0" prefWidth="127.0" text="Create Team">
+                           <font>
+                              <Font name="Apple Symbols" size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="saveTeam" layoutX="605.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="256.0" style="-fx-background-color: limegreen;" text="Save" textFill="#f8eeee">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="ViewTeams" layoutX="606.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleViewTeams" prefHeight="33.0" prefWidth="254.0" text="View Teams" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -253,44 +284,6 @@
             <Tab text="Risk">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Teams">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="857.0">
-                     <children>
-                        <TableView layoutX="7.0" layoutY="326.0" prefHeight="215.0" prefWidth="566.0">
-                          <columns>
-                            <TableColumn minWidth="0.0" prefWidth="163.0" text="Member Name" />
-                              <TableColumn prefWidth="166.0" text="Member Role" />
-                              <TableColumn prefWidth="235.0" text="Assigned Task" />
-                          </columns>
-                        </TableView>
-                        <TableView fx:id="Employees" layoutX="7.0" layoutY="111.0" prefHeight="157.0" prefWidth="566.0">
-                          <columns>
-                            <TableColumn fx:id="EID" prefWidth="142.0" text="Employee Surname" />
-                            <TableColumn fx:id="Ename" prefWidth="127.0" text="Name" />
-                              <TableColumn fx:id="Erole" prefWidth="141.0" text="Role" />
-                              <TableColumn fx:id="AccessLvl" prefWidth="127.0" text="Access Level" />
-                          </columns>
-                        </TableView>
-                        <TextField fx:id="searchEmployee" layoutX="8.0" layoutY="75.0" prefHeight="30.0" prefWidth="564.0" promptText="Search Employee" />
-                        <ListView fx:id="listvw" layoutX="603.0" layoutY="71.0" prefHeight="196.0" prefWidth="260.0" />
-                        <Label layoutX="603.0" layoutY="42.0" prefHeight="21.0" prefWidth="197.0" text="Selected Team Members" />
-                        <TextField fx:id="teamname" layoutX="9.0" layoutY="39.0" prefHeight="27.0" prefWidth="563.0" promptText="Team Name" />
-                        <Label fx:id="label" layoutX="9.0" layoutY="1.0" prefHeight="26.0" prefWidth="127.0" text="Create Team">
-                           <font>
-                              <Font name="Apple Symbols" size="20.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="saveTeam" layoutX="606.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="256.0" style="-fx-background-color: limegreen;" text="Save" textFill="#f8eeee">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="603.0" layoutY="440.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="258.0" text="Show " />
-                        <Label layoutX="9.0" layoutY="293.0" prefHeight="21.0" prefWidth="195.0" text="Team Name :" />
-                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>

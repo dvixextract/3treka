@@ -13,6 +13,11 @@ package pkg3treka;
 
 public class User {
 
+    /**
+     * @return the userID
+     */
+
+
     private int phone;
     private String PHone;
     private String userName;
@@ -23,6 +28,7 @@ public class User {
     private String ROLE;
     private String ACCESSLEVEL;
     private String EMPLOYEETYPE;
+    private String userID;
     
        User(String nm, String surnme, String EMPLOYEETYP, String ACCESLEVEL, String ROL, String phon, String emal) {
         this.name = nm;
@@ -52,6 +58,15 @@ public User(String surName,String name,String ROLE,String ACCESSLEVEL ){
     this.name = name;
     this.ROLE = ROLE;
     this.ACCESSLEVEL = ACCESSLEVEL;
+}
+
+public User(String surName,String name,String ROLE,String ACCESSLEVEL, String userid ){
+ 
+    this.surName = surName;
+    this.name = name;
+    this.ROLE = ROLE;
+    this.ACCESSLEVEL = ACCESSLEVEL;
+    this.userID = userid;
 }
 //     private String firstName;
 //    private String lastName;
@@ -87,7 +102,16 @@ public User(String surName,String name,String ROLE,String ACCESSLEVEL ){
         this.surName = surname;
     }
 
+    public String getUserID() {
+        return userID;
+    }
 
+    /**
+     * @param userID the userID to set
+     */
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
     /**
      * @return the PHone

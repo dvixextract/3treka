@@ -83,6 +83,7 @@ public class FXMLDocumentController implements Initializable {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
+  
  
    
     public FXMLDocumentController() throws SQLException {
@@ -96,9 +97,16 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     void handleButtonAction(ActionEvent event) {
+          boolean isAdmin = false;
+        String username = textField.getText();
+        String password = textPassword.getText();
+        
+        if( username.length()>=6 && "admin/".equals(username.substring(0,6))){
+            isAdmin = true;
+            username = textField.getText().substring(6);
+            System.out.println("---->"+username);
+        }
 
-        String username = textField.getText().toString();
-        String password = textPassword.getText().toString();
  
         String sql = "SELECT * FROM Users WHERE U_username = ? and U_password = ?";
  
@@ -112,31 +120,30 @@ public class FXMLDocumentController implements Initializable {
         if(!resultSet.next()){
         DBConnection.infoBox("Enter Correct Email and Password", "Failed", null);
           }else{
-         //DBConnection.infoBox("Login Successfull", "Success", null);
-
-         // make page disapper
-//         Node source = (Node) event.getSource();
-//         dialogStage = (Stage) source.getScene().getWindow();
-//         dialogStage.close();
-//         scene = new Scene(FXMLLoader.load(getClass().getResource("FXMLMenu.fxml")));
-//         dialogStage.setScene(scene);
-//         dialogStage.show();
-
-        try {
+        try { 
+          
+        
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("AdminView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader();  
+        
+        if(isAdmin){
+       
+            fxmlLoader.setLocation(getClass().getResource("ChooseRouteToOpen.fxml"));
+        }else{
+        
+            fxmlLoader.setLocation(getClass().getResource("UserTimeSheetsView.fxml"));
+            }
         Scene scene = new Scene(fxmlLoader.load());//next page size
-        stage.setTitle("Create Employee");
         stage.setScene(scene);
         stage.show();
-        
+                
     } catch (IOException e) {
         Logger logger = Logger.getLogger(getClass().getName());
         logger.log(Level.SEVERE, "Failed to create new Window.", e);
     }
-}
+    }
+
  
 }catch(Exception e){
 e.printStackTrace();
