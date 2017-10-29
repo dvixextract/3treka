@@ -54,16 +54,15 @@ public class AdminViewController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     @FXML
     private TabPane AdminTabPane;
 
     @FXML
-    private TableColumn<Projects, String>  duration;
-    
+    private TableColumn<Projects, String> duration;
+
     @FXML
     private TableView<Projects> AllProjectsTable;
-    
+
     @FXML
     private TableColumn<Projects, String> Project_Name;
 
@@ -107,14 +106,14 @@ public class AdminViewController implements Initializable {
     private TableColumn<User, String> P_hone;
 
     @FXML
-    private TableColumn<User, String>E_mail;
+    private TableColumn<User, String> E_mail;
 
     @FXML
     private TextField searchEmployee;
 
     @FXML
     private TextField teamname;
-    
+
     @FXML
     private Button addResources;
 
@@ -122,7 +121,7 @@ public class AdminViewController implements Initializable {
     private Button saveTeam;
     @FXML
     private TableView<User> Employees;
-    
+
     @FXML
     private TableColumn<User, String> EID;
 
@@ -131,17 +130,17 @@ public class AdminViewController implements Initializable {
 
     @FXML
     private TableColumn<User, String> Erole;
-    
+
     @FXML
     private Button createEmployee;
-    
+
     @FXML
     private TableColumn<User, String> AccessLvl;
-    
+
     @FXML
     private ListView<String> listvw;
 
-     @FXML
+    @FXML
     private TextField Projectname;
 
     @FXML
@@ -152,10 +151,9 @@ public class AdminViewController implements Initializable {
 
     @FXML
     private TextField SprintsNumber;
-    
+
     @FXML
     private TextField CompleteProject;
-
 
     @FXML
     private ComboBox<String> AssignTeam;
@@ -166,17 +164,14 @@ public class AdminViewController implements Initializable {
     @FXML
     private Button saveNewProject;
 
-
     @FXML
     private Label label;
 
-
-    
     private String mmber;
-    
+
     private ObservableList<User> masterData = FXCollections.observableArrayList();
     private ObservableList<User> AllUserData = FXCollections.observableArrayList();
-     private ObservableList<Projects> AllProjectsData = FXCollections.observableArrayList();
+    private ObservableList<Projects> AllProjectsData = FXCollections.observableArrayList();
     private ObservableList<User> filteredData = FXCollections.observableArrayList();
     private ObservableList<String> masterData3;
     ArrayList<String> Team_Members = new ArrayList<String>();
@@ -184,14 +179,13 @@ public class AdminViewController implements Initializable {
     ObservableList<String> ClickOutput = FXCollections.observableArrayList();
     //ObservableList<String> SelectedTeamMembers = FXCollections.observableArrayList();
     ArrayList<String> SelectedTeamMembers = new ArrayList<String>();
-    
+
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
 
+    public AdminViewController() {
 
-        public AdminViewController() {
-            
         try {
             connection = DBConnection.getConnection();
         } catch (SQLException ex) {
@@ -201,9 +195,9 @@ public class AdminViewController implements Initializable {
         }
 
 //    
-        masterData.add(new User("Dennis", "Masha","Director","Tier 3"));//test data
-        
-                // Initially add all data to filtered data
+        masterData.add(new User("Dennis", "Masha", "Director", "Tier 3"));//test data
+
+        // Initially add all data to filtered data
         filteredData.addAll(masterData);
 
         // Listen for changes in master data.
@@ -214,126 +208,124 @@ public class AdminViewController implements Initializable {
                 updateFilteredData();
             }
         });
-        
+
     }
-    
+
     @FXML
     void handleSaveNewProjectAction(ActionEvent event) {
-     CreateProject();
+        CreateProject();
     }
-    
+
     @FXML
     void handleButtonAction(ActionEvent event) {
-        
-    String TmNmae = teamname.getText().toString();
-    if(TmNmae.isEmpty() || TmNmae ==  null ){
-      DBConnection.infoBox("Unable to create a Team with empty team name", "Error", "Failure to create a Team");
+
+        String TmNmae = teamname.getText().toString();
+        if (TmNmae.isEmpty() || TmNmae == null) {
+            DBConnection.infoBox("Unable to create a Team with empty team name", "Error", "Failure to create a Team");
+        } else {
+
+            String sql = " insert into Teams (Teamname, Members)"
+                    + " values (?, ?)";
+
+            try {
+
+                Iterator teamdata = SelectedTeamMembers.iterator();
+
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, TmNmae);
+
+                //  while(teamdata.hasNext()){  
+                preparedStatement.setString(2, (String) teamdata.next());
+                preparedStatement.execute();
+                // }
+                DBConnection.infoBox("Team created Successfull", "Success", null);
+
+            } catch (Exception e) {
+                DBConnection.infoBox("Error Saving Data", "Fail", null);
+                e.printStackTrace();
+            }
         }
-    else{
-               
-        String sql = " insert into Teams (Teamname, Members)"
-        + " values (?, ?)";
-
-    try{
-        
-    Iterator teamdata=SelectedTeamMembers.iterator(); 
-    
-    preparedStatement = connection.prepareStatement(sql);
-    preparedStatement.setString(1, TmNmae);
-    
-  //  while(teamdata.hasNext()){  
-
-        preparedStatement.setString(2, (String) teamdata.next());
-        preparedStatement.execute();
-       // }
-        DBConnection.infoBox("Team created Successfull", "Success", null);
-
-}catch(Exception e){
-        DBConnection.infoBox("Error Saving Data", "Fail", null);
-        e.printStackTrace();
-}
-    }    
     }
-    
-   @FXML
+
+    @FXML
     void handleCreateEmployee(ActionEvent event) {
-        
-            try{
 
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("NewUserView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());//next page size
-        Stage stage = new Stage();
-        stage.setTitle("Creaate Employee");
-        stage.setScene(scene);
-        stage.show();
+        try {
 
-}catch(Exception e){
-        DBConnection.infoBox("Error Saving Data", "Fail", null);
-        e.printStackTrace();
-}
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("NewUserView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());//next page size
+            Stage stage = new Stage();
+            stage.setTitle("Creaate Employee");
+            stage.setScene(scene);
+            stage.show();
 
-    }   
+        } catch (Exception e) {
+            DBConnection.infoBox("Error Saving Data", "Fail", null);
+            e.printStackTrace();
+        }
+
+    }
+
     @FXML
     void handleViewTeams(ActionEvent event) {
 
-              try{
+        try {
 
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("TeamsView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());//next page size
-        Stage stage = new Stage();
-        stage.setTitle("View Teams");
-        stage.setScene(scene);
-        stage.show();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("TeamsView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());//next page size
+            Stage stage = new Stage();
+            stage.setTitle("View Teams");
+            stage.setScene(scene);
+            stage.show();
 
-}catch(Exception e){
-        DBConnection.infoBox("Error Saving Data", "Fail", null);
-        e.printStackTrace();
-}
+        } catch (Exception e) {
+            DBConnection.infoBox("Error Saving Data", "Fail", null);
+            e.printStackTrace();
+        }
     }
 
-    
-   @FXML
-   void handleAddResourcesButton(ActionEvent event) {
+    @FXML
+    void handleAddResourcesButton(ActionEvent event) {
 
-    try{
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("ResourcesView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());//next page size
-        Stage stage = new Stage();
-        stage.setTitle("Edit Member Resources");
-        stage.setScene(scene);
-        stage.show();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("ResourcesView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());//next page size
+            Stage stage = new Stage();
+            stage.setTitle("Edit Member Resources");
+            stage.setScene(scene);
+            stage.show();
 
-}catch(Exception e){
-        DBConnection.infoBox("Error Opening Edit Resources Page", "Fail", null);
-        e.printStackTrace();
-}
-    }    
-    
-    
-    public void setMember(String mmber){
-    
-       this.mmber = mmber;
+        } catch (Exception e) {
+            DBConnection.infoBox("Error Opening Edit Resources Page", "Fail", null);
+            e.printStackTrace();
+        }
     }
-    
-    public String getMember(){
-    
-       return mmber;
+
+    public void setMember(String mmber) {
+
+        this.mmber = mmber;
     }
+
+    public String getMember() {
+
+        return mmber;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         // Initialize the person table
+        // Initialize the person table
 
-          setCellTable();
-          setAllUserInfoCellTable();
-          setAllProjectsInfoCellTable();
-          loadDataFromDatabase();
-          loadAllUserInformation();
-          loadAllProjectsInformation();
-          AssignTeam.setItems(TeamList);
-          
+        setCellTable();
+        setAllUserInfoCellTable();
+        setAllProjectsInfoCellTable();
+        loadDataFromDatabase();
+        loadAllUserInformation();
+        loadAllProjectsInformation();
+        AssignTeam.setItems(TeamList);
+
         // Add filtered data to the table
         Employees.setItems(filteredData);
         //listvw.setItems();
@@ -345,46 +337,44 @@ public class AdminViewController implements Initializable {
 
                 updateFilteredData();
             }
-        });  
+        });
         start();
 
         tabChange();
 
-    }   
-    
-    public void tabChange(){
-        
-    AdminTabPane.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
-        AssignTeam.getItems().clear();
-        loadTeamsDataFromDatabase();
-    });
-    
     }
-    
-    public void start(){
-    
-     Employees.setOnMouseClicked(new EventHandler<MouseEvent>(){
 
-            @Override
-            public void handle(MouseEvent event) {
-          
-               System.out.println("user selected information -------------->>");
-               System.out.println(Employees.getSelectionModel().getSelectedItem().getName());
-               System.out.println(Employees.getSelectionModel().getSelectedItem().getSurName());
-               System.out.println(Employees.getSelectionModel().getSelectedItem().getROLE());
-               System.out.println(Employees.getSelectionModel().getSelectedItem().getUserID());
-               Team_Members.add(Employees.getSelectionModel().getSelectedItem().getName());
-               setMember(Employees.getSelectionModel().getSelectedItem().getName());
-               SelectedTeamMembers.add(Employees.getSelectionModel().getSelectedItem().getUserID());
-               ClickOutput.add( Employees.getSelectionModel().getSelectedItem().getName()+":\t  "+Employees.getSelectionModel().getSelectedItem().getROLE());
-               listvw.setItems(ClickOutput);
-            }
-                    
+    public void tabChange() {
+
+        AdminTabPane.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
+            AssignTeam.getItems().clear();
+            loadTeamsDataFromDatabase();
         });
 
     }
-    
-         
+
+    public void start() {
+
+        Employees.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+
+                System.out.println("user selected information -------------->>");
+                System.out.println(Employees.getSelectionModel().getSelectedItem().getName());
+                System.out.println(Employees.getSelectionModel().getSelectedItem().getSurName());
+                System.out.println(Employees.getSelectionModel().getSelectedItem().getROLE());
+                System.out.println(Employees.getSelectionModel().getSelectedItem().getUserID());
+                Team_Members.add(Employees.getSelectionModel().getSelectedItem().getName());
+                setMember(Employees.getSelectionModel().getSelectedItem().getName());
+                SelectedTeamMembers.add(Employees.getSelectionModel().getSelectedItem().getUserID());
+                ClickOutput.add(Employees.getSelectionModel().getSelectedItem().getName() + ":\t  " + Employees.getSelectionModel().getSelectedItem().getROLE());
+                listvw.setItems(ClickOutput);
+            }
+
+        });
+
+    }
 
 // public void startArra() {
 //
@@ -393,43 +383,40 @@ public class AdminViewController implements Initializable {
 //} 
 //}
 //     
- 
+    public String onEdit() {
+        // check the table's selected item and get selected item
+        String sur_name = "";
+        String na_me = "";
+        String full_name = "";
+        if (Employees.getSelectionModel().getSelectedItem() != null) {
+            User selectedPerson = Employees.getSelectionModel().getSelectedItem();
+            na_me = (selectedPerson.getName());
+            sur_name = (selectedPerson.getSurName());
 
-public String onEdit() {
-    // check the table's selected item and get selected item
-    String sur_name = "";
-    String na_me = "" ;
-    String full_name ="";
-    if (Employees.getSelectionModel().getSelectedItem() != null) {
-        User selectedPerson = Employees.getSelectionModel().getSelectedItem();
-         na_me = (selectedPerson.getName());
-         sur_name = (selectedPerson.getSurName());
-         
-         full_name = na_me+"_"+sur_name;
+            full_name = na_me + "_" + sur_name;
+        } else {
+            full_name = "";
+        }
+        return full_name;
     }
-    else{
-        full_name="";
-    }
-    return full_name;
-}
-    
-    public void setCellTable(){
-    
+
+    public void setCellTable() {
+
         EID.setCellValueFactory(new PropertyValueFactory<User, String>("surName"));
         Ename.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         Erole.setCellValueFactory(new PropertyValueFactory<User, String>("ROLE"));
         AccessLvl.setCellValueFactory(new PropertyValueFactory<User, String>("ACCESSLEVEL"));
     }
-    
-    public void loadDataFromDatabase(){
-    
+
+    public void loadDataFromDatabase() {
+
         try {
             String sql = "SELECT * FROM Users";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = (ResultSet) preparedStatement.executeQuery();
-            while(resultSet.next()){
-            
-                masterData.add(new User(""+resultSet.getString(4),""+resultSet.getString(3),""+resultSet.getString(8),""+resultSet.getString(9),""+resultSet.getString(1)));
+            while (resultSet.next()) {
+
+                masterData.add(new User("" + resultSet.getString(4), "" + resultSet.getString(3), "" + resultSet.getString(8), "" + resultSet.getString(9), "" + resultSet.getString(1)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
@@ -437,10 +424,9 @@ public String onEdit() {
 
         Employees.setItems(masterData);
     }
-    
-    
-   public void setAllUserInfoCellTable(){
-    
+
+    public void setAllUserInfoCellTable() {
+
         E_name.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         E_surname.setCellValueFactory(new PropertyValueFactory<User, String>("surName"));
         E_type.setCellValueFactory(new PropertyValueFactory<User, String>("EMPLOYEETYPE"));
@@ -450,26 +436,24 @@ public String onEdit() {
         E_mail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
     }
 
-    public void loadAllUserInformation(){
-    
-    try {
+    public void loadAllUserInformation() {
+
+        try {
             String sql = "SELECT * FROM Users";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = (ResultSet) preparedStatement.executeQuery();
-            while(resultSet.next()){
- 
+            while (resultSet.next()) {
+
                 //AllUserData.add(new User (resultSet.getString(3),""+resultSet.getString(5),""+resultSet.getString(6),""+resultSet.getString(8) ));
-               AllUserData.add(new User(resultSet.getString(3),resultSet.getString(4),""+resultSet.getString(10),""+resultSet.getString(9),""+resultSet.getString(8),""+resultSet.getString(6),""+resultSet.getString(5)));
+                AllUserData.add(new User(resultSet.getString(3), resultSet.getString(4), "" + resultSet.getString(10), "" + resultSet.getString(9), "" + resultSet.getString(8), "" + resultSet.getString(6), "" + resultSet.getString(5)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         ListAllEmployees.setItems(AllUserData);
     }
-    
-    
-       public void setAllProjectsInfoCellTable(){
-    
+
+    public void setAllProjectsInfoCellTable() {
 
         Project_Name.setCellValueFactory(new PropertyValueFactory<Projects, String>("ProjName"));
         Project_Code.setCellValueFactory(new PropertyValueFactory<Projects, String>("ProjCode"));
@@ -478,35 +462,32 @@ public String onEdit() {
         TM_Assgn.setCellValueFactory(new PropertyValueFactory<Projects, String>("ProjTeam"));
         Project_Desc.setCellValueFactory(new PropertyValueFactory<Projects, String>("ProjDescriptions"));
         duration.setCellValueFactory(new PropertyValueFactory<Projects, String>("ProjDuration"));
-        
+
     }
 
-    public void loadAllProjectsInformation(){
-    
-    try {
+    public void loadAllProjectsInformation() {
+
+        try {
             String sql = "SELECT * FROM Project";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = (ResultSet) preparedStatement.executeQuery();
-            while(resultSet.next()){
- 
-               AllProjectsData.add(new Projects(resultSet.getString(1),resultSet.getString(2),""+resultSet.getString(3),""+resultSet.getString(4),""+resultSet.getString(5),""+resultSet.getString(6),""+resultSet.getString(7)));
+            while (resultSet.next()) {
+
+                AllProjectsData.add(new Projects(resultSet.getString(1), resultSet.getString(2), "" + resultSet.getString(3), "" + resultSet.getString(4), "" + resultSet.getString(5), "" + resultSet.getString(6), "" + resultSet.getString(7)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         AllProjectsTable.setItems(AllProjectsData);
     }
-    
-    
-    
-    
-        public void loadTeamsDataFromDatabase(){
-    
+
+    public void loadTeamsDataFromDatabase() {
+
         try {
             String sql = "SELECT * FROM Teams ";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = (ResultSet) preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
 
                 AssignTeam.getItems().add(resultSet.getString(1));
             }
@@ -515,47 +496,45 @@ public String onEdit() {
         }
 
     }
-        
-    public void CreateProject(){
-    
-    
+
+    public void CreateProject() {
+
         String textProjectName = Projectname.getText().toString();
         int textProjectCode = Integer.parseInt(SprintsNumber.getText());
         int textNumberOfSprints = Integer.parseInt(SprintsNumber.getText());
-        int textNumerOfTasks= Integer.parseInt(TasksNumber.getText());
+        int textNumerOfTasks = Integer.parseInt(TasksNumber.getText());
         String textProjectDescription = ProjectDescription.getText().toString();
         String textProjectTimeToComplete = CompleteProject.getText().toString();
         String assignTeam = AssignTeam.getValue();
 
-        
         String sql = " insert into Project (P_code, P_name, P_timespan, NumTasks, NumSprints, P_Desc,P_AsgnTeam)"
-        + " values (?, ?, ?, ?, ?,?,?)";
- 
-    try{
+                + " values (?, ?, ?, ?, ?,?,?)";
 
-        preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1, textProjectCode);
-        preparedStatement.setString(2, textProjectName);
-        preparedStatement.setString(3, textProjectTimeToComplete);
-        preparedStatement.setInt(4, textNumerOfTasks);
-        preparedStatement.setInt(5, textNumberOfSprints);
-        preparedStatement.setString(6, textProjectDescription);
-        preparedStatement.setString(7, assignTeam);
-        try{
-        preparedStatement.execute();
-        DBConnection.infoBox("Project created Successfull", "Success", null);
-        }catch(Exception e){
-        DBConnection.infoBox("Error Saving Data", "Fail", null);
-        e.printStackTrace();
+        try {
+
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, textProjectCode);
+            preparedStatement.setString(2, textProjectName);
+            preparedStatement.setString(3, textProjectTimeToComplete);
+            preparedStatement.setInt(4, textNumerOfTasks);
+            preparedStatement.setInt(5, textNumberOfSprints);
+            preparedStatement.setString(6, textProjectDescription);
+            preparedStatement.setString(7, assignTeam);
+            try {
+                preparedStatement.execute();
+                DBConnection.infoBox("Project created Successfull", "Success", null);
+            } catch (Exception e) {
+                DBConnection.infoBox("Error Saving Data", "Fail", null);
+                e.printStackTrace();
+            }
+
+        } catch (Exception e) {
+            DBConnection.infoBox("Error Saving Data", "Fail", null);
+            e.printStackTrace();
         }
 
-}catch(Exception e){
-        DBConnection.infoBox("Error Saving Data", "Fail", null);
-        e.printStackTrace();
-}
-    
     }
-    
+
     /**
      * Updates the filteredData to contain all data from the masterData that
      * matches the current filter.
@@ -576,7 +555,7 @@ public String onEdit() {
     /**
      * Returns true if the person matches the current filter. Lower/Upper case
      * is ignored.
-     * 
+     *
      * @param person
      * @return
      */
@@ -603,9 +582,5 @@ public String onEdit() {
         Employees.getSortOrder().clear();
         Employees.getSortOrder().addAll(sortOrder);
     }
-    
 
-    
 }
-    
-
