@@ -36,84 +36,86 @@ public class TeamsViewController implements Initializable {
      */
     @FXML
     private TableView<String> teamsTable;
-    
+
     @FXML
     private TableColumn<Teams, String> membername;
 
     @FXML
     private ListView<String> TeamNameListview;
-    
+
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     com.mysql.jdbc.ResultSet resultSet = null;
     ObservableList<String> TeamsOutput = FXCollections.observableArrayList();
     ObservableList<String> TeamsMembers = FXCollections.observableArrayList();
-    
+
     public TeamsViewController() throws SQLException {
         try {
-           connection = DBConnection.getConnection();
+            connection = DBConnection.getConnection();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setColumnTableData();
         loadTeamsInformation();
         TeamListViewClick();
-    }    
-    public void loadTeamsInformation(){
-            try {
+    }
+
+    public void loadTeamsInformation() {
+        try {
             String sql = "SELECT * FROM Teams ";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = (ResultSet) preparedStatement.executeQuery();
-            while(resultSet.next()){
-               TeamsOutput.add(resultSet.getString(1));
-               TeamsMembers.add(resultSet.getString(2));
-               TeamNameListview.setItems(TeamsOutput); 
+            while (resultSet.next()) {
+                TeamsOutput.add(resultSet.getString(1));
+                TeamsMembers.add(resultSet.getString(2));
+                TeamNameListview.setItems(TeamsOutput);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         teamsTable.setItems(TeamsMembers);
     }
-    public void setColumnTableData(){
+
+    public void setColumnTableData() {
         membername.setCellValueFactory(new PropertyValueFactory<Teams, String>("Tnames"));
     }
-    
-        public void TeamListViewClick(){
-    
-     TeamNameListview.setOnMouseClicked(new EventHandler<MouseEvent>(){
+
+    public void TeamListViewClick() {
+
+        TeamNameListview.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-          
-               System.out.println("user selected information -------------->>");
-               System.out.println(TeamNameListview.getSelectionModel().getSelectedItem().toString());
-               
-               String SelectedTeamName = TeamNameListview.getSelectionModel().getSelectedItem().toString();
-               
-                           try {
-            String sql = "SELECT Members FROM Teams where (Teamname = '"+SelectedTeamName+"')";
-            preparedStatement = connection.prepareStatement(sql);
-            resultSet = (ResultSet) preparedStatement.executeQuery();
-            while(resultSet.next()){
-                System.out.println("names-------------------------");
-               System.out.println(resultSet.getString(1));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-             //  membername.add("something);
+                System.out.println("user selected information -------------->>");
+                System.out.println(TeamNameListview.getSelectionModel().getSelectedItem().toString());
+
+                String SelectedTeamName = TeamNameListview.getSelectionModel().getSelectedItem().toString();
+
+                try {
+                    String sql = "SELECT Members FROM Teams where (Teamname = '" + SelectedTeamName + "')";
+                    preparedStatement = connection.prepareStatement(sql);
+                    resultSet = (ResultSet) preparedStatement.executeQuery();
+                    System.out.println("names-------------------------");
+                    while (resultSet.next()) {
+                        System.out.println(resultSet.getString(1));
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                //  membername.add("something);
 //               Team_Members.add(Employees.getSelectionModel().getSelectedItem().getName());
 //               setMember(Employees.getSelectionM"odel().getSelectedItem().getName());
 //               SelectedTeamMemb"ers.add(Employees.getSelectionModel().getSelectedItem().getUserID());
 //               ClickOutput.add( Employees.getSelectionModel().getSelectedItem().getName()+":\t  "+Employees.getSelectionModel().getSelectedItem().getROLE());
 //               listvw.setItems(ClickOutput);
             }
-                    
+
         });
 
     }
