@@ -5,7 +5,8 @@
  */
 package pkg3treka;
 
-import com.mysql.jdbc.ResultSet;
+//import com.mysql.jdbc.ResultSet;
+import java.sql.ResultSet;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
