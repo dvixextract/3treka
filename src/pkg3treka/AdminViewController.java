@@ -522,7 +522,23 @@ public class AdminViewController implements Initializable {
             preparedStatement.setString(7, assignTeam);
             try {
                 preparedStatement.execute();
-                DBConnection.infoBox("Project created Successfull", "Success", null);
+                //Enter code for showing sucess view
+                //DBConnection.infoBox("Project created Successfull", "Success", null);
+                try{
+                   FXMLLoader fxmlLoader = new FXMLLoader();
+                   fxmlLoader.setLocation(getClass().getResource("SucessfulCreateProjectView.fxml"));
+                   Scene scene = new Scene(fxmlLoader.load());
+                   Stage stage = new Stage();
+                   stage.setTitle("Success");
+                   stage.setScene(scene);
+                   stage.show();
+
+                   } catch (Exception e) {
+                     DBConnection.infoBox("Error Unable to Open View", "Fail", null);
+                     e.printStackTrace();
+        }
+                
+                
             } catch (Exception e) {
                 DBConnection.infoBox("Error Saving Data", "Fail", null);
                 e.printStackTrace();
