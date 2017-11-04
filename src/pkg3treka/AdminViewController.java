@@ -196,6 +196,10 @@ public class AdminViewController implements Initializable {
     
     @FXML
     private Button saveTasksButton;
+    
+    
+    @FXML
+    private Label taskCompletionStatusLabel;
 
     private String mmber;
 
