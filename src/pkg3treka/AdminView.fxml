@@ -255,9 +255,9 @@
                                              <content>
                                                 <AnchorPane prefHeight="500.0" prefWidth="862.0">
                                                    <children>
-                                                      <ComboBox layoutX="14.0" layoutY="28.0" prefHeight="27.0" prefWidth="350.0" promptText="Project Selected" />
-                                                      <ComboBox layoutX="460.0" layoutY="28.0" prefHeight="27.0" prefWidth="350.0" promptText="Teams" />
-                                                      <GridPane gridLinesVisible="true" layoutX="10.0" layoutY="85.0" prefHeight="343.0" prefWidth="801.0">
+                                                      <ComboBox fx:id="projectSelectedCombobox" layoutX="14.0" layoutY="28.0" prefHeight="27.0" prefWidth="350.0" promptText="Project Selected" />
+                                                      <ComboBox fx:id="createTaskSelectTeamCombobox" layoutX="460.0" layoutY="28.0" prefHeight="27.0" prefWidth="350.0" promptText="Teams" />
+                                                      <GridPane fx:id="newTaskGrid" gridLinesVisible="true" layoutX="10.0" layoutY="85.0" prefHeight="343.0" prefWidth="801.0">
                                                         <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="67.0" />
                                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="100.0" />
@@ -285,17 +285,17 @@
                                                                   <Insets left="5.0" right="5.0" />
                                                                </GridPane.margin>
                                                             </Rectangle>
-                                                            <TextArea prefHeight="110.0" prefWidth="294.0" promptText="Enter Task information" GridPane.columnIndex="2">
+                                                            <TextArea fx:id="taskInformationTextArea" prefHeight="110.0" prefWidth="294.0" promptText="Enter Task information" GridPane.columnIndex="2">
                                                                <GridPane.margin>
                                                                   <Insets top="15.0" />
                                                                </GridPane.margin>
                                                             </TextArea>
-                                                            <ComboBox prefHeight="34.0" prefWidth="219.0" promptText="Team Lead" GridPane.columnIndex="4">
+                                                            <ComboBox fx:id="assignTaskToTeamLeadCombobox" prefHeight="34.0" prefWidth="219.0" promptText="Team Lead" GridPane.columnIndex="4">
                                                                <GridPane.margin>
                                                                   <Insets left="5.0" right="5.0" />
                                                                </GridPane.margin>
                                                             </ComboBox>
-                                                            <Label prefHeight="17.0" prefWidth="50.0" text="Number" textFill="#f8f7f7">
+                                                            <Label fx:id="taskNumberLabel" prefHeight="17.0" prefWidth="50.0" text="Number" textFill="#f8f7f7">
                                                                <GridPane.margin>
                                                                   <Insets left="7.0" />
                                                                </GridPane.margin>
@@ -305,12 +305,12 @@
                                                                   <Insets left="15.0" />
                                                                </GridPane.margin>
                                                             </Label>
-                                                            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="59.0" promptText="Time" GridPane.columnIndex="3">
+                                                            <TextField fx:id="taskTimeFrameTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="59.0" promptText="Time" GridPane.columnIndex="3">
                                                                <GridPane.margin>
                                                                   <Insets left="5.0" top="5.0" />
                                                                </GridPane.margin>
                                                             </TextField>
-                                                            <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0" text="+" textFill="#54b567" GridPane.columnIndex="5">
+                                                            <Button fx:id="addTasksButton" mnemonicParsing="false" onAction="#handleAddTasksButtonAction" prefHeight="33.0" prefWidth="60.0" text="+" textFill="#54b567" GridPane.columnIndex="5">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>

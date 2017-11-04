@@ -41,6 +41,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -167,6 +168,30 @@ public class AdminViewController implements Initializable {
     @FXML
     private Label label;
     
+    @FXML
+    private ComboBox<?> projectSelectedCombobox;
+    
+    @FXML
+    private ComboBox<?> createTaskSelectTeamCombobox;
+
+    
+    @FXML
+    private GridPane newTaskGrid;
+    
+    @FXML
+    private Label taskNumberLabel;
+    
+    @FXML
+    private TextArea taskInformationTextArea;
+    
+    @FXML
+    private TextField taskTimeFrameTextField;
+    
+    @FXML
+    private ComboBox<?> assignTaskToTeamLeadCombobox;
+    
+    @FXML
+    private Button addTasksButton;
     
     @FXML
     private Button saveTasksButton;
@@ -604,7 +629,12 @@ public class AdminViewController implements Initializable {
     }
     
     @FXML
+    void handleAddTasksButtonAction(ActionEvent event) {
+
+    }
+    @FXML
     void handleSaveTasksButtonAction(ActionEvent event) {
 
     }
+
 }
