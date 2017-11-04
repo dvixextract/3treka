@@ -522,6 +522,7 @@ public class AdminViewController implements Initializable {
             preparedStatement.setString(7, assignTeam);
             try {
                 preparedStatement.execute();
+                //Enter code for showing sucess view
                 DBConnection.infoBox("Project created Successfull", "Success", null);
             } catch (Exception e) {
                 DBConnection.infoBox("Error Saving Data", "Fail", null);
