@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="3treka">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/3treka.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
