@@ -257,7 +257,7 @@
                                                    <children>
                                                       <ComboBox layoutX="14.0" layoutY="28.0" prefHeight="27.0" prefWidth="350.0" promptText="Project Selected" />
                                                       <ComboBox layoutX="460.0" layoutY="28.0" prefHeight="27.0" prefWidth="350.0" promptText="Teams" />
-                                                      <GridPane gridLinesVisible="true" layoutX="10.0" layoutY="85.0" prefHeight="397.0" prefWidth="800.0">
+                                                      <GridPane gridLinesVisible="true" layoutX="10.0" layoutY="85.0" prefHeight="343.0" prefWidth="801.0">
                                                         <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="67.0" />
                                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="100.0" />
@@ -320,6 +320,7 @@
                                                             </Button>
                                                          </children>
                                                       </GridPane>
+                                                      <Button fx:id="saveTasksButton" layoutX="628.0" layoutY="438.0" mnemonicParsing="false" onAction="#handleSaveTasksButtonAction" prefHeight="34.0" prefWidth="182.0" text="Save" />
                                                    </children>
                                                 </AnchorPane>
                                              </content>

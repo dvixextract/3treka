@@ -30,6 +30,7 @@ public class SucessfulCreateProjectViewController implements Initializable {
     @FXML
     void handleCreateTasksButtonAction(ActionEvent event) {
 
+        
     }
 
     @FXML

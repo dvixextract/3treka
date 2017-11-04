@@ -166,6 +166,10 @@ public class AdminViewController implements Initializable {
 
     @FXML
     private Label label;
+    
+    
+    @FXML
+    private Button saveTasksButton;
 
     private String mmber;
 
@@ -598,5 +602,9 @@ public class AdminViewController implements Initializable {
         Employees.getSortOrder().clear();
         Employees.getSortOrder().addAll(sortOrder);
     }
+    
+    @FXML
+    void handleSaveTasksButtonAction(ActionEvent event) {
 
+    }
 }
