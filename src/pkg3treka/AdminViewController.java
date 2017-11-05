@@ -170,10 +170,10 @@ public class AdminViewController implements Initializable {
     private Label label;
     
     @FXML
-    private ComboBox<?> projectSelectedCombobox;
+    private ComboBox<String> projectSelectedCombobox;
     
     @FXML
-    private ComboBox<?> createTaskSelectTeamCombobox;
+    private ComboBox<String> createTaskSelectTeamCombobox;
 
     
     @FXML
@@ -189,7 +189,7 @@ public class AdminViewController implements Initializable {
     private TextField taskTimeFrameTextField;
     
     @FXML
-    private ComboBox<?> assignTaskToTeamLeadCombobox;
+    private ComboBox<String> assignTaskToTeamLeadCombobox;
     
     @FXML
     private Button addTasksButton;
@@ -206,6 +206,7 @@ public class AdminViewController implements Initializable {
     private ObservableList<String> masterData3;
     ArrayList<String> Team_Members = new ArrayList<String>();
     ObservableList TeamList = FXCollections.observableArrayList();
+    ObservableList ProjectList = FXCollections.observableArrayList();
     ObservableList<String> ClickOutput = FXCollections.observableArrayList();
     //ObservableList<String> SelectedTeamMembers = FXCollections.observableArrayList();
     ArrayList<String> SelectedTeamMembers = new ArrayList<String>();
@@ -355,6 +356,7 @@ public class AdminViewController implements Initializable {
         loadAllUserInformation();
         loadAllProjectsInformation();
         AssignTeam.setItems(TeamList);
+        projectSelectedCombobox.setItems(ProjectList);
 
         // Add filtered data to the table
         Employees.setItems(filteredData);
@@ -377,8 +379,14 @@ public class AdminViewController implements Initializable {
     public void tabChange() {
 
         AdminTabPane.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
+            taskNumberLabel.setText("");
+            projectSelectedCombobox.getItems().clear();
+            assignTaskToTeamLeadCombobox.getItems().clear();
+            createTaskSelectTeamCombobox.getItems().clear();
             AssignTeam.getItems().clear();
             loadTeamsDataFromDatabase();
+            loadProjectsDataFromDatabase();
+            loadTeamLeadDataFromDatabase();
         });
 
     }
@@ -504,6 +512,7 @@ public class AdminViewController implements Initializable {
             while (resultSet.next()) {
 
                 AllProjectsData.add(new Projects(resultSet.getString(1), resultSet.getString(2), "" + resultSet.getString(3), "" + resultSet.getString(4), "" + resultSet.getString(5), "" + resultSet.getString(6), "" + resultSet.getString(7)));
+                projectSelectedCombobox.getItems().add(resultSet.getString(2));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
@@ -520,12 +529,60 @@ public class AdminViewController implements Initializable {
             while (resultSet.next()) {
 
                 AssignTeam.getItems().add(resultSet.getString(1));
+                createTaskSelectTeamCombobox.getItems().add(resultSet.getString(1));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
+
+    //to load data into projects combo-box, on the taskss tab.
+    public void loadProjectsDataFromDatabase() {
+
+        try {
+            String sql = "SELECT * FROM project ";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+            while (resultSet.next()) {
+
+                projectSelectedCombobox.getItems().add(resultSet.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    public void loadTeamLeadDataFromDatabase() {
+
+        try {
+            String sql = "SELECT * FROM users where Role = 'Team Lead' ";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+            while (resultSet.next()) {
+
+                assignTaskToTeamLeadCombobox.getItems().add(resultSet.getString(2) +" "+ resultSet.getString(3));
+                taskNumberLabel.setText(Integer.valueOf(getTotalNumberOfTasks()+1).toString());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    public int getTotalNumberOfTasks() {
+
+        try {
+            String sql = "SELECT * FROM task";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+            return resultSet.getFetchSize();
+        } catch (SQLException ex) {
+            //Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex);
+        }
+
+    }
+
 
     public void createTask(){
 
