@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,6 +45,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.util.Callback;
 
 /**
@@ -51,13 +53,13 @@ import javafx.util.Callback;
  *
  * @author User
  */
-public class AdminViewController implements Initializable {
+public class AdminViewController extends SucessfulCreateProjectViewController {
 
     /**
      * Initializes the controller class.
      */
     @FXML
-    private TabPane AdminTabPane;
+    public TabPane AdminTabPane;
 
     @FXML
     private TableColumn<Projects, String> duration;
@@ -351,6 +353,17 @@ public class AdminViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Initialize the person table
+       
+        
+            Mediator.getInstance().register(s -> {
+            switch (s) {
+                case "createTask":
+                    AdminTabPane.getSelectionModel().select(3);
+                    break;
+            }
+        });
+        
+        
 
         setCellTable();
         setAllUserInfoCellTable();
@@ -375,6 +388,8 @@ public class AdminViewController implements Initializable {
         start();
 
         tabChange();
+        
+        
 
     }
 

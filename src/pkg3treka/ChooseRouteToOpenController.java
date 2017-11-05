@@ -36,17 +36,19 @@ public class ChooseRouteToOpenController implements Initializable {
     
     @FXML
     void handleAdminPageButtonAction(ActionEvent event) {
-        
+        Stage stage = (Stage) adminPageButton.getScene().getWindow();
+        stage.close();
     try{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("AdminView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());//next page size
-        Stage stage = new Stage();
+        //Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
 
+
     }catch(Exception e){
-        DBConnection.infoBox("Error Saving Data", "Fail", null);
+        DBConnection.infoBox("Error Opening page", "Fail", null);
         e.printStackTrace();
     }
 

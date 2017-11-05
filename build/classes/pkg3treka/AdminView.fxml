@@ -300,7 +300,7 @@
                                                                   <Insets left="7.0" />
                                                                </GridPane.margin>
                                                             </Label>
-                                                            <Label text="Status" textFill="WHITE" GridPane.columnIndex="1">
+                                                            <Label fx:id="taskCompletionStatusLabel" text="Status" textFill="WHITE" GridPane.columnIndex="1">
                                                                <GridPane.margin>
                                                                   <Insets left="15.0" />
                                                                </GridPane.margin>
