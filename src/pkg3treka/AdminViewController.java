@@ -202,6 +202,9 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     
     @FXML
     private Label taskCompletionStatusLabel;
+    
+    @FXML
+    private TextField taskNameTextBox;
 
     private String mmber;
 
@@ -651,6 +654,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     @FXML
     void handleAddTasksButtonAction(ActionEvent event) {
 
+        
     }
     @FXML
     void handleSaveTasksButtonAction(ActionEvent event) {
