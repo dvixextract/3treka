@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53e88e93-44ed-4056-814c-ac77f059432f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/AdminViewController.java" afterPath="$PROJECT_DIR$/src/pkg3treka/AdminViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/DBConnection.java" afterPath="$PROJECT_DIR$/src/pkg3treka/DBConnection.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +26,45 @@
                 <provider editor-type-id="text-editor">
                   <state relative-caret-position="287">
                     <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-                    <folding />
+                    <folding>
+                      <marker date="1509905074796" expanded="true" signature="25452:25521" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="26260:26441" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="26303:26435" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="26491:26730" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="26533:26693" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="26783:27022" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="26825:26985" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="27075:27314" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="27117:27277" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="27523:29835" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="27547:29816" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="27644:29791" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="27676:29778" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="27797:28285" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="27833:28248" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="28962:29136" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="28996:29103" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="29381:29554" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="29415:29520" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="29869:30467" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="29893:30448" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="29990:30423" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="30022:30410" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="30125:30377" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="30161:30340" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="30497:30664" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="30521:30645" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="30720:31267" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="30800:31256" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="30820:31242" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="30983:31157" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="31007:31131" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="31276:31654" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="31356:31644" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="31376:31630" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="31504:31609" ph="..." />
+                      <marker date="1509905074796" expanded="true" signature="31526:31588" ph="..." />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -42,17 +80,39 @@
       <file leaf-file-name="AdminViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="564" column="95" lean-forward="true" selection-start-line="564" selection-start-column="95" selection-end-line="564" selection-end-column="95" />
+            <state relative-caret-position="149">
+              <caret line="616" column="69" lean-forward="true" selection-start-line="616" selection-start-column="69" selection-end-line="616" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4822#4830#0" expanded="true" />
-                <element signature="e#5194#5202#0" expanded="true" />
-                <element signature="e#6196#6197#0" expanded="true" />
-                <element signature="e#6248#6249#0" expanded="true" />
-                <element signature="e#6335#6336#0" expanded="true" />
-                <element signature="e#6366#6367#0" expanded="true" />
+                <element signature="e#4965#4973#0" expanded="true" />
+                <element signature="e#5337#5345#0" expanded="true" />
+                <element signature="e#6339#6340#0" expanded="true" />
+                <element signature="e#6391#6392#0" expanded="true" />
+                <element signature="e#6478#6479#0" expanded="true" />
+                <element signature="e#6509#6510#0" expanded="true" />
+                <element signature="e#26458#26459#0" expanded="true" />
+                <element signature="e#26486#26487#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeamsViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pkg3treka/TeamsViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="104" column="63" lean-forward="true" selection-start-line="104" selection-start-column="63" selection-end-line="104" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComboBoxBase.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/scene/control/ComboBoxBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="150" column="19" lean-forward="false" selection-start-line="150" selection-start-column="19" selection-end-line="150" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,6 +137,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pkg3treka/DBConnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ProjectUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pkg3treka/ProjectUtils.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,18 +169,6 @@
                 <element signature="e#374#375#0" expanded="true" />
                 <element signature="e#428#429#0" expanded="true" />
                 <element signature="e#474#475#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SucessfulCreateProjectViewController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pkg3treka/SucessfulCreateProjectViewController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-              <folding>
-                <marker date="1509883514487" expanded="true" signature="1047:1053" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -134,16 +202,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pkg3treka/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="36" column="35" lean-forward="false" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -168,8 +226,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pkg3treka/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/pkg3treka/FXMLDocumentController.java" />
+        <option value="$PROJECT_DIR$/src/pkg3treka/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/pkg3treka/AdminViewController.java" />
       </list>
     </option>
@@ -504,7 +562,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34955186" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3802817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -566,12 +624,14 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -614,12 +674,14 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -662,12 +724,14 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -753,12 +817,14 @@
           <caret line="223" column="41" lean-forward="false" selection-start-line="223" selection-start-column="40" selection-end-line="223" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -769,12 +835,14 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -853,10 +921,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/SucessfulCreateProjectViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        <state relative-caret-position="189">
+          <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
           <folding>
-            <marker date="1509883514487" expanded="true" signature="1047:1053" ph="{...}" />
+            <marker date="1509905074805" expanded="true" signature="1209:1215" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -890,12 +958,14 @@
           <caret line="354" column="38" lean-forward="true" selection-start-line="354" selection-start-column="38" selection-end-line="354" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -906,12 +976,14 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -954,12 +1026,14 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1002,12 +1076,14 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1065,14 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/FXMLDocumentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -1084,17 +1152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminView.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/sql/ResultSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -1103,18 +1160,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminView.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+          <folding>
+            <marker date="1509905074796" expanded="true" signature="25452:25521" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="26260:26441" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="26303:26435" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="26491:26730" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="26533:26693" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="26783:27022" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="26825:26985" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="27075:27314" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="27117:27277" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="27523:29835" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="27547:29816" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="27644:29791" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="27676:29778" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="27797:28285" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="27833:28248" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="28962:29136" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="28996:29103" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="29381:29554" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="29415:29520" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="29869:30467" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="29893:30448" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="29990:30423" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="30022:30410" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="30125:30377" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="30161:30340" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="30497:30664" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="30521:30645" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="30720:31267" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="30800:31256" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="30820:31242" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="30983:31157" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="31007:31131" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="31276:31654" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="31356:31644" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="31376:31630" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="31504:31609" ph="..." />
+            <marker date="1509905074796" expanded="true" signature="31526:31588" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/scene/control/ComboBoxBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="150" column="19" lean-forward="false" selection-start-line="150" selection-start-column="19" selection-end-line="150" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/TeamsViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="104" column="63" lean-forward="true" selection-start-line="104" selection-start-column="63" selection-end-line="104" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="564" column="95" lean-forward="true" selection-start-line="564" selection-start-column="95" selection-end-line="564" selection-end-column="95" />
+        <state relative-caret-position="149">
+          <caret line="616" column="69" lean-forward="true" selection-start-line="616" selection-start-column="69" selection-end-line="616" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4822#4830#0" expanded="true" />
-            <element signature="e#5194#5202#0" expanded="true" />
-            <element signature="e#6196#6197#0" expanded="true" />
-            <element signature="e#6248#6249#0" expanded="true" />
-            <element signature="e#6335#6336#0" expanded="true" />
-            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#4965#4973#0" expanded="true" />
+            <element signature="e#5337#5345#0" expanded="true" />
+            <element signature="e#6339#6340#0" expanded="true" />
+            <element signature="e#6391#6392#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6509#6510#0" expanded="true" />
+            <element signature="e#26458#26459#0" expanded="true" />
+            <element signature="e#26486#26487#0" expanded="true" />
           </folding>
         </state>
       </provider>
