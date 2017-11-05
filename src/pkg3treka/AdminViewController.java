@@ -528,7 +528,7 @@ public class AdminViewController implements Initializable {
     }
 
     public void createTask(){
-        
+
     }
 
     public void CreateProject() {

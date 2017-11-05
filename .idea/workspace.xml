@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53e88e93-44ed-4056-814c-ac77f059432f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$1.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$2.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$3.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/SucessfulCreateProjectViewController.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/SucessfulCreateProjectViewController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminView.fxml" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminView.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/AdminViewController.java" afterPath="$PROJECT_DIR$/src/pkg3treka/AdminViewController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,8 +20,8 @@
       <file leaf-file-name="AdminViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="530" column="8" lean-forward="false" selection-start-line="530" selection-start-column="8" selection-end-line="530" selection-end-column="8" />
+            <state relative-caret-position="160">
+              <caret line="223" column="41" lean-forward="false" selection-start-line="223" selection-start-column="40" selection-end-line="223" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4807#4815#0" expanded="true" />
@@ -43,7 +38,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
               <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-              <folding />
+              <folding>
+                <element signature="e#0#850#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#813#814#0" expanded="false" />
+                <element signature="e#841#842#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -404,7 +404,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1618" height="918" extended-state="7" />
+    <frame x="-9" y="-9" width="1618" height="918" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -416,7 +416,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26248398" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29833546" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -467,7 +467,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="e#0#850#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#813#814#0" expanded="false" />
+            <element signature="e#841#842#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -508,7 +513,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="e#0#850#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#813#814#0" expanded="false" />
+            <element signature="e#841#842#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -549,7 +559,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="e#0#850#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#813#814#0" expanded="false" />
+            <element signature="e#841#842#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -576,7 +591,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="e#0#850#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#813#814#0" expanded="false" />
+            <element signature="e#841#842#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -612,8 +632,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="530" column="8" lean-forward="false" selection-start-line="530" selection-start-column="8" selection-end-line="530" selection-end-column="8" />
+        <state relative-caret-position="160">
+          <caret line="223" column="41" lean-forward="false" selection-start-line="223" selection-start-column="40" selection-end-line="223" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4807#4815#0" expanded="true" />
