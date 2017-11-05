@@ -11,27 +11,30 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.scene.control.SelectionModel;
 
-/**
- * FXML Controller class
- *
- * @author User
- */
-public class SucessfulCreateProjectViewController implements Initializable {
+public class SucessfulCreateProjectViewController implements Initializable  {
 
     
    @FXML
     private Button OkButton;
+   
+    @FXML
+    private Button createTasksButton;
+
 
     @FXML
     void handleCreateTasksButtonAction(ActionEvent event) {
 
-        
     }
+
 
     @FXML
     void handleOKButtonAction(ActionEvent event) {
@@ -40,13 +43,10 @@ public class SucessfulCreateProjectViewController implements Initializable {
 
     }
 
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        createTasksButton.setOnAction(event -> Mediator.getInstance().fireEvent("createTask"));
+         
     }    
     
 }
