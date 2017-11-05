@@ -6,6 +6,7 @@
 package pkg3treka;
 
 //import com.mysql.jdbc.ResultSet;
+
 import java.sql.ResultSet;
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -170,39 +172,39 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
     @FXML
     private Label label;
-    
-    @FXML
-    private ComboBox<?> projectSelectedCombobox;
-    
-    @FXML
-    private ComboBox<?> createTaskSelectTeamCombobox;
 
-    
+    @FXML
+    private ComboBox<String> projectSelectedCombobox;
+
+    @FXML
+    private ComboBox<String> createTaskSelectTeamCombobox;
+
+
     @FXML
     private GridPane newTaskGrid;
-    
+
     @FXML
     private Label taskNumberLabel;
-    
+
     @FXML
     private TextArea taskInformationTextArea;
-    
+
     @FXML
     private TextField taskTimeFrameTextField;
-    
+
     @FXML
-    private ComboBox<?> assignTaskToTeamLeadCombobox;
-    
+    private ComboBox<String> assignTaskToTeamLeadCombobox;
+
     @FXML
     private Button addTasksButton;
-    
+
     @FXML
     private Button saveTasksButton;
-    
-    
+
+
     @FXML
     private Label taskCompletionStatusLabel;
-    
+
     @FXML
     private TextField taskNameTextBox;
 
@@ -215,6 +217,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     private ObservableList<String> masterData3;
     ArrayList<String> Team_Members = new ArrayList<String>();
     ObservableList TeamList = FXCollections.observableArrayList();
+    ObservableList ProjectList = FXCollections.observableArrayList();
     ObservableList<String> ClickOutput = FXCollections.observableArrayList();
     //ObservableList<String> SelectedTeamMembers = FXCollections.observableArrayList();
     ArrayList<String> SelectedTeamMembers = new ArrayList<String>();
@@ -356,17 +359,16 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Initialize the person table
-       
-        
-            Mediator.getInstance().register(s -> {
+
+
+        Mediator.getInstance().register(s -> {
             switch (s) {
                 case "createTask":
                     AdminTabPane.getSelectionModel().select(3);
                     break;
             }
         });
-        
-        
+
 
         setCellTable();
         setAllUserInfoCellTable();
@@ -375,6 +377,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         loadAllUserInformation();
         loadAllProjectsInformation();
         AssignTeam.setItems(TeamList);
+        projectSelectedCombobox.setItems(ProjectList);
 
         // Add filtered data to the table
         Employees.setItems(filteredData);
@@ -383,7 +386,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         searchEmployee.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable,
-                    String oldValue, String newValue) {
+                                String oldValue, String newValue) {
 
                 updateFilteredData();
             }
@@ -391,16 +394,21 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         start();
 
         tabChange();
-        
-        
+
 
     }
 
     public void tabChange() {
 
         AdminTabPane.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
+            taskNumberLabel.setText("");
+            projectSelectedCombobox.getItems().clear();
+            assignTaskToTeamLeadCombobox.getItems().clear();
+            createTaskSelectTeamCombobox.getItems().clear();
             AssignTeam.getItems().clear();
             loadTeamsDataFromDatabase();
+            loadProjectsDataFromDatabase();
+            loadTeamLeadDataFromDatabase();
         });
 
     }
@@ -428,7 +436,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
     }
 
-// public void startArra() {
+    // public void startArra() {
 //
 //for(int i=0;i<Team_Members.size();i++){
 //    System.out.println(Team_Members.get(i));
@@ -526,6 +534,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
             while (resultSet.next()) {
 
                 AllProjectsData.add(new Projects(resultSet.getString(1), resultSet.getString(2), "" + resultSet.getString(3), "" + resultSet.getString(4), "" + resultSet.getString(5), "" + resultSet.getString(6), "" + resultSet.getString(7)));
+                projectSelectedCombobox.getItems().add(resultSet.getString(2));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
@@ -542,9 +551,131 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
             while (resultSet.next()) {
 
                 AssignTeam.getItems().add(resultSet.getString(1));
+                createTaskSelectTeamCombobox.getItems().add(resultSet.getString(1));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    //to load data into projects combo-box, on the taskss tab.
+    public void loadProjectsDataFromDatabase() {
+
+        try {
+            String sql = "SELECT * FROM project ";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+            while (resultSet.next()) {
+
+                projectSelectedCombobox.getItems().add(resultSet.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void loadTeamLeadDataFromDatabase() {
+
+        try {
+            String sql = "SELECT * FROM users where Role = 'Team Lead' ";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+            while (resultSet.next()) {
+
+                assignTaskToTeamLeadCombobox.getItems().add(resultSet.getString(2) + " " + resultSet.getString(3));
+                taskNumberLabel.setText(Integer.valueOf(getTotalNumberOfTasks() + 1).toString());
+                taskCompletionStatusLabel.setText("Incomplete");
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public int getTotalNumberOfTasks() {
+
+        try {
+            String sql = "SELECT * FROM task";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+            return resultSet.getFetchSize();
+        } catch (SQLException ex) {
+            //Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex);
+        }
+
+    }
+
+    private int getProjectId(String projectName) {
+        try {
+            String sql = "SELECT * FROM project where P_name =?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, projectName);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+            resultSet.next();
+
+            return resultSet.getInt(1);
+
+        } catch (SQLException ex) {
+            //Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex);
+        }
+    }
+
+
+    public void createTask() {
+
+        int taskNumber = Integer.parseInt(taskNumberLabel.getText());
+        String taskName = taskNameTextBox.getText();
+        String taskStatus = taskCompletionStatusLabel.getText();
+        String taskcompletionTime = taskTimeFrameTextField.getText();
+        int projectId = getProjectId(projectSelectedCombobox.getValue());
+        String taskDescription = taskInformationTextArea.getText();
+        String teamLead = createTaskSelectTeamCombobox.getValue();
+
+        String sql = " insert into Task (T_id, T_name, T_timespan, P_projectCode, T_status, T_Description, T_lead)"
+                + " values (?, ?, ?, ?, ?,?,?)";
+
+        try {
+
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, taskNumber);
+            preparedStatement.setString(2, taskName);
+            preparedStatement.setString(3, taskcompletionTime);
+            preparedStatement.setInt(4, projectId);
+            preparedStatement.setString(5, taskStatus);
+            preparedStatement.setString(6, taskDescription);
+            preparedStatement.setString(7, teamLead);
+            try {
+                preparedStatement.execute();
+                //Enter code for showing sucess view
+                //DBConnection.infoBox("Project created Successfull", "Success", null);
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("SucessfulCreateProjectView.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setTitle("Success");
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch (Exception e) {
+                    DBConnection.infoBox("Error Unable to Open View", "Fail", null);
+                    e.printStackTrace();
+                }
+
+
+            } catch (Exception e) {
+                DBConnection.infoBox("Error Saving Data", "Fail", null);
+                e.printStackTrace();
+            }
+
+        } catch (Exception e) {
+            DBConnection.infoBox("Error Saving Data", "Fail", null);
+            e.printStackTrace();
         }
 
     }
@@ -576,21 +707,21 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
                 preparedStatement.execute();
                 //Enter code for showing sucess view
                 //DBConnection.infoBox("Project created Successfull", "Success", null);
-                try{
-                   FXMLLoader fxmlLoader = new FXMLLoader();
-                   fxmlLoader.setLocation(getClass().getResource("SucessfulCreateProjectView.fxml"));
-                   Scene scene = new Scene(fxmlLoader.load());
-                   Stage stage = new Stage();
-                   stage.setTitle("Success");
-                   stage.setScene(scene);
-                   stage.show();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("SucessfulCreateProjectView.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setTitle("Success");
+                    stage.setScene(scene);
+                    stage.show();
 
-                   } catch (Exception e) {
-                     DBConnection.infoBox("Error Unable to Open View", "Fail", null);
-                     e.printStackTrace();
-        }
-                
-                
+                } catch (Exception e) {
+                    DBConnection.infoBox("Error Unable to Open View", "Fail", null);
+                    e.printStackTrace();
+                }
+
+
             } catch (Exception e) {
                 DBConnection.infoBox("Error Saving Data", "Fail", null);
                 e.printStackTrace();
@@ -650,15 +781,16 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         Employees.getSortOrder().clear();
         Employees.getSortOrder().addAll(sortOrder);
     }
-    
+
     @FXML
     void handleAddTasksButtonAction(ActionEvent event) {
 
-        
+
     }
+
     @FXML
     void handleSaveTasksButtonAction(ActionEvent event) {
-
+        createTask();
     }
 
 }

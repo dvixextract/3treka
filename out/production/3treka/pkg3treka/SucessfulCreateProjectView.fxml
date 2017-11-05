@@ -9,7 +9,7 @@
 <AnchorPane id="AnchorPane" prefHeight="220.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg3treka.SucessfulCreateProjectViewController">
    <children>
       <Button fx:id="OkButton" layoutX="214.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleOKButtonAction" prefHeight="37.0" prefWidth="176.0" text="OK" />
-      <Button layoutX="14.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleCreateTasksButtonAction" prefHeight="37.0" prefWidth="184.0" text="Create Tasks" />
+      <Button fx:id="createTasksButton" layoutX="14.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleCreateTasksButtonAction" prefHeight="37.0" prefWidth="184.0" text="Create Tasks" />
       <Label layoutX="116.0" layoutY="84.0" prefHeight="26.0" prefWidth="197.0" text="Sucessulfy Created Project" textFill="#51bf5f">
          <font>
             <Font size="14.0" />
