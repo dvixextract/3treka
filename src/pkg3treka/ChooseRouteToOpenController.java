@@ -71,6 +71,7 @@ public class ChooseRouteToOpenController implements Initializable {
 //    }
         } catch (IOException ex) {
             Logger.getLogger(ChooseRouteToOpenController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex);
         }
     }
     
