@@ -33,8 +33,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -46,6 +50,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import static javafx.scene.layout.Region.USE_PREF_SIZE;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.util.Callback;
@@ -209,6 +218,46 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     private TextField taskNameTextBox;
 
     private String mmber;
+    
+      // Begining of Create Task UI Components  
+        @FXML
+    private Label taskNumberCreateTask;
+
+    @FXML
+    private Label taskStatusCreateTask;
+
+    @FXML
+    private TextField taskNameCreateTask;
+
+    @FXML
+    private DatePicker fromDateCreateTask;
+
+    @FXML
+    private DatePicker toDateCreateTask;
+
+    @FXML
+    private ComboBox<?> teamHeadComboBoxCreateTask;
+
+    @FXML
+    private TextArea taskInformationCreateTask;
+
+    @FXML
+    private Button AddNewTaskBtnCreateTask;
+
+    @FXML
+    private Button deleteTaskBtnCreateTask;
+    
+    @FXML
+    private VBox vboxCreateTask;
+
+    @FXML
+    private HBox hboxCreateTask;
+
+   //End of Create Task UI Components 
+    
+    
+    
+    private ObservableList<Car> cars = FXCollections.observableArrayList();
 
     private ObservableList<User> masterData = FXCollections.observableArrayList();
     private ObservableList<User> AllUserData = FXCollections.observableArrayList();
@@ -393,11 +442,36 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         });
         start();
 
-        tabChange();
+    tabChange();
+    
 
 
     }
 
+  
+    
+public void start(Stage primaryStage) {
+    cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
+
+    cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
+    
+    ListView<Car> carsListView = new ListView<>();
+    carsListView.setCellFactory(c -> new CarListCell());
+    carsListView.setItems(cars);
+
+    StackPane root = new StackPane();
+    root.getChildren().add(carsListView);
+
+       Scene scene = new Scene(root, 800, 320);
+
+    primaryStage.setTitle("Cars list view");
+    primaryStage.setScene(scene);
+    primaryStage.show();
+}
+
+   
+    
+    
     public void tabChange() {
 
         AdminTabPane.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
@@ -782,15 +856,96 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         Employees.getSortOrder().addAll(sortOrder);
     }
 
-    @FXML
-    void handleAddTasksButtonAction(ActionEvent event) {
-
-
-    }
 
     @FXML
     void handleSaveTasksButtonAction(ActionEvent event) {
         createTask();
+    }
+    @FXML
+    void handleAddTasksButtonAction(ActionEvent event) {
+        
+    }
+    
+   //Create Task UI Components 
+    
+    
+    
+    
+    
+    
+    
+    private class CarListCell extends ListCell<Car> {
+
+        
+        
+
+
+    public CarListCell() {
+        
+        
+        hboxCreateTask.getChildren().addAll(taskNumberCreateTask,taskStatusCreateTask,taskNameCreateTask,fromDateCreateTask,toDateCreateTask, teamHeadComboBoxCreateTask);
+        vboxCreateTask.getChildren().addAll(hboxCreateTask,taskInformationCreateTask);
+        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        setGraphic(vboxCreateTask);
+    }
+
+    @Override
+    protected void updateItem(Car item, boolean empty) {
+         System.out.println("in here yey");
+        super.updateItem(item, empty);
+        if (item == null || empty) {
+            setText(null);
+            setGraphic(null);
+        } else {
+            setGraphic(vboxCreateTask);
+            AddNewTaskBtnCreateTask.setOnAction(e -> {
+                 System.out.println("i have new Task Event called");
+                Car newCar = new Car((CAR_TYPE) teamHeadComboBoxCreateTask.getValue());
+                cars.add(newCar);
+            });
+            deleteTaskBtnCreateTask.setOnAction(e -> {
+                cars.remove(item);
+            });
+        }
+    }
+
+}
+
+private enum CAR_TYPE {
+    CAR1_tetbeeeee, CAR2_iububdfcxkndns, CAR3_nkrebsbcnevjds;
+}
+
+private class Car {
+
+    private CAR_TYPE type;
+
+    public Car(CAR_TYPE type) {
+        this.type = type;
+    }
+
+    public CAR_TYPE getType() {
+        return type;
+    }
+
+    public void setType(CAR_TYPE type) {
+        this.type = type;
+    }
+}
+    
+    
+    
+    
+    
+    @FXML
+    void handleDeleteTaskAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleAddNewTaskAction(ActionEvent event) {
+        System.out.println("Add new Task Event called");
+     Car newCar = new Car((CAR_TYPE) teamHeadComboBoxCreateTask.getValue());
+     cars.add(newCar);
     }
 
 }

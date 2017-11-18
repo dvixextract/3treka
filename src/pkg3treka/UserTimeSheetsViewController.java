@@ -67,34 +67,33 @@ public class UserTimeSheetsViewController  implements Initializable{
 
     @FXML
     private TableColumn<?, ?> taskDescriptionColumnTableTask;
+    
+    @FXML
+    private Button startBtn;
 
     @FXML
-    private Button startTimerButton;
+    private Button pauseBtn;
 
     @FXML
-    private Button pauseTimerButton;
+    private Button closeBtn;
 
     @FXML
-    private Button stopTimerButton;
-
-    @FXML
-    void handlePauseTimerButton(ActionEvent event) {
+    void closeButtonEventAction(ActionEvent event) {
 
     }
 
     @FXML
-    void handleStartTimerButton(ActionEvent event) {
+    void handleStartButtonEventAction(ActionEvent event) {
 
     }
 
     @FXML
-    void handleStopTimerButton(ActionEvent event) {
+    void pauseButtonEventAction(ActionEvent event) {
 
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-    }
+        }
     
 }

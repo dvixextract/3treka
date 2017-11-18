@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="1038.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg3treka.UserTimeSheetsViewController">
    <children>
       <TabPane layoutY="97.0" prefHeight="567.0" prefWidth="1025.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -20,13 +20,13 @@
                      <children>
                         <TableView layoutX="285.0" layoutY="52.0" prefHeight="463.0" prefWidth="723.0">
                           <columns>
-                            <TableColumn fx:id="projectCodeColumnProjectListTable" prefWidth="104.0" text="Project Code" />
-                            <TableColumn fx:id="projectNameColumnProjectListTable" prefWidth="228.0" text="Project Name" />
-                              <TableColumn fx:id="taskCodeColumnProjectListTable" prefWidth="102.0" text="Task Code" />
-                              <TableColumn fx:id="taskNameColumnProjectListTable" prefWidth="288.0" text="Task Name" />
+                            <TableColumn fx:id="projectCodeColumnProjectListTable" prefWidth="146.0" text="Project Code" />
+                            <TableColumn fx:id="projectNameColumnProjectListTable" prefWidth="119.0" text="Project Name" />
+                              <TableColumn fx:id="taskCodeColumnProjectListTable" prefWidth="158.0" text="Task Code" />
+                              <TableColumn fx:id="taskNameColumnProjectListTable" prefWidth="298.0" text="Task Name" />
                           </columns>
                         </TableView>
-                        <ListView fx:id="teamMemberOfListview" layoutX="28.0" layoutY="84.0" prefHeight="431.0" prefWidth="242.0" />
+                        <ListView layoutX="28.0" layoutY="84.0" prefHeight="431.0" prefWidth="242.0" />
                         <Label layoutX="29.0" layoutY="57.0" prefHeight="27.0" prefWidth="241.0" text="Team Member Of :" />
                      </children>
                   </AnchorPane>
@@ -36,30 +36,27 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="14.0" layoutY="283.0" prefHeight="220.0" prefWidth="1008.0">
+                        <TableView layoutX="14.0" layoutY="224.0" prefHeight="279.0" prefWidth="990.0">
                           <columns>
-                            <TableColumn fx:id="projectNumberColumnTimeSheetTable" editable="false" prefWidth="104.0" text="Project Number" />
-                              <TableColumn fx:id="projectNameColumnTimeSheetTable" editable="false" prefWidth="157.0" text="Project Name" />
-                            <TableColumn fx:id="taskCodeColumnTimeSheetTable" editable="false" prefWidth="91.0" text="Task Code" />
-                              <TableColumn fx:id="taskNameColumnTimeSheetTable" editable="false" prefWidth="228.0" text="Task Name" />
-                              <TableColumn fx:id="taskDescriptionColumnTimeSheetTable" editable="false" minWidth="0.0" prefWidth="321.0" text="Task Description" />
-                              <TableColumn fx:id="dayColumnTimesheetTable" editable="false" minWidth="0.0" prefWidth="106.0" text="Day" />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                        <TableView layoutX="14.0" layoutY="16.0" prefHeight="235.0" prefWidth="270.0">
-                          <columns>
-                            <TableColumn fx:id="projectNumberColumnTableProject" prefWidth="105.0" text="Project Number" />
-                              <TableColumn fx:id="projectNameColumnTableProject" prefWidth="163.0" text="Project Name" />
+                            <TableColumn prefWidth="112.0" text="Project Number" />
+                            <TableColumn prefWidth="124.0" text="Project Name" />
+                              <TableColumn prefWidth="130.0" text="Task Code" />
+                              <TableColumn prefWidth="123.0" text="Task Name" />
+                              <TableColumn minWidth="0.0" prefWidth="407.0" text="Task Description" />
+                              <TableColumn prefWidth="93.0" text="Day" />
                           </columns>
                         </TableView>
-                        <TableView layoutX="306.0" layoutY="14.0" prefHeight="238.0" prefWidth="717.0">
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="197.0" prefWidth="350.0">
                           <columns>
-                            <TableColumn fx:id="taskCodeColumnTableTask" prefWidth="107.0" text="Task Code" />
-                            <TableColumn fx:id="taskNameColumnTableTask" prefWidth="171.0" text="Task Name" />
-                              <TableColumn fx:id="taskDescriptionColumnTableTask" prefWidth="437.0" text="Task Description" />
+                            <TableColumn fx:id="projectNumberColumnTableProject" prefWidth="130.0" text="Project Number" />
+                              <TableColumn fx:id="projectNameColumnTableProject" prefWidth="247.0" text="Project Name" />
+                          </columns>
+                        </TableView>
+                        <TableView layoutX="379.0" layoutY="13.0" prefHeight="200.0" prefWidth="625.0">
+                          <columns>
+                            <TableColumn fx:id="taskCodeProject" prefWidth="107.0" text="Task Code" />
+                            <TableColumn prefWidth="212.0" text="Task Name" />
+                              <TableColumn prefWidth="285.0" text="Task Description" />
                           </columns>
                         </TableView>
                      </children>
@@ -68,8 +65,8 @@
           </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="startTimerButton" layoutX="248.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleStartTimerButton" prefHeight="27.0" prefWidth="185.0" text="Start" />
-      <Button fx:id="pauseTimerButton" layoutX="456.0" layoutY="36.0" mnemonicParsing="false" onAction="#handlePauseTimerButton" prefHeight="27.0" prefWidth="166.0" text="Pause" />
-      <Button fx:id="stopTimerButton" layoutX="643.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleStopTimerButton" prefHeight="27.0" prefWidth="166.0" text="Stop" />
+      <Button fx:id="startBtn" layoutX="248.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleStartButtonEventAction" prefHeight="27.0" prefWidth="185.0" text="Start" />
+      <Button fx:id="pauseBtn" layoutX="456.0" layoutY="36.0" mnemonicParsing="false" onAction="#pauseButtonEventAction" prefHeight="27.0" prefWidth="166.0" text="Pause" />
+      <Button fx:id="closeBtn" layoutX="643.0" layoutY="36.0" mnemonicParsing="false" onAction="#closeButtonEventAction" prefHeight="27.0" prefWidth="166.0" text="Stop" />
    </children>
 </Pane>
