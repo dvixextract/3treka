@@ -13,7 +13,9 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -48,6 +50,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -134,6 +138,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
     @FXML
     private Button saveTeam;
+    
     @FXML
     private TableView<User> Employees;
 
@@ -197,6 +202,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
     @FXML
     private TextArea taskInformationTextArea;
+    
 
     @FXML
     private TextField taskTimeFrameTextField;
@@ -220,7 +226,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     private String mmber;
     
       // Begining of Create Task UI Components  
-        @FXML
+    @FXML
     private Label taskNumberCreateTask;
 
     @FXML
@@ -236,7 +242,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     private DatePicker toDateCreateTask;
 
     @FXML
-    private ComboBox<?> teamHeadComboBoxCreateTask;
+    private ComboBox<String> teamHeadComboBoxCreateTask;
 
     @FXML
     private TextArea taskInformationCreateTask;
@@ -252,15 +258,37 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
     @FXML
     private HBox hboxCreateTask;
+    
+    @FXML
+    private TableView<Task> createTaskTable;
+    
+    @FXML
+    private TableColumn<Task, String> taskNumberCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, String> taskStatusCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, String> taskNameCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, String> taskInformationCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, Date> fromDateCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, Date> toDateCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, String> teamMemberAssignedCreateTaskColumn;
 
    //End of Create Task UI Components 
     
-    
-    
-    private ObservableList<Car> cars = FXCollections.observableArrayList();
 
     private ObservableList<User> masterData = FXCollections.observableArrayList();
     private ObservableList<User> AllUserData = FXCollections.observableArrayList();
+    private ObservableList<Task> AllTaskData = FXCollections.observableArrayList();
     private ObservableList<Projects> AllProjectsData = FXCollections.observableArrayList();
     private ObservableList<User> filteredData = FXCollections.observableArrayList();
     private ObservableList<String> masterData3;
@@ -270,11 +298,15 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     ObservableList<String> ClickOutput = FXCollections.observableArrayList();
     //ObservableList<String> SelectedTeamMembers = FXCollections.observableArrayList();
     ArrayList<String> SelectedTeamMembers = new ArrayList<String>();
+    private int taskCount = 0;
 
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
 
+    
+    
+    
     public AdminViewController() {
 
         try {
@@ -287,7 +319,10 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
 //    
         masterData.add(new User("Dennis", "Masha", "Director", "Tier 3"));//test data
-
+//
+// String date = "2016-08-16";
+//        LocalDate localDate = LocalDate.parse(date);
+        
         // Initially add all data to filtered data
         filteredData.addAll(masterData);
 
@@ -425,6 +460,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         loadDataFromDatabase();
         loadAllUserInformation();
         loadAllProjectsInformation();
+        setAllUserNewTaskInfoCellTable();
         AssignTeam.setItems(TeamList);
         projectSelectedCombobox.setItems(ProjectList);
 
@@ -448,36 +484,13 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
     }
 
-  
-    
-public void start(Stage primaryStage) {
-    cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
 
-    cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
-    
-    ListView<Car> carsListView = new ListView<>();
-    carsListView.setCellFactory(c -> new CarListCell());
-    carsListView.setItems(cars);
-
-    StackPane root = new StackPane();
-    root.getChildren().add(carsListView);
-
-       Scene scene = new Scene(root, 800, 320);
-
-    primaryStage.setTitle("Cars list view");
-    primaryStage.setScene(scene);
-    primaryStage.show();
-}
-
-   
-    
-    
     public void tabChange() {
 
         AdminTabPane.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
-            taskNumberLabel.setText("");
+            taskNumberCreateTask.setText("");
             projectSelectedCombobox.getItems().clear();
-            assignTaskToTeamLeadCombobox.getItems().clear();
+            teamHeadComboBoxCreateTask.getItems().clear();
             createTaskSelectTeamCombobox.getItems().clear();
             AssignTeam.getItems().clear();
             loadTeamsDataFromDatabase();
@@ -658,9 +671,9 @@ public void start(Stage primaryStage) {
             resultSet = (ResultSet) preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                assignTaskToTeamLeadCombobox.getItems().add(resultSet.getString(2) + " " + resultSet.getString(3));
-                taskNumberLabel.setText(Integer.valueOf(getTotalNumberOfTasks() + 1).toString());
-                taskCompletionStatusLabel.setText("Incomplete");
+                teamHeadComboBoxCreateTask.getItems().add(resultSet.getString(2) + " " + resultSet.getString(3));
+                taskNumberCreateTask.setText(Integer.valueOf(getTotalNumberOfTasks() + 1).toString());
+                taskStatusCreateTask.setText("Incomplete");
 
             }
         } catch (SQLException ex) {
@@ -675,7 +688,11 @@ public void start(Stage primaryStage) {
             String sql = "SELECT * FROM task";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = (ResultSet) preparedStatement.executeQuery();
+            
+            System.out.println("****************"+resultSet.getFetchSize());
             return resultSet.getFetchSize();
+            
+           
         } catch (SQLException ex) {
             //Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
             throw new RuntimeException(ex);
@@ -702,13 +719,13 @@ public void start(Stage primaryStage) {
 
     public void createTask() {
 
-        int taskNumber = Integer.parseInt(taskNumberLabel.getText());
-        String taskName = taskNameTextBox.getText();
-        String taskStatus = taskCompletionStatusLabel.getText();
+        int taskNumber = Integer.parseInt(taskNumberCreateTask.getText());
+        String taskName = taskNameCreateTask.getText();
+        String taskStatus = taskStatusCreateTask.getText();
         String taskcompletionTime = taskTimeFrameTextField.getText();
         int projectId = getProjectId(projectSelectedCombobox.getValue());
-        String taskDescription = taskInformationTextArea.getText();
-        String teamLead = createTaskSelectTeamCombobox.getValue();
+        String taskDescription = taskInformationCreateTask.getText();
+        String teamLead = teamHeadComboBoxCreateTask.getValue();
 
         String sql = " insert into Task (T_id, T_name, T_timespan, P_projectCode, T_status, T_Description, T_lead)"
                 + " values (?, ?, ?, ?, ?,?,?)";
@@ -856,96 +873,138 @@ public void start(Stage primaryStage) {
         Employees.getSortOrder().addAll(sortOrder);
     }
 
+    
+    
+    public void setAllUserNewTaskInfoCellTable() {
+
+        taskNumberCreateTaskColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskNumber"));
+        taskStatusCreateTaskColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskStatus"));
+        taskNameCreateTaskColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskName"));
+        fromDateCreateTaskColumn.setCellValueFactory(new PropertyValueFactory<Task, Date>("taskFromDate"));
+        toDateCreateTaskColumn.setCellValueFactory(new PropertyValueFactory<Task, Date>("taskToDate"));
+        teamMemberAssignedCreateTaskColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskTeamMemberAssigned"));
+        taskInformationCreateTaskColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskInformation"));
+    }
+    
+    @FXML
+    void handleAddTasksButtonAction(ActionEvent event) {
+
+
+        AllTaskData.add(new Task(  Integer.parseInt(taskNumberCreateTask.getText()), taskStatusCreateTask.getText(), fromDateCreateTask.getValue(), 
+                toDateCreateTask.getValue(), (String) teamHeadComboBoxCreateTask.getValue(), taskInformationCreateTask.getText() ));
+         createTaskTable.setItems(AllTaskData);
+    }
 
     @FXML
     void handleSaveTasksButtonAction(ActionEvent event) {
         createTask();
     }
-    @FXML
-    void handleAddTasksButtonAction(ActionEvent event) {
-        
-    }
+ 
     
    //Create Task UI Components 
-    
-    
-    
-    
-    
-    
-    
-    private class CarListCell extends ListCell<Car> {
-
-        
-        
-
-
-    public CarListCell() {
-        
-        
-        hboxCreateTask.getChildren().addAll(taskNumberCreateTask,taskStatusCreateTask,taskNameCreateTask,fromDateCreateTask,toDateCreateTask, teamHeadComboBoxCreateTask);
-        vboxCreateTask.getChildren().addAll(hboxCreateTask,taskInformationCreateTask);
-        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-        setGraphic(vboxCreateTask);
-    }
-
-    @Override
-    protected void updateItem(Car item, boolean empty) {
-         System.out.println("in here yey");
-        super.updateItem(item, empty);
-        if (item == null || empty) {
-            setText(null);
-            setGraphic(null);
-        } else {
-            setGraphic(vboxCreateTask);
-            AddNewTaskBtnCreateTask.setOnAction(e -> {
-                 System.out.println("i have new Task Event called");
-                Car newCar = new Car((CAR_TYPE) teamHeadComboBoxCreateTask.getValue());
-                cars.add(newCar);
-            });
-            deleteTaskBtnCreateTask.setOnAction(e -> {
-                cars.remove(item);
-            });
-        }
-    }
-
-}
-
-private enum CAR_TYPE {
-    CAR1_tetbeeeee, CAR2_iububdfcxkndns, CAR3_nkrebsbcnevjds;
-}
-
-private class Car {
-
-    private CAR_TYPE type;
-
-    public Car(CAR_TYPE type) {
-        this.type = type;
-    }
-
-    public CAR_TYPE getType() {
-        return type;
-    }
-
-    public void setType(CAR_TYPE type) {
-        this.type = type;
-    }
-}
-    
-    
-    
+     
     
     
     @FXML
     void handleDeleteTaskAction(ActionEvent event) {
 
     }
+    
+    
+    void addTaskToTable(){
+    
+        AllTaskData.add(new Task(  Integer.parseInt(taskNumberCreateTask.getText()), taskStatusCreateTask.getText(), 
+        taskNameCreateTask.getText(), fromDateCreateTask.getValue(), 
+        toDateCreateTask.getValue(), (String) teamHeadComboBoxCreateTask.getValue(), taskInformationCreateTask.getText() ));
+        createTaskTable.setItems(AllTaskData);
+         
+        taskNameCreateTask.clear();
+        fromDateCreateTask.getEditor().clear();
+        toDateCreateTask.getEditor().clear();
+        teamHeadComboBoxCreateTask.setValue("Team Lead");
+        taskInformationCreateTask.clear();
+        taskCount++;
+         
+        taskNumberCreateTask.setText(Integer.valueOf(getTotalNumberOfTasks() + 1+taskCount).toString());
+         
+    }
 
     @FXML
     void handleAddNewTaskAction(ActionEvent event) {
-        System.out.println("Add new Task Event called");
-     Car newCar = new Car((CAR_TYPE) teamHeadComboBoxCreateTask.getValue());
-     cars.add(newCar);
+        
+        if (taskNameCreateTask.getText()==null || taskNameCreateTask.getText()==" " || taskNameCreateTask.getText().isEmpty() ||
+            fromDateCreateTask.getValue() == null || toDateCreateTask.getValue() == null ||
+            teamHeadComboBoxCreateTask.getValue() == null || teamHeadComboBoxCreateTask.getValue().isEmpty() || teamHeadComboBoxCreateTask.getValue() == "Team Lead" ||
+            taskInformationCreateTask.getText() == null || taskInformationCreateTask.getText().isEmpty() || taskInformationCreateTask.getText() == " "
+                ){
+          DBConnection.infoBox("Please enter text in missing fields", "Error Adding Data", "nil");
+        }else{
+            
+        addTaskToTable();
+        
+        }
+    }
+
+       public void createMultipleTasks() {
+
+ 
+
+        String sql = " insert into Task (T_id, T_name, P_projectCode, T_status, T_Description, T_lead,T_startDate,T_endDate,T_timespan)"
+                + " values (?, ?, ?, ?, ?,?,?)";
+
+        try {
+            
+            for(Task userTasks: AllTaskData){
+                
+            int taskNumber = userTasks.getTaskNumber();
+            String taskName = userTasks.getTaskName();
+            String taskStatus = userTasks.getTaskStatus();
+            String taskDescription = userTasks.getTaskInformation();
+            String teamLead = userTasks.getTaskTeamMemberAssigned();
+            Date startingDate = userTasks.getTaskFromDate();
+            Date endingingDate = userTasks.getTaskToDate();
+            int taskcompletionTime = userTasks.getTaskTimeSpan();
+            int projectId = getProjectId(projectSelectedCombobox.getValue());
+        
+        
+
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, taskNumber);
+            preparedStatement.setString(2, taskName);
+            preparedStatement.setInt(3, projectId);
+            preparedStatement.setString(4, taskStatus);
+            preparedStatement.setString(5, taskDescription);
+            preparedStatement.setString(6, teamLead);
+            preparedStatement.setDate(7, (java.sql.Date) startingDate);
+            preparedStatement.setDate(8, (java.sql.Date) endingingDate);
+            preparedStatement.setInt(9, taskcompletionTime);
+            
+            try{
+            preparedStatement.execute();
+            }catch (Exception e) {
+                    DBConnection.infoBox("Error Saving Data", "Fail", null);
+                    e.printStackTrace();
+                }
+            }
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("SucessfulCreateProjectView.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setTitle("Success");
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch (Exception e) {
+                    DBConnection.infoBox("Error Unable to Open View", "Fail", null);
+                    e.printStackTrace();
+                }
+
+        } catch (Exception e) {
+            DBConnection.infoBox("Error Saving Data", "Fail", null);
+            e.printStackTrace();
+        }
+
     }
 
 }
