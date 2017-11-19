@@ -18,7 +18,7 @@ public class DBConnection {
    private static Connection conn;  
    private static String url = "jdbc:mysql://localhost:3306/3trekka";  
    private static String user = "root";//Username of database  
-   private static String pass = "1115kowar";//Password of database
+   private static String pass = "lebo";//Password of database
    public static Connection connect() throws SQLException{  
      try{  
        Class.forName("com.mysql.jdbc.Driver").newInstance();  
