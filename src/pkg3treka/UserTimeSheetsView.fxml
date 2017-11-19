@@ -46,6 +46,7 @@
                               <TableColumn prefWidth="93.0" text="Day" />
                           </columns>
                         </TableView>
+
                         <TableView fx:id="allProjects" layoutX="14.0" layoutY="14.0" prefHeight="197.0" prefWidth="350.0">
                           <columns>
                             <TableColumn fx:id="projectNumberColumnTableProject" prefWidth="130.0" text="Project Number" />
@@ -53,11 +54,11 @@
                           </columns>
                         </TableView>
 
-                        <TableView layoutX="379.0" layoutY="13.0" prefHeight="200.0" prefWidth="625.0">
+                        <TableView fx:id="projectsTask" layoutX="379.0" layoutY="13.0" prefHeight="200.0" prefWidth="625.0">
                           <columns>
-                            <TableColumn fx:id="taskCodeProject" prefWidth="107.0" text="Task Code" />
-                            <TableColumn prefWidth="212.0" text="Task Name" />
-                              <TableColumn prefWidth="285.0" text="Task Description" />
+                            <TableColumn fx:id="taskCodeColumnTableTask" prefWidth="107.0" text="Task Code" />
+                            <TableColumn fx:id="taskNameColumnTableTask" prefWidth="212.0" text="Task Name" />
+                            <TableColumn fx:id="taskDescriptionColumnTableTask" prefWidth="285.0" text="Task Description" />
                           </columns>
                         </TableView>
                      </children>

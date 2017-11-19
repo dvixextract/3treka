@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53e88e93-44ed-4056-814c-ac77f059432f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$1.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$2.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$3.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/ChooseRouteToOpenController.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/ChooseRouteToOpenController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pkg3treka/Task.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/pkg3treka/UserTimeSheetsView.fxml" afterPath="$PROJECT_DIR$/build/classes/pkg3treka/UserTimeSheetsView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminView.fxml" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminView.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/UserTimeSheetsView.fxml" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/UserTimeSheetsView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/DBConnection.java" afterPath="$PROJECT_DIR$/src/pkg3treka/DBConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/Projects.java" afterPath="$PROJECT_DIR$/src/pkg3treka/Projects.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsView.fxml" afterPath="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsView.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsViewController.java" afterPath="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsViewController.java" />
     </list>
@@ -25,15 +17,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DockManager">
-    <window id="1">
+    <window id="3">
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="AdminViewController.java" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
+            <file leaf-file-name="AdminView.fxml" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminView.fxml">
+                <provider editor-type-id="JavaFX-Scene-Builder">
+                  <state />
+                </provider>
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-920">
-                    <caret line="591" column="9" lean-forward="false" selection-start-line="591" selection-start-column="9" selection-end-line="591" selection-end-column="9" />
+                  <state relative-caret-position="-2436">
+                    <caret line="114" column="58" lean-forward="false" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="58" />
                     <folding />
                   </state>
                 </provider>
@@ -45,34 +40,49 @@
                   <state />
                 </provider>
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="434">
-                    <caret line="61" column="36" lean-forward="true" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+                  <state relative-caret-position="413">
+                    <caret line="60" column="78" lean-forward="false" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="78" />
                     <folding>
-                      <marker date="1511066124843" expanded="true" signature="4484:4552" ph="..." />
+                      <marker date="1511076111735" expanded="true" signature="4583:4651" ph="..." />
                     </folding>
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="Projects.java" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/pkg3treka/Projects.java">
+            <file leaf-file-name="Task.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/pkg3treka/Task.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="567">
-                    <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="AdminView.fxml" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminView.fxml">
-                <provider editor-type-id="JavaFX-Scene-Builder">
-                  <state />
-                </provider>
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="224">
-                    <caret line="114" column="58" lean-forward="false" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="58" />
-                    <folding />
+                  <state relative-caret-position="-576">
+                    <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+                    <folding>
+                      <element signature="e#551#552#0" expanded="true" />
+                      <element signature="e#592#593#0" expanded="true" />
+                      <element signature="e#628#629#0" expanded="true" />
+                      <element signature="e#663#664#0" expanded="true" />
+                      <element signature="e#694#695#0" expanded="true" />
+                      <element signature="e#742#743#0" expanded="true" />
+                      <element signature="e#782#783#0" expanded="true" />
+                      <element signature="e#818#819#0" expanded="true" />
+                      <element signature="e#853#854#0" expanded="true" />
+                      <element signature="e#906#907#0" expanded="true" />
+                      <element signature="e#954#955#0" expanded="true" />
+                      <element signature="e#989#990#0" expanded="true" />
+                      <element signature="e#1023#1024#0" expanded="true" />
+                      <element signature="e#1074#1075#0" expanded="true" />
+                      <element signature="e#1120#1121#0" expanded="true" />
+                      <element signature="e#1157#1158#0" expanded="true" />
+                      <element signature="e#1190#1191#0" expanded="true" />
+                      <element signature="e#1242#1243#0" expanded="true" />
+                      <element signature="e#1286#1287#0" expanded="true" />
+                      <element signature="e#1328#1329#0" expanded="true" />
+                      <element signature="e#1366#1367#0" expanded="true" />
+                      <element signature="e#1428#1429#0" expanded="true" />
+                      <element signature="e#1482#1483#0" expanded="true" />
+                      <element signature="e#1521#1522#0" expanded="true" />
+                      <element signature="e#1556#1557#0" expanded="true" />
+                      <element signature="e#1612#1613#0" expanded="true" />
+                      <element signature="e#1660#1661#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -85,21 +95,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pkg3treka/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-755">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserTimeSheetsViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="127" column="8" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
+            <state relative-caret-position="146">
+              <caret line="201" column="48" lean-forward="false" selection-start-line="201" selection-start-column="48" selection-end-line="201" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -115,7 +115,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AdminViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="480" column="57" lean-forward="false" selection-start-line="480" selection-start-column="52" selection-end-line="480" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -126,9 +143,12 @@
       <find>Tab</find>
       <find>TabPane</find>
       <find>assi</find>
-      <find>Employees</find>
       <find>allPro</find>
+      <find>Employees</find>
       <find>ListAll</find>
+      <find>task</find>
+      <find>taskCodeProject</find>
+      <find>Clear</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,9 +165,10 @@
         <option value="$PROJECT_DIR$/src/pkg3treka/FXMLDocumentController.java" />
         <option value="$PROJECT_DIR$/src/pkg3treka/DBConnection.java" />
         <option value="$PROJECT_DIR$/build/classes/pkg3treka/UserTimeSheetsView.fxml" />
-        <option value="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsView.fxml" />
         <option value="$PROJECT_DIR$/src/pkg3treka/AdminViewController.java" />
         <option value="$PROJECT_DIR$/src/pkg3treka/Projects.java" />
+        <option value="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsView.fxml" />
+        <option value="$PROJECT_DIR$/src/pkg3treka/Task.java" />
         <option value="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsViewController.java" />
       </list>
     </option>
@@ -482,13 +503,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28040972" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2765685" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -515,14 +536,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/FXMLDocumentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -963,14 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-755">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50925">
@@ -981,13 +986,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/Projects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminView.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
+        <state relative-caret-position="-2436">
           <caret line="114" column="58" lean-forward="false" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="59" column="35" lean-forward="true" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -997,34 +1018,62 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="61" column="36" lean-forward="true" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+        <state relative-caret-position="413">
+          <caret line="60" column="78" lean-forward="false" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="78" />
           <folding>
-            <marker date="1511066124843" expanded="true" signature="4484:4552" ph="..." />
+            <marker date="1511076111735" expanded="true" signature="4583:4651" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-576">
+          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+            <element signature="e#742#743#0" expanded="true" />
+            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#989#990#0" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+            <element signature="e#1074#1075#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1157#1158#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#1242#1243#0" expanded="true" />
+            <element signature="e#1286#1287#0" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="true" />
+            <element signature="e#1366#1367#0" expanded="true" />
+            <element signature="e#1428#1429#0" expanded="true" />
+            <element signature="e#1482#1483#0" expanded="true" />
+            <element signature="e#1521#1522#0" expanded="true" />
+            <element signature="e#1556#1557#0" expanded="true" />
+            <element signature="e#1612#1613#0" expanded="true" />
+            <element signature="e#1660#1661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-920">
-          <caret line="591" column="9" lean-forward="false" selection-start-line="591" selection-start-column="9" selection-end-line="591" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/Projects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+        <state relative-caret-position="193">
+          <caret line="480" column="57" lean-forward="false" selection-start-line="480" selection-start-column="52" selection-end-line="480" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="127" column="8" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
+        <state relative-caret-position="146">
+          <caret line="201" column="48" lean-forward="false" selection-start-line="201" selection-start-column="48" selection-end-line="201" selection-end-column="48" />
           <folding />
         </state>
       </provider>
