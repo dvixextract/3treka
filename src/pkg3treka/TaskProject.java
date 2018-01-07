@@ -7,7 +7,7 @@ public class TaskProject {
 
     private int projectNumber;
 
-    private String getProjectName;
+    private String projectName;
 
     private int taskCode;
 
@@ -18,7 +18,7 @@ public class TaskProject {
     public TaskProject(int projectNumber, String getProjectName, int taskCode, String taskName, String taskDescription) {
 
         this.projectNumber = projectNumber;
-        this.getProjectName = getProjectName;
+        this.projectName = getProjectName;
         this.taskCode = taskCode;
         this.taskName = taskName;
         this.taskDescription = taskDescription;
@@ -32,12 +32,12 @@ public class TaskProject {
         this.projectNumber = projectNumber;
     }
 
-    public String getGetProjectName() {
-        return getProjectName;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setGetProjectName(String getProjectName) {
-        this.getProjectName = getProjectName;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public int getTaskCode() {

@@ -36,14 +36,14 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="14.0" layoutY="224.0" prefHeight="279.0" prefWidth="990.0">
+                        <TableView fx:id="taskTimeSheets" layoutX="14.0" layoutY="224.0" prefHeight="279.0" prefWidth="990.0">
                           <columns>
-                            <TableColumn prefWidth="112.0" text="Project Number" />
-                            <TableColumn prefWidth="124.0" text="Project Name" />
-                              <TableColumn prefWidth="130.0" text="Task Code" />
-                              <TableColumn prefWidth="123.0" text="Task Name" />
-                              <TableColumn minWidth="0.0" prefWidth="407.0" text="Task Description" />
-                              <TableColumn prefWidth="93.0" text="Day" />
+                            <TableColumn fx:id="projectNumberColumnTimeSheetTable" prefWidth="112.0" text="Project Number" />
+                            <TableColumn fx:id="projectNameColumnTimeSheetTable" prefWidth="124.0" text="Project Name" />
+                              <TableColumn fx:id="taskCodeColumnTimeSheetTable" prefWidth="130.0" text="Task Code" />
+                              <TableColumn fx:id="taskNameColumnTimeSheetTable" prefWidth="123.0" text="Task Name" />
+                              <TableColumn fx:id="taskDescriptionColumnTimeSheetTable" minWidth="0.0" prefWidth="407.0" text="Task Description" />
+                              <TableColumn fx:id="dayColumnTimesheetTable" prefWidth="93.0" text="Day" />
                           </columns>
                         </TableView>
 

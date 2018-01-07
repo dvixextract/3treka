@@ -48,22 +48,22 @@ public class UserTimeSheetsViewController implements Initializable {
     private ListView<?> teamMemberOfListview;
 
     @FXML
-    private TableColumn<?, ?> projectNumberColumnTimeSheetTable;
+    private TableColumn<TaskProject, String> projectNumberColumnTimeSheetTable;
 
     @FXML
-    private TableColumn<?, ?> projectNameColumnTimeSheetTable;
+    private TableColumn<TaskProject, String> projectNameColumnTimeSheetTable;
 
     @FXML
-    private TableColumn<?, ?> taskCodeColumnTimeSheetTable;
+    private TableColumn<TaskProject, String> taskCodeColumnTimeSheetTable;
 
     @FXML
-    private TableColumn<?, ?> taskNameColumnTimeSheetTable;
+    private TableColumn<TaskProject, String> taskNameColumnTimeSheetTable;
 
     @FXML
-    private TableColumn<?, ?> taskDescriptionColumnTimeSheetTable;
+    private TableColumn<TaskProject, String> taskDescriptionColumnTimeSheetTable;
 
     @FXML
-    private TableColumn<?, ?> dayColumnTimesheetTable;
+    private TableColumn<TaskProject, String> dayColumnTimesheetTable;
 
     @FXML
     private TableColumn<Projects, String> projectNumberColumnTableProject;
@@ -95,9 +95,14 @@ public class UserTimeSheetsViewController implements Initializable {
     @FXML
     private TableView<Projects> allProjects;
 
+    @FXML
+    private TableView<TaskProject> taskTimeSheets;
+
     private ObservableList<Projects> allProjectsData = FXCollections.observableArrayList();
 
     private ObservableList<Task> allTasksData = FXCollections.observableArrayList();
+
+    private ObservableList<TaskProject> taskTimeSheetsData = FXCollections.observableArrayList();
 
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -134,6 +139,7 @@ public class UserTimeSheetsViewController implements Initializable {
 
         setProjectsTaskInfoCellTable();
         setAllProjectsInfoCellTable();
+        setTaskSheetInfoCellTable();
         loadAllProjectInformation();
         start();
     }
@@ -155,7 +161,7 @@ public class UserTimeSheetsViewController implements Initializable {
         allProjects.setItems(allProjectsData);
     }
 
-    public void loadProjectsInformation(int projectCode ) {
+    public void loadProjectsInformation(int projectCode) {
         try {
             String sql = "SELECT * FROM project";
             preparedStatement = connection.prepareStatement(sql);
@@ -172,7 +178,7 @@ public class UserTimeSheetsViewController implements Initializable {
         allProjects.setItems(allProjectsData);
     }
 
-    public void loadProjectsTaskInformation(int projectCode ) {
+    public void loadProjectsTaskInformation(int projectCode) {
         try {
             String sql = "SELECT * FROM task where P_projectCode =?";
             preparedStatement = connection.prepareStatement(sql);
@@ -181,7 +187,7 @@ public class UserTimeSheetsViewController implements Initializable {
 
             while (resultSet.next()) {
 
-                allTasksData.add(new Task(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(6)));
+                allTasksData.add(new Task(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(6)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
@@ -191,6 +197,24 @@ public class UserTimeSheetsViewController implements Initializable {
         projectsTask.setItems(allTasksData);
     }
 
+    public void loadtaskTimeSheetsData(int taskCode) {
+        try {
+            String sql = "SELECT * FROM task where T_id =?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, taskCode);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                taskTimeSheetsData.add(new TaskProject(resultSet.getInt(4), "Test", resultSet.getInt(1), resultSet.getString(2), resultSet.getString(6)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex);
+        }
+
+        taskTimeSheets.setItems(taskTimeSheetsData);
+    }
 
 
     public void start() {
@@ -203,6 +227,14 @@ public class UserTimeSheetsViewController implements Initializable {
                 loadProjectsTaskInformation(Integer.valueOf(allProjects.getSelectionModel().getSelectedItem().getProjCode()));
             }
 
+        });
+
+        projectsTask.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                taskTimeSheets.getItems().clear();
+                loadtaskTimeSheetsData(Integer.valueOf(projectsTask.getSelectionModel().getSelectedItem().getTaskId()));
+            }
         });
 
     }
@@ -218,6 +250,16 @@ public class UserTimeSheetsViewController implements Initializable {
         taskCodeColumnTableTask.setCellValueFactory(new PropertyValueFactory<Task, String>("taskId"));
         taskNameColumnTableTask.setCellValueFactory(new PropertyValueFactory<Task, String>("taskName"));
         taskDescriptionColumnTableTask.setCellValueFactory(new PropertyValueFactory<Task, String>("taskDescription"));
+    }
+
+    private void setTaskSheetInfoCellTable() {
+
+        projectNumberColumnTimeSheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("projectNumber"));
+        projectNameColumnTimeSheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("projectName"));
+        taskCodeColumnTimeSheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("taskCode"));
+        taskNameColumnTimeSheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("taskName"));
+        taskDescriptionColumnTimeSheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("taskDescription"));
+//        dayColumnTimesheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("taskDescription"));
     }
 
 
