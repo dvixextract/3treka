@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53e88e93-44ed-4056-814c-ac77f059432f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/AdminViewController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/StopWatch.class" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/StopWatch.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/3treka.iml" afterPath="$PROJECT_DIR$/3treka.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/3treka/pkg3treka/UserTimeSheetsView.fxml" afterPath="$PROJECT_DIR$/out/production/3treka/pkg3treka/UserTimeSheetsView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/TaskProject.java" afterPath="$PROJECT_DIR$/src/pkg3treka/TaskProject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsView.fxml" afterPath="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsView.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsViewController.java" afterPath="$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsViewController.java" />
     </list>
@@ -21,11 +20,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="UserTimeSheetsViewController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserTimeSheetsViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+            <state relative-caret-position="149">
+              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -33,65 +32,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StopWatch.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pkg3treka/StopWatch.java">
+      <file leaf-file-name="StopWatch.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/dist/commons-lang3-3.7.jar!/org/apache/commons/lang3/time/StopWatch.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#1293#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1911">
+              <caret line="96" column="16" lean-forward="false" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pkg3treka/Task.java">
+      <file leaf-file-name="TaskProject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pkg3treka/TaskProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-              <folding>
-                <element signature="e#592#593#0" expanded="false" />
-                <element signature="e#628#629#0" expanded="false" />
-                <element signature="e#663#664#0" expanded="false" />
-                <element signature="e#694#695#0" expanded="false" />
-                <element signature="e#742#743#0" expanded="false" />
-                <element signature="e#782#783#0" expanded="false" />
-                <element signature="e#818#819#0" expanded="false" />
-                <element signature="e#853#854#0" expanded="false" />
-                <element signature="e#906#907#0" expanded="false" />
-                <element signature="e#954#955#0" expanded="false" />
-                <element signature="e#989#990#0" expanded="false" />
-                <element signature="e#1023#1024#0" expanded="false" />
-                <element signature="e#1074#1075#0" expanded="false" />
-                <element signature="e#1120#1121#0" expanded="false" />
-                <element signature="e#1157#1158#0" expanded="false" />
-                <element signature="e#1190#1191#0" expanded="false" />
-                <element signature="e#1242#1243#0" expanded="false" />
-                <element signature="e#1286#1287#0" expanded="false" />
-                <element signature="e#1328#1329#0" expanded="false" />
-                <element signature="e#1366#1367#0" expanded="false" />
-                <element signature="e#1428#1429#0" expanded="false" />
-                <element signature="e#1482#1483#0" expanded="false" />
-                <element signature="e#1521#1522#0" expanded="false" />
-                <element signature="e#1556#1557#0" expanded="false" />
-                <element signature="e#1612#1613#0" expanded="false" />
-                <element signature="e#1660#1661#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="420">
+              <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeamsViewController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pkg3treka/TeamsViewController.java">
+      <file leaf-file-name="UserTimeSheetsView.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsView.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1743">
-              <caret line="104" column="63" lean-forward="false" selection-start-line="104" selection-start-column="63" selection-end-line="104" selection-end-column="63" />
+            <state relative-caret-position="2100">
+              <caret line="100" column="55" lean-forward="false" selection-start-line="100" selection-start-column="55" selection-end-line="100" selection-end-column="55" />
               <folding>
-                <element signature="e#0#4436#0" expanded="false" />
-                <element signature="imports" expanded="false" />
+                <marker date="1515440435230" expanded="true" signature="8061:8129" ph="..." />
               </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FXMLDocumentController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pkg3treka/FXMLDocumentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2310">
+              <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,25 +80,23 @@
       <file leaf-file-name="AdminViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8862">
-              <caret line="480" column="57" lean-forward="false" selection-start-line="480" selection-start-column="52" selection-end-line="480" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#30237#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#7470#7471#0" expanded="false" />
-                <element signature="e#7522#7523#0" expanded="false" />
-                <element signature="e#7609#7610#0" expanded="false" />
-                <element signature="e#7640#7641#0" expanded="false" />
-                <element signature="e#28220#28221#0" expanded="false" />
-                <element signature="e#28248#28249#0" expanded="false" />
-                <element signature="e#29742#29743#0" expanded="false" />
-                <element signature="e#29774#29775#0" expanded="false" />
-                <element signature="e#29807#29808#0" expanded="false" />
-                <element signature="e#29834#29835#0" expanded="false" />
-                <element signature="e#29876#29877#0" expanded="false" />
-                <element signature="e#29908#29909#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="5355">
+              <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+              <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminView.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminView.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2625">
+              <caret line="125" column="53" lean-forward="false" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
@@ -146,6 +125,14 @@
       <find>taskCodeProject</find>
       <find>Clear</find>
       <find>Task Code</find>
+      <find>handleAddNewTaskAction</find>
+      <find>handleStartButtonEventAction</find>
+      <find>Start</find>
+      <find>Butt</find>
+      <find>createEmployee</find>
+      <find>startBtn</find>
+      <find>insert</find>
+      <find>Timesheets</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -172,10 +159,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1618" />
-    <option name="height" value="918" />
+    <option name="y" value="1" />
+    <option name="width" value="1600" />
+    <option name="height" value="899" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -505,35 +491,35 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1618" height="918" extended-state="6" />
+    <frame x="0" y="1" width="1600" height="899" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29705507" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29705507" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.243125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37926674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4225352" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4225352" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -550,28 +536,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/FXMLDocumentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="42" column="48" lean-forward="false" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -608,22 +572,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="223" column="41" lean-forward="false" selection-start-line="223" selection-start-column="40" selection-end-line="223" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#30237#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#7470#7471#0" expanded="false" />
-            <element signature="e#7522#7523#0" expanded="false" />
-            <element signature="e#7609#7610#0" expanded="false" />
-            <element signature="e#7640#7641#0" expanded="false" />
-            <element signature="e#28220#28221#0" expanded="false" />
-            <element signature="e#28248#28249#0" expanded="false" />
-            <element signature="e#29742#29743#0" expanded="false" />
-            <element signature="e#29774#29775#0" expanded="false" />
-            <element signature="e#29807#29808#0" expanded="false" />
-            <element signature="e#29834#29835#0" expanded="false" />
-            <element signature="e#29876#29877#0" expanded="false" />
-            <element signature="e#29908#29909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -631,22 +580,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#30237#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#7470#7471#0" expanded="false" />
-            <element signature="e#7522#7523#0" expanded="false" />
-            <element signature="e#7609#7610#0" expanded="false" />
-            <element signature="e#7640#7641#0" expanded="false" />
-            <element signature="e#28220#28221#0" expanded="false" />
-            <element signature="e#28248#28249#0" expanded="false" />
-            <element signature="e#29742#29743#0" expanded="false" />
-            <element signature="e#29774#29775#0" expanded="false" />
-            <element signature="e#29807#29808#0" expanded="false" />
-            <element signature="e#29834#29835#0" expanded="false" />
-            <element signature="e#29876#29877#0" expanded="false" />
-            <element signature="e#29908#29909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -712,22 +646,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-126">
           <caret line="354" column="38" lean-forward="true" selection-start-line="354" selection-start-column="38" selection-end-line="354" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#30237#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#7470#7471#0" expanded="false" />
-            <element signature="e#7522#7523#0" expanded="false" />
-            <element signature="e#7609#7610#0" expanded="false" />
-            <element signature="e#7640#7641#0" expanded="false" />
-            <element signature="e#28220#28221#0" expanded="false" />
-            <element signature="e#28248#28249#0" expanded="false" />
-            <element signature="e#29742#29743#0" expanded="false" />
-            <element signature="e#29774#29775#0" expanded="false" />
-            <element signature="e#29807#29808#0" expanded="false" />
-            <element signature="e#29834#29835#0" expanded="false" />
-            <element signature="e#29876#29877#0" expanded="false" />
-            <element signature="e#29908#29909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -735,22 +654,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#30237#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#7470#7471#0" expanded="false" />
-            <element signature="e#7522#7523#0" expanded="false" />
-            <element signature="e#7609#7610#0" expanded="false" />
-            <element signature="e#7640#7641#0" expanded="false" />
-            <element signature="e#28220#28221#0" expanded="false" />
-            <element signature="e#28248#28249#0" expanded="false" />
-            <element signature="e#29742#29743#0" expanded="false" />
-            <element signature="e#29774#29775#0" expanded="false" />
-            <element signature="e#29807#29808#0" expanded="false" />
-            <element signature="e#29834#29835#0" expanded="false" />
-            <element signature="e#29876#29877#0" expanded="false" />
-            <element signature="e#29908#29909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -780,22 +684,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#30237#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#7470#7471#0" expanded="false" />
-            <element signature="e#7522#7523#0" expanded="false" />
-            <element signature="e#7609#7610#0" expanded="false" />
-            <element signature="e#7640#7641#0" expanded="false" />
-            <element signature="e#28220#28221#0" expanded="false" />
-            <element signature="e#28248#28249#0" expanded="false" />
-            <element signature="e#29742#29743#0" expanded="false" />
-            <element signature="e#29774#29775#0" expanded="false" />
-            <element signature="e#29807#29808#0" expanded="false" />
-            <element signature="e#29834#29835#0" expanded="false" />
-            <element signature="e#29876#29877#0" expanded="false" />
-            <element signature="e#29908#29909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -825,22 +714,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#30237#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#7470#7471#0" expanded="false" />
-            <element signature="e#7522#7523#0" expanded="false" />
-            <element signature="e#7609#7610#0" expanded="false" />
-            <element signature="e#7640#7641#0" expanded="false" />
-            <element signature="e#28220#28221#0" expanded="false" />
-            <element signature="e#28248#28249#0" expanded="false" />
-            <element signature="e#29742#29743#0" expanded="false" />
-            <element signature="e#29774#29775#0" expanded="false" />
-            <element signature="e#29807#29808#0" expanded="false" />
-            <element signature="e#29834#29835#0" expanded="false" />
-            <element signature="e#29876#29877#0" expanded="false" />
-            <element signature="e#29908#29909#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -918,17 +792,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/TeamsViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1743">
-          <caret line="104" column="63" lean-forward="false" selection-start-line="104" selection-start-column="63" selection-end-line="104" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#4436#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/classes/pkg3treka/UserTimeSheetsView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
@@ -953,39 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8862">
-          <caret line="480" column="57" lean-forward="false" selection-start-line="480" selection-start-column="52" selection-end-line="480" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#30237#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#7470#7471#0" expanded="false" />
-            <element signature="e#7522#7523#0" expanded="false" />
-            <element signature="e#7609#7610#0" expanded="false" />
-            <element signature="e#7640#7641#0" expanded="false" />
-            <element signature="e#28220#28221#0" expanded="false" />
-            <element signature="e#28248#28249#0" expanded="false" />
-            <element signature="e#29742#29743#0" expanded="false" />
-            <element signature="e#29774#29775#0" expanded="false" />
-            <element signature="e#29807#29808#0" expanded="false" />
-            <element signature="e#29834#29835#0" expanded="false" />
-            <element signature="e#29876#29877#0" expanded="false" />
-            <element signature="e#29908#29909#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2394">
-          <caret line="114" column="58" lean-forward="false" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="58" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/ProjectUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -1000,51 +830,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/StopWatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/TeamsViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="70" column="69" lean-forward="true" selection-start-line="70" selection-start-column="69" selection-end-line="70" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2625">
+          <caret line="125" column="53" lean-forward="false" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/commons-lang3-3.7-sources.jar!/org/apache/commons/lang3/time/StopWatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6069">
+          <caret line="330" column="16" lean-forward="false" selection-start-line="330" selection-start-column="16" selection-end-line="330" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
+        <state relative-caret-position="147">
           <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding>
-            <element signature="e#592#593#0" expanded="false" />
-            <element signature="e#628#629#0" expanded="false" />
-            <element signature="e#663#664#0" expanded="false" />
-            <element signature="e#694#695#0" expanded="false" />
-            <element signature="e#742#743#0" expanded="false" />
-            <element signature="e#782#783#0" expanded="false" />
-            <element signature="e#818#819#0" expanded="false" />
-            <element signature="e#853#854#0" expanded="false" />
-            <element signature="e#906#907#0" expanded="false" />
-            <element signature="e#954#955#0" expanded="false" />
-            <element signature="e#989#990#0" expanded="false" />
-            <element signature="e#1023#1024#0" expanded="false" />
-            <element signature="e#1074#1075#0" expanded="false" />
-            <element signature="e#1120#1121#0" expanded="false" />
-            <element signature="e#1157#1158#0" expanded="false" />
-            <element signature="e#1190#1191#0" expanded="false" />
-            <element signature="e#1242#1243#0" expanded="false" />
-            <element signature="e#1286#1287#0" expanded="false" />
-            <element signature="e#1328#1329#0" expanded="false" />
-            <element signature="e#1366#1367#0" expanded="false" />
-            <element signature="e#1428#1429#0" expanded="false" />
-            <element signature="e#1482#1483#0" expanded="false" />
-            <element signature="e#1521#1522#0" expanded="false" />
-            <element signature="e#1556#1557#0" expanded="false" />
-            <element signature="e#1612#1613#0" expanded="false" />
-            <element signature="e#1660#1661#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/util/concurrent/TimeUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1403">
+          <caret line="70" column="12" lean-forward="false" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/TaskProject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        <state relative-caret-position="420">
+          <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pkg3treka/AdminViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5355">
+          <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/dist/commons-lang3-3.7.jar!/org/apache/commons/lang3/time/StopWatch.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1911">
+          <caret line="96" column="16" lean-forward="false" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/FXMLDocumentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
+        <state relative-caret-position="2310">
           <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding />
         </state>
@@ -1052,10 +911,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsView.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+        <state relative-caret-position="2100">
+          <caret line="100" column="55" lean-forward="false" selection-start-line="100" selection-start-column="55" selection-end-line="100" selection-end-column="55" />
           <folding>
-            <marker date="1512656731838" expanded="true" signature="4838:4906" ph="..." />
+            <marker date="1515440435230" expanded="true" signature="8061:8129" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1065,20 +924,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pkg3treka/UserTimeSheetsViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+        <state relative-caret-position="149">
+          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pkg3treka/StopWatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#1293#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>

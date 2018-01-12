@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,6 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import org.apache.commons.lang3.time.StopWatch;
 
 /**
  * @author User
@@ -98,11 +101,24 @@ public class UserTimeSheetsViewController implements Initializable {
     @FXML
     private TableView<TaskProject> taskTimeSheets;
 
+
+    @FXML
+    private TableView<Projects> projectsSheet;
+
+    @FXML
+    private TableView<Task> taskTimeSheet;
+
+    @FXML
+    private TableView<TaskProject> granularSheet;
+
+
     private ObservableList<Projects> allProjectsData = FXCollections.observableArrayList();
 
     private ObservableList<Task> allTasksData = FXCollections.observableArrayList();
 
     private ObservableList<TaskProject> taskTimeSheetsData = FXCollections.observableArrayList();
+
+    private StopWatch stopWatch = new StopWatch();
 
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -121,16 +137,46 @@ public class UserTimeSheetsViewController implements Initializable {
 
     @FXML
     void closeButtonEventAction(ActionEvent event) {
+        if (stopWatch.isStarted()) {
+            stopWatch.stop();
+        }
+        saveDetails();
+    }
 
+    private void saveDetails() {
+
+        int projectNumber = (Integer.valueOf(taskTimeSheets.getSelectionModel().getSelectedItem().getProjectNumber()));
+        int taskCode = (Integer.valueOf(taskTimeSheets.getSelectionModel().getSelectedItem().getTaskCode()));
+        long duration = stopWatch.getTime(TimeUnit.MINUTES);
+
+        String sql = " insert into task_event (project_num, task_num, duration)"
+                + " values (?, ?, ?)";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, projectNumber);
+            preparedStatement.setInt(2, taskCode);
+            preparedStatement.setLong(3, duration);
+            preparedStatement.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void handleStartButtonEventAction(ActionEvent event) {
 
+        if (!stopWatch.isStarted()) {
+            stopWatch.start();
+        }
     }
 
     @FXML
     void pauseButtonEventAction(ActionEvent event) {
+
+        if (stopWatch.isStarted()) {
+            stopWatch.suspend();
+        }
 
     }
 
