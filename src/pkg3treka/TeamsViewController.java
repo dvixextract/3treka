@@ -35,19 +35,28 @@ public class TeamsViewController implements Initializable {
      * Initializes the controller class.
      */
     @FXML
-    private TableView<String> teamsTable;
+    private TableView<Teams> teamsTable;
 
     @FXML
     private TableColumn<Teams, String> membername;
+    
+       
+    @FXML
+    private TableColumn<Teams, String> memberRole;
+
+    @FXML
+    private TableColumn<Teams, String> numberOfProjectsInvolvedIn;
 
     @FXML
     private ListView<String> TeamNameListview;
+    
+
 
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     com.mysql.jdbc.ResultSet resultSet = null;
     ObservableList<String> TeamsOutput = FXCollections.observableArrayList();
-    ObservableList<String> TeamsMembers = FXCollections.observableArrayList();
+    ObservableList<Teams> TeamsMembers = FXCollections.observableArrayList();
 
     public TeamsViewController() throws SQLException {
         try {
@@ -71,25 +80,30 @@ public class TeamsViewController implements Initializable {
             resultSet = (ResultSet) preparedStatement.executeQuery();
             while (resultSet.next()) {
                 TeamsOutput.add(resultSet.getString(1));
-                TeamsMembers.add(resultSet.getString(2));
+                
                 TeamNameListview.setItems(TeamsOutput);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        teamsTable.setItems(TeamsMembers);
+       // teamsTable.setItems(TeamsMembers);
     }
 
     public void setColumnTableData() {
         membername.setCellValueFactory(new PropertyValueFactory<Teams, String>("Tnames"));
+        memberRole.setCellValueFactory(new PropertyValueFactory<Teams, String>("Troles"));
+        numberOfProjectsInvolvedIn.setCellValueFactory(new PropertyValueFactory<Teams, String>("ProjInvolvedIn"));
     }
 
+    
     public void TeamListViewClick() {
 
         TeamNameListview.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
+                teamsTable.getItems().clear();
+
 
                 System.out.println("user selected information -------------->>");
                 System.out.println(TeamNameListview.getSelectionModel().getSelectedItem().toString());
@@ -103,11 +117,33 @@ public class TeamsViewController implements Initializable {
                     System.out.println("names-------------------------");
                     while (resultSet.next()) {
                         System.out.println(resultSet.getString(1));
+                       // TeamsMembers.add(new Teams(resultSet.getString(1)));
+                        
+                        ////////////////////
+                        String SelectedTeammemberName = resultSet.getString(1);
+                        try {
+                            String sqlSt = "SELECT Role FROM Users where (U_name = '" +  SelectedTeammemberName + "')";
+                            preparedStatement = connection.prepareStatement(sqlSt);
+                            resultSet = (ResultSet) preparedStatement.executeQuery();
+                            System.out.println("names-------------------------");
+                           // while (resultSet.next()) {
+                                System.out.println(resultSet.getString(1));
+                                TeamsMembers.add(new Teams(SelectedTeammemberName,resultSet.getString(1) ));
+
+                            //}
+                        } catch (SQLException ex) {
+                            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
+                        ////////////////////
+                        
+                        
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
+                teamsTable.setItems(TeamsMembers);
                 //  membername.add("something);
 //               Team_Members.add(Employees.getSelectionModel().getSelectedItem().getName());
 //               setMember(Employees.getSelectionM"odel().getSelectedItem().getName());
