@@ -149,18 +149,29 @@ public class Task {
     private String taskStatus;
     private String taskInformation;
     private String taskTeamMemberAssigned;
-    private Date taskFromDate;
-    private Date taskToDate;
+    private String taskFromDate;
+    private String taskToDate;
     private int taskTimeSpan;
     
     
-    public Task (int taskNum,String taskNam, int projCode,String taskStats,String taskInformation,String taskTeamMemberAssigned ,Date taskFromdate,Date taskTodate, int timeFrame){
+    public Task (int taskNum,String taskNam, int projCode,String taskStats,String taskInformation,String taskTeamMemberAssigned ,String taskFromdate,String taskTodate, int timeFrame){
 
         this.taskNumber = taskNum;
         this.taskName = taskNam;
         this.taskStatus = taskStats;
         this.taskFromDate = taskFromdate;
         this.taskToDate = taskTodate;
+        this.taskTeamMemberAssigned = taskTeamMemberAssigned;
+        this.taskInformation = taskInformation;
+        this.taskTimeSpan = timeFrame;
+        this.projectCode = projCode;
+        
+    }
+        public Task (int taskNum,String taskNam, int projCode,String taskStats,String taskInformation,String taskTeamMemberAssigned , int timeFrame){
+
+        this.taskNumber = taskNum;
+        this.taskName = taskNam;
+        this.taskStatus = taskStats;
         this.taskTeamMemberAssigned = taskTeamMemberAssigned;
         this.taskInformation = taskInformation;
         this.taskTimeSpan = timeFrame;
@@ -217,28 +228,28 @@ public class Task {
     /**
      * @return the taskFromDate
      */
-    public Date getTaskFromDate() {
+    public String getTaskFromDate() {
         return taskFromDate;
     }
 
     /**
      * @param taskFromDate the taskFromDate to set
      */
-    public void setTaskFromDate(Date taskFromDate) {
+    public void setTaskFromDate(String taskFromDate) {
         this.taskFromDate = taskFromDate;
     }
 
     /**
      * @return the taskToDate
      */
-    public Date getTaskToDate() {
+    public String getTaskToDate() {
         return taskToDate;
     }
 
     /**
      * @param taskToDate the taskToDate to set
      */
-    public void setTaskToDate(Date taskToDate) {
+    public void setTaskToDate(String taskToDate) {
         this.taskToDate = taskToDate;
     }
 

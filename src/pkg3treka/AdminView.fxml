@@ -316,13 +316,15 @@
                                                       </HBox>
                                                       <TableView fx:id="createTaskTable" layoutX="2.0" layoutY="160.0" prefHeight="248.0" prefWidth="835.0">
                                                         <columns>
-                                                          <TableColumn fx:id="taskNumberCreateTaskColumn" prefWidth="75.0" text="Number" />
-                                                          <TableColumn fx:id="taskStatusCreateTaskColumn" prefWidth="75.0" text="Status" />
-                                                            <TableColumn fx:id="taskNameCreateTaskColumn" prefWidth="75.0" text="Name" />
-                                                            <TableColumn fx:id="taskInformationCreateTaskColumn" prefWidth="225.0" text="Information " />
-                                                            <TableColumn fx:id="fromDateCreateTaskColumn" prefWidth="114.0" text="From Date" />
-                                                            <TableColumn fx:id="toDateCreateTaskColumn" prefWidth="107.0" text="To Date " />
-                                                            <TableColumn fx:id="teamMemberAssignedCreateTaskColumn" prefWidth="159.0" text="Team Member Assigned" />
+                                                          <TableColumn fx:id="taskNumberCreateTaskColumn" prefWidth="57.0" text="Number" />
+                                                          <TableColumn fx:id="taskStatusCreateTaskColumn" prefWidth="71.0" text="Status" />
+                                                            <TableColumn fx:id="taskNameCreateTaskColumn" prefWidth="97.0" text="Name" />
+                                                            <TableColumn fx:id="taskInformationCreateTaskColumn" prefWidth="98.0" text="Information " />
+                                                            <TableColumn fx:id="fromDateCreateTaskColumn" prefWidth="118.0" text="From Date" />
+                                                            <TableColumn fx:id="toDateCreateTaskColumn" prefWidth="91.0" text="To Date " />
+                                                            <TableColumn fx:id="timeSpanColumn" prefWidth="78.0" text="Time Span" />
+                                                            <TableColumn fx:id="teamMemberAssignedCreateTaskColumn" prefWidth="114.0" text="Team Member Assigned" />
+                                                            <TableColumn fx:id="projectCodeColumnCreateTask" prefWidth="109.0" text="Project Code" />
                                                         </columns>
                                                       </TableView>
                                                    </children>
