@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="3treka:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/3treka_jar</output-path>
+    <root id="archive" name="3treka.jar">
+      <element id="module-output" name="3treka" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/dist/lib/mysql-connector-java-5.1.23-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/dist/lib/mysql-connector-java-5.0.8-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/dist/commons-lang3-3.7.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
