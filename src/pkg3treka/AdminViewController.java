@@ -218,8 +218,8 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     private TextField taskNameTextBox;
 
     private String mmber;
-    
-      // Begining of Create Task UI Components  
+
+      // Begining of Create Task UI Components
         @FXML
     private Label taskNumberCreateTask;
 
@@ -246,18 +246,18 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
     @FXML
     private Button deleteTaskBtnCreateTask;
-    
+
     @FXML
     private VBox vboxCreateTask;
 
     @FXML
     private HBox hboxCreateTask;
 
-   //End of Create Task UI Components 
-    
-    
-    
-    private ObservableList<Car> cars = FXCollections.observableArrayList();
+   //End of Create Task UI Components
+
+
+
+    //private ObservableList<Car> cars = FXCollections.observableArrayList();
 
     private ObservableList<User> masterData = FXCollections.observableArrayList();
     private ObservableList<User> AllUserData = FXCollections.observableArrayList();
@@ -285,7 +285,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-//    
+//
         masterData.add(new User("Dennis", "Masha", "Director", "Tier 3"));//test data
 
         // Initially add all data to filtered data
@@ -325,7 +325,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, TmNmae);
 
-                //  while(teamdata.hasNext()){  
+                //  while(teamdata.hasNext()){
                 preparedStatement.setString(2, (String) teamdata.next());
                 preparedStatement.execute();
                 // }
@@ -443,18 +443,19 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         start();
 
     tabChange();
-    
+
 
 
     }
 
-  
-    
-public void start(Stage primaryStage) {
-    cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
+/*
 
-    cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
-    
+
+public void start(Stage primaryStage) {
+//    cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
+
+  //  cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
+
     ListView<Car> carsListView = new ListView<>();
     carsListView.setCellFactory(c -> new CarListCell());
     carsListView.setItems(cars);
@@ -469,9 +470,10 @@ public void start(Stage primaryStage) {
     primaryStage.show();
 }
 
-   
-    
-    
+
+*/
+
+
     public void tabChange() {
 
         AdminTabPane.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
@@ -514,9 +516,9 @@ public void start(Stage primaryStage) {
 //
 //for(int i=0;i<Team_Members.size();i++){
 //    System.out.println(Team_Members.get(i));
-//} 
 //}
-//     
+//}
+//
     public String onEdit() {
         // check the table's selected item and get selected item
         String sur_name = "";
@@ -863,26 +865,26 @@ public void start(Stage primaryStage) {
     }
     @FXML
     void handleAddTasksButtonAction(ActionEvent event) {
-        
+
     }
-    
-   //Create Task UI Components 
-    
-    
-    
-    
-    
-    
-    
+
+   //Create Task UI Components
+/*
+
+
+
+
+
+
     private class CarListCell extends ListCell<Car> {
 
-        
-        
+
+
 
 
     public CarListCell() {
-        
-        
+
+
         hboxCreateTask.getChildren().addAll(taskNumberCreateTask,taskStatusCreateTask,taskNameCreateTask,fromDateCreateTask,toDateCreateTask, teamHeadComboBoxCreateTask);
         vboxCreateTask.getChildren().addAll(hboxCreateTask,taskInformationCreateTask);
         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
@@ -910,7 +912,7 @@ public void start(Stage primaryStage) {
     }
 
 }
-
+    */
 private enum CAR_TYPE {
     CAR1_tetbeeeee, CAR2_iububdfcxkndns, CAR3_nkrebsbcnevjds;
 }
@@ -931,15 +933,16 @@ private class Car {
         this.type = type;
     }
 }
-    
-    
-    
-    
-    
+
+
+
+
+
     @FXML
     void handleDeleteTaskAction(ActionEvent event) {
 
     }
+/*
 
     @FXML
     void handleAddNewTaskAction(ActionEvent event) {
@@ -947,5 +950,6 @@ private class Car {
      Car newCar = new Car((CAR_TYPE) teamHeadComboBoxCreateTask.getValue());
      cars.add(newCar);
     }
+*/
 
 }

@@ -89,6 +89,7 @@ public class FXMLDocumentController implements Initializable {
    
     public FXMLDocumentController() throws SQLException {
         try {
+
            connection = DBConnection.getConnection();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
@@ -109,7 +110,7 @@ public class FXMLDocumentController implements Initializable {
         }
 
  
-        String sql = "SELECT * FROM Users WHERE U_username = ? and U_password = ?";
+        String sql = "SELECT * FROM users WHERE U_username = ? and U_password = ?";
  
     try{
 
