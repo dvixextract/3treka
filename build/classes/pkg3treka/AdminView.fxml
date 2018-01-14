@@ -24,7 +24,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1083.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg3treka.AdminViewController">
@@ -256,72 +255,7 @@
                                              <content>
                                                 <AnchorPane prefHeight="516.0" prefWidth="843.0">
                                                    <children>
-                                                      <GridPane fx:id="newTaskGrid" gridLinesVisible="true" layoutX="3.0" layoutY="8.0" prefHeight="73.0" prefWidth="808.0">
-                                                        <columnConstraints>
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="38.0" />
-                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="67.0" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="129.0" />
-                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.0" minWidth="10.0" prefWidth="299.0" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.0" minWidth="9.0" prefWidth="54.0" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="0.0" prefWidth="174.0" />
-                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="43.0" />
-                                                        </columnConstraints>
-                                                        <rowConstraints>
-                                                          <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
-                                                        </rowConstraints>
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2669a3" height="34.0" stroke="BLACK" strokeType="INSIDE" width="26.0">
-                                                               <GridPane.margin>
-                                                                  <Insets left="5.0" right="5.0" />
-                                                               </GridPane.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2567a4" height="36.0" stroke="BLACK" strokeType="INSIDE" width="56.0" GridPane.columnIndex="1">
-                                                               <GridPane.margin>
-                                                                  <Insets left="5.0" />
-                                                               </GridPane.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeff1" height="32.0" stroke="BLACK" strokeType="INSIDE" width="44.0" GridPane.columnIndex="4">
-                                                               <GridPane.margin>
-                                                                  <Insets left="5.0" right="5.0" />
-                                                               </GridPane.margin>
-                                                            </Rectangle>
-                                                            <TextArea fx:id="taskInformationTextArea" prefHeight="60.0" prefWidth="299.0" promptText="Enter Task information" GridPane.columnIndex="3">
-                                                               <GridPane.margin>
-                                                                  <Insets top="15.0" />
-                                                               </GridPane.margin>
-                                                            </TextArea>
-                                                            <ComboBox fx:id="assignTaskToTeamLeadCombobox" prefHeight="34.0" prefWidth="180.0" promptText="Team Lead" GridPane.columnIndex="5">
-                                                               <GridPane.margin>
-                                                                  <Insets left="5.0" right="5.0" />
-                                                               </GridPane.margin>
-                                                            </ComboBox>
-                                                            <Label fx:id="taskNumberLabel" prefHeight="16.0" prefWidth="26.0" text="Number" textFill="#f8f7f7">
-                                                               <GridPane.margin>
-                                                                  <Insets left="7.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <Label fx:id="taskCompletionStatusLabel" text="Status" textFill="WHITE" GridPane.columnIndex="1">
-                                                               <GridPane.margin>
-                                                                  <Insets left="15.0" />
-                                                               </GridPane.margin>
-                                                            </Label>
-                                                            <TextField fx:id="taskTimeFrameTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="45.0" promptText="Time" GridPane.columnIndex="4">
-                                                               <GridPane.margin>
-                                                                  <Insets left="5.0" top="5.0" />
-                                                               </GridPane.margin>
-                                                            </TextField>
-                                                            <Button fx:id="addTasksButton" mnemonicParsing="false" onAction="#handleAddTasksButtonAction" prefHeight="33.0" prefWidth="60.0" text="+" textFill="#54b567" GridPane.columnIndex="6">
-                                                               <font>
-                                                                  <Font size="18.0" />
-                                                               </font>
-                                                               <GridPane.margin>
-                                                                  <Insets left="5.0" right="5.0" />
-                                                               </GridPane.margin>
-                                                            </Button>
-                                                            <TextField fx:id="taskNameTextBox" prefHeight="38.0" prefWidth="128.0" promptText="Enter Task Name" GridPane.columnIndex="2" />
-                                                         </children>
-                                                      </GridPane>
-                                                      <VBox fx:id="vboxCreateTask" layoutX="6.0" layoutY="100.0" prefHeight="91.0" prefWidth="832.0">
+                                                      <VBox fx:id="vboxCreateTask" layoutX="6.0" layoutY="14.0" prefHeight="91.0" prefWidth="832.0">
                                                          <children>
                                                             <HBox fx:id="hboxCreateTask" prefHeight="32.0" prefWidth="808.0">
                                                                <children>
@@ -350,33 +284,53 @@
                                                                         <Insets right="10.0" />
                                                                      </HBox.margin>
                                                                   </DatePicker>
-                                                                  <ComboBox fx:id="teamHeadComboBoxCreateTask" prefHeight="27.0" prefWidth="140.0">
+                                                                  <ComboBox fx:id="teamHeadComboBoxCreateTask" prefHeight="27.0" prefWidth="140.0" promptText="Team Lead">
                                                                      <HBox.margin>
                                                                         <Insets right="10.0" />
                                                                      </HBox.margin>
                                                                   </ComboBox>
                                                                </children>
                                                             </HBox>
-                                                            <TextArea fx:id="taskInformationCreateTask" prefHeight="50.0" prefWidth="803.0" promptText="Enter Task information here" />
+                                                            <TextArea fx:id="taskInformationCreateTask" prefHeight="50.0" prefWidth="673.0" promptText="Enter Task information here" />
                                                          </children>
                                                       </VBox>
-                                                      <TableView layoutX="6.0" layoutY="191.0" prefHeight="207.0" prefWidth="831.0">
+                                                      <HBox layoutX="290.0" layoutY="105.0" prefHeight="56.0" prefWidth="264.0">
+                                                         <children>
+                                                            <Button fx:id="AddNewTaskBtnCreateTask" mnemonicParsing="false" onAction="#handleAddNewTaskAction" prefHeight="39.0" prefWidth="121.0" text="ADD" textFill="#1ad321">
+                                                               <padding>
+                                                                  <Insets right="10.0" />
+                                                               </padding>
+                                                               <HBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button fx:id="deleteTaskBtnCreateTask" mnemonicParsing="false" onAction="#handleDeleteTaskAction" prefHeight="39.0" prefWidth="127.0" text="DELETE" textFill="#dd0e0e">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="10.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                      <TableView fx:id="createTaskTable" layoutX="2.0" layoutY="160.0" prefHeight="248.0" prefWidth="835.0">
                                                         <columns>
-                                                          <TableColumn prefWidth="75.0" text="Number" />
-                                                          <TableColumn prefWidth="75.0" text="Status" />
-                                                            <TableColumn prefWidth="75.0" text="Name" />
-                                                            <TableColumn prefWidth="225.0" text="Information " />
-                                                            <TableColumn prefWidth="114.0" text="From Date" />
-                                                            <TableColumn prefWidth="107.0" text="To Date " />
-                                                            <TableColumn prefWidth="159.0" text="Team Member Assigned" />
+                                                          <TableColumn fx:id="taskNumberCreateTaskColumn" prefWidth="57.0" text="Number" />
+                                                          <TableColumn fx:id="taskStatusCreateTaskColumn" prefWidth="71.0" text="Status" />
+                                                            <TableColumn fx:id="taskNameCreateTaskColumn" prefWidth="97.0" text="Name" />
+                                                            <TableColumn fx:id="taskInformationCreateTaskColumn" prefWidth="98.0" text="Information " />
+                                                            <TableColumn fx:id="fromDateCreateTaskColumn" prefWidth="118.0" text="From Date" />
+                                                            <TableColumn fx:id="toDateCreateTaskColumn" prefWidth="91.0" text="To Date " />
+                                                            <TableColumn fx:id="timeSpanColumn" prefWidth="78.0" text="Time Span" />
+                                                            <TableColumn fx:id="teamMemberAssignedCreateTaskColumn" prefWidth="114.0" text="Team Member Assigned" />
+                                                            <TableColumn fx:id="projectCodeColumnCreateTask" prefWidth="109.0" text="Project Code" />
                                                         </columns>
                                                       </TableView>
                                                    </children>
                                                 </AnchorPane>
                                              </content>
                                           </ScrollPane>
-                                          <Button fx:id="AddNewTaskBtnCreateTask" layoutX="97.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleAddNewTaskAction" prefHeight="33.0" prefWidth="75.0" text="ADD" textFill="#1ad321" />
-                                          <Button fx:id="deleteTaskBtnCreateTask" layoutX="8.0" layoutY="463.0" mnemonicParsing="false" onAction="#handleDeleteTaskAction" prefHeight="32.0" prefWidth="73.0" text="DELETE" textFill="#dd0e0e" />
                                           <Button fx:id="saveTasksButton" layoutX="646.0" layoutY="461.0" mnemonicParsing="false" onAction="#handleSaveTasksButtonAction" prefHeight="34.0" prefWidth="182.0" text="Save" />
                                           <ComboBox fx:id="projectSelectedCombobox" layoutX="8.0" layoutY="14.0" prefHeight="27.0" prefWidth="350.0" promptText="Project Selected" />
                                           <ComboBox fx:id="createTaskSelectTeamCombobox" layoutX="499.0" layoutY="14.0" prefHeight="27.0" prefWidth="350.0" promptText="Teams" />

@@ -1,85 +1,182 @@
+
 package pkg3treka;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 /**
- * Created by Mohale_Potsane on 11/19/2017.
+ *
+ * @author User
  */
 public class Task {
+    private int taskNumber;
+    private String taskName;
+    private int projectCode;
+    private String taskStatus;
+    private String taskInformation;
+    private String taskTeamMemberAssigned;
+    private String taskFromDate;
+    private String taskToDate;
+    private int taskTimeSpan;
+    
+    
+    public Task (int taskNum,String taskNam, int projCode,String taskStats,String taskInformation,String taskTeamMemberAssigned ,String taskFromdate,String taskTodate, int timeFrame){
 
-   private int taskId;
+        this.taskNumber = taskNum;
+        this.taskName = taskNam;
+        this.taskStatus = taskStats;
+        this.taskFromDate = taskFromdate;
+        this.taskToDate = taskTodate;
+        this.taskTeamMemberAssigned = taskTeamMemberAssigned;
+        this.taskInformation = taskInformation;
+        this.taskTimeSpan = timeFrame;
+        this.projectCode = projCode;
+        
+    }
+        public Task (int taskNum,String taskNam, int projCode,String taskStats,String taskInformation,String taskTeamMemberAssigned , int timeFrame){
 
-   private String taskName;
-
-   private int taskTimeSpan;
-
-   private int projectCode;
-
-   private String taskStatus;
-
-   private String taskDescription;
-
-   private String taskTeamLead;
-
-    public Task(int taskId, String taskName, String taskDescription) {
-        this.taskId = taskId;
-        this.taskName = taskName;
-        this.taskDescription = taskDescription;
+        this.taskNumber = taskNum;
+        this.taskName = taskNam;
+        this.taskStatus = taskStats;
+        this.taskTeamMemberAssigned = taskTeamMemberAssigned;
+        this.taskInformation = taskInformation;
+        this.taskTimeSpan = timeFrame;
+        this.projectCode = projCode;
+        
+    }
+    
+    Task() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public int getTaskId() {
-        return taskId;
+    /**
+     * @return the taskNumber
+     */
+    public int getTaskNumber() {
+        return taskNumber;
     }
 
-    public void setTaskId(int taskId) {
-        this.taskId = taskId;
+    /**
+     * @param taskNumber the taskNumber to set
+     */
+    public void setTaskNumber(int taskNumber) {
+        this.taskNumber = taskNumber;
     }
 
+    /**
+     * @return the taskName
+     */
     public String getTaskName() {
         return taskName;
     }
 
+    /**
+     * @param taskName the taskName to set
+     */
     public void setTaskName(String taskName) {
         this.taskName = taskName;
     }
 
-    public int getTaskTimeSpan() {
-        return taskTimeSpan;
-    }
-
-    public void setTaskTimeSpan(int taskTimeSpan) {
-        this.taskTimeSpan = taskTimeSpan;
-    }
-
-    public int getProjectCode() {
-        return projectCode;
-    }
-
-    public void setProjectCode(int projectCode) {
-        this.projectCode = projectCode;
-    }
-
+    /**
+     * @return the taskStatus
+     */
     public String getTaskStatus() {
         return taskStatus;
     }
 
+    /**
+     * @param taskStatus the taskStatus to set
+     */
     public void setTaskStatus(String taskStatus) {
         this.taskStatus = taskStatus;
     }
 
-    public String getTaskDescription() {
-        return taskDescription;
+    /**
+     * @return the taskFromDate
+     */
+    public String getTaskFromDate() {
+        return taskFromDate;
     }
 
-    public void setTaskDescription(String taskDescription) {
-        this.taskDescription = taskDescription;
+    /**
+     * @param taskFromDate the taskFromDate to set
+     */
+    public void setTaskFromDate(String taskFromDate) {
+        this.taskFromDate = taskFromDate;
     }
 
-    public String getTaskTeamLead() {
-        return taskTeamLead;
+    /**
+     * @return the taskToDate
+     */
+    public String getTaskToDate() {
+        return taskToDate;
     }
 
-    public void setTaskTeamLead(String taskTeamLead) {
-        this.taskTeamLead = taskTeamLead;
+    /**
+     * @param taskToDate the taskToDate to set
+     */
+    public void setTaskToDate(String taskToDate) {
+        this.taskToDate = taskToDate;
     }
+
+    /**
+     * @return the taskTeamMemberAssigned
+     */
+    public String getTaskTeamMemberAssigned() {
+        return taskTeamMemberAssigned;
+    }
+
+    /**
+     * @param taskTeamMemberAssigned the taskTeamMemberAssigned to set
+     */
+    public void setTaskTeamMemberAssigned(String taskTeamMemberAssigned) {
+        this.taskTeamMemberAssigned = taskTeamMemberAssigned;
+    }
+
+    /**
+     * @return the taskInformation
+     */
+    public String getTaskInformation() {
+        return taskInformation;
+    }
+
+    /**
+     * @param taskInformation the taskInformation to set
+     */
+    public void setTaskInformation(String taskInformation) {
+        this.taskInformation = taskInformation;
+    }
+
+    /**
+     * @return the taskTimeSpan
+     */
+    public int getTaskTimeSpan() {
+        return taskTimeSpan;
+    }
+
+    /**
+     * @param taskTimeSpan the taskTimeSpan to set
+     */
+    public void setTaskTimeSpan(int taskTimeSpan) {
+        this.taskTimeSpan = taskTimeSpan;
+    }
+
+    /**
+     * @return the projectCode
+     */
+    public int getProjectCode() {
+        return projectCode;
+    }
+
+    /**
+     * @param projectCode the projectCode to set
+     */
+    public void setProjectCode(int projectCode) {
+        this.projectCode = projectCode;
+    }
+    
+
+    
+    
 }
-
 
