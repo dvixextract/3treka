@@ -32,37 +32,95 @@
                   </AnchorPane>
             </content>
           </Tab>
+
           <Tab text="Timesheets">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="14.0" layoutY="224.0" prefHeight="279.0" prefWidth="990.0">
+                        <TableView fx:id="taskTimeSheets" layoutX="14.0" layoutY="224.0" prefHeight="279.0" prefWidth="990.0">
                           <columns>
-                            <TableColumn prefWidth="112.0" text="Project Number" />
-                            <TableColumn prefWidth="124.0" text="Project Name" />
-                              <TableColumn prefWidth="130.0" text="Task Code" />
-                              <TableColumn prefWidth="123.0" text="Task Name" />
-                              <TableColumn minWidth="0.0" prefWidth="407.0" text="Task Description" />
-                              <TableColumn prefWidth="93.0" text="Day" />
+                            <TableColumn fx:id="projectNumberColumnTimeSheetTable" prefWidth="112.0" text="Project Number" />
+                            <TableColumn fx:id="projectNameColumnTimeSheetTable" prefWidth="124.0" text="Project Name" />
+                              <TableColumn fx:id="taskCodeColumnTimeSheetTable" prefWidth="130.0" text="Task Code" />
+                              <TableColumn fx:id="taskNameColumnTimeSheetTable" prefWidth="123.0" text="Task Name" />
+                              <TableColumn fx:id="taskDescriptionColumnTimeSheetTable" minWidth="0.0" prefWidth="407.0" text="Task Description" />
+                              <TableColumn fx:id="dayColumnTimesheetTable" prefWidth="93.0" text="Day" />
                           </columns>
                         </TableView>
-                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="197.0" prefWidth="350.0">
+
+                        <TableView fx:id="allProjects" layoutX="14.0" layoutY="14.0" prefHeight="197.0" prefWidth="350.0">
                           <columns>
                             <TableColumn fx:id="projectNumberColumnTableProject" prefWidth="130.0" text="Project Number" />
                               <TableColumn fx:id="projectNameColumnTableProject" prefWidth="247.0" text="Project Name" />
                           </columns>
                         </TableView>
-                        <TableView layoutX="379.0" layoutY="13.0" prefHeight="200.0" prefWidth="625.0">
+
+                        <TableView fx:id="projectsTask" layoutX="379.0" layoutY="13.0" prefHeight="200.0" prefWidth="625.0">
                           <columns>
-                            <TableColumn fx:id="taskCodeProject" prefWidth="107.0" text="Task Code" />
-                            <TableColumn prefWidth="212.0" text="Task Name" />
-                              <TableColumn prefWidth="285.0" text="Task Description" />
+                            <TableColumn fx:id="taskCodeColumnTableTask" prefWidth="107.0" text="Task Code" />
+                            <TableColumn fx:id="taskNameColumnTableTask" prefWidth="212.0" text="Task Name" />
+                            <TableColumn fx:id="taskDescriptionColumnTableTask" prefWidth="285.0" text="Task Description" />
                           </columns>
                         </TableView>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
+
+          <!--<Tab text="My times">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+
+                          <TableView fx:id="granularSheets" layoutX="14.0" layoutY="224.0" prefHeight="279.0" prefWidth="990.0">
+                              <columns>
+                                  <TableColumn fx:id="project_num" prefWidth="112.0" text="Project Number" />
+                                  <TableColumn fx:id="project_name" prefWidth="124.0" text="Project Name" />
+                                  <TableColumn fx:id="task_code" prefWidth="130.0" text="Task Code" />
+                                  <TableColumn fx:id="task_name" prefWidth="123.0" text="Task Name" />
+                                  <TableColumn fx:id="time_worked" prefWidth="93.0" text="Time spend" />
+                              </columns>
+                          </TableView>
+
+                      </children>
+                  </AnchorPane>
+              </content>
+          </Tab>-->
+
+          <Tab text="My Times">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="granularSheets" layoutX="14.0" layoutY="224.0" prefHeight="279.0" prefWidth="990.0">
+                          <columns>
+                            <TableColumn fx:id="project_num" prefWidth="112.0" text="Project Number" />
+                            <TableColumn fx:id="project_name" prefWidth="124.0" text="Project Name" />
+                              <TableColumn fx:id="task_code" prefWidth="130.0" text="Task Code" />
+                              <TableColumn fx:id="task_name" prefWidth="123.0" text="Task Name" />
+                              <TableColumn fx:id="task_description" minWidth="0.0" prefWidth="407.0" text="Task Description" />
+                              <TableColumn fx:id="time_worked" prefWidth="93.0" text="Day" />
+                          </columns>
+                        </TableView>
+
+                        <TableView fx:id="projectsSheet" layoutX="14.0" layoutY="14.0" prefHeight="197.0" prefWidth="350.0">
+                          <columns>
+                            <TableColumn fx:id="projectNumber" prefWidth="130.0" text="Project Number" />
+                              <TableColumn fx:id="projectName" prefWidth="247.0" text="Project Name" />
+                          </columns>
+                        </TableView>
+
+                        <TableView fx:id="taskTimeSheet" layoutX="379.0" layoutY="13.0" prefHeight="200.0" prefWidth="625.0">
+                          <columns>
+                            <TableColumn fx:id="taskCode" prefWidth="107.0" text="Task Code" />
+                            <TableColumn fx:id="taskName" prefWidth="212.0" text="Task Name" />
+                            <TableColumn fx:id="taskDescription" prefWidth="285.0" text="Task Description" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+
         </tabs>
       </TabPane>
       <Button fx:id="startBtn" layoutX="248.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleStartButtonEventAction" prefHeight="27.0" prefWidth="185.0" text="Start" />

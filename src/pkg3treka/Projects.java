@@ -31,6 +31,12 @@ public class Projects {
         
     
     }
+
+    public Projects(String ProjCode, String ProjName){
+
+        this.ProjCode = ProjCode;
+        this.ProjName = ProjName;
+    }
     /**
      * @return the ProjCode
      */
