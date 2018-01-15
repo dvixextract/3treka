@@ -15,8 +15,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 //import java.time.LocalDate;
 import java.util.ArrayList;
@@ -728,19 +730,49 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         }
     }
 
+    public int getNumberOfTasks( int projectID){
+        String num = " ";
+        int totalNumberOfTasks = 0;
+        try{
+            String sql = "Select count(T_id) from Task Where P_projectCode = '"+projectID+"'";
+            preparedStatement = connection. prepareStatement(sql);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+            if( resultSet.next()){
+            
+                 num = resultSet.getString("count(T_id)");
+                 //System.out.printIn("This is the number of tasks in table"+num);
+                 System.out.println("This is the number of tasks in the table -------------->>"+num);
+            }
+            } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+       
+        totalNumberOfTasks = Integer.parseInt(num) +1;
+        return totalNumberOfTasks ;
+        }
+   
 
     public void createTask() {
 
-        int taskNumber = Integer.parseInt(taskNumberCreateTask.getText());
+//        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        LocalDate fromDateTime = LocalDate.from( fromDateCreateTask.getValue());
+        LocalDate toDateTime = LocalDate.from( toDateCreateTask.getValue());
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        
+        //int taskNumber = 12;// Integer.parseInt(taskNumberCreateTask.getText());
+        int taskNumber = getNumberOfTasks(getProjectId(projectSelectedCombobox.getValue()));
         String taskName = taskNameCreateTask.getText();
         String taskStatus = taskStatusCreateTask.getText();
-        String taskcompletionTime = taskTimeFrameTextField.getText();
+        String taskcompletionTime = "not calculated";//taskTimeFrameTextField.getText();
         int projectId = getProjectId(projectSelectedCombobox.getValue());
         String taskDescription = taskInformationCreateTask.getText();
         String teamLead = teamHeadComboBoxCreateTask.getValue();
+        String datTo = toDateTime.format(formatter);
+        String datFrom = fromDateTime.format(formatter);
 
-        String sql = " insert into Task (T_id, T_name, T_timespan, P_projectCode, T_status, T_Description, T_lead)"
-                + " values (?, ?, ?, ?, ?,?,?)";
+        String sql = " insert into Task (T_id, T_name, T_timespan, P_projectCode, T_status, T_Description, T_lead, T_startDate, T_endDate)"
+                + " values (?, ?, ?, ?, ?,?,?,?,?)";
 
         try {
 
@@ -752,6 +784,8 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
             preparedStatement.setString(5, taskStatus);
             preparedStatement.setString(6, taskDescription);
             preparedStatement.setString(7, teamLead);
+            preparedStatement.setString(8, datFrom);
+            preparedStatement.setString(9, datTo);
             try {
                 preparedStatement.execute();
                 //Enter code for showing sucess view
@@ -921,25 +955,26 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 //        String datTo = df.format(toDateCreateTask.getValue());
 //        String datFrom = df.format(fromDateCreateTask.getValue());
 
-        AllTaskData.add(new Task(
-                Integer.parseInt(taskNumberCreateTask.getText()),
-                taskNameCreateTask.getText(),
-                getProjectId(projectSelectedCombobox.getValue()),
-                taskStatusCreateTask.getText(),
-                taskInformationCreateTask.getText(), 
-                (String) teamHeadComboBoxCreateTask.getValue(),
+//        AllTaskData.add(new Task(
+//                Integer.parseInt(taskNumberCreateTask.getText()),
+//                taskNameCreateTask.getText(),
+//                getProjectId(projectSelectedCombobox.getValue()),
+//                taskStatusCreateTask.getText(),
+//                taskInformationCreateTask.getText(), 
+//                (String) teamHeadComboBoxCreateTask.getValue(),
 //                fromDateCreateTask.getValue().toString(),
 //                toDateCreateTask.getValue().toString(),
 //                fromDateCreateTask.getEditor().getText(),
 //                toDateCreateTask.getEditor().getText(),
-                timeSpan()));
-         createTaskTable.setItems(AllTaskData);
+//                timeSpan()));
+//         createTaskTable.setItems(AllTaskData);
+        DBConnection.infoBox("Feature is curently under construction", "Sorry", "Unable to add to table");
     }
 
     @FXML
     void handleSaveTasksButtonAction(ActionEvent event) {
-        //createTask();
-        createMultipleTasks() ;
+        createTask();
+        //createMultipleTasks() ;
     }
  
     
@@ -950,6 +985,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     @FXML
     void handleDeleteTaskAction(ActionEvent event) {
 
+        DBConnection.infoBox("Feature is curently under construction", "Sorry", "Unable to delete");
     }
     
     
@@ -1002,8 +1038,8 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
                 ){
           DBConnection.infoBox("Please enter text in missing fields", "Error Adding Data", "nil");
         }else{
-            
-        addTaskToTable();
+          DBConnection.infoBox("Feature is curently under construction", "Sorry", "Unable to add to table");   
+        //addTaskToTable();
         
         }
     }

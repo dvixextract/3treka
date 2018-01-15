@@ -117,25 +117,25 @@ public class TeamsViewController implements Initializable {
                     System.out.println("names-------------------------");
                     while (resultSet.next()) {
                         System.out.println(resultSet.getString(1));
-                       // TeamsMembers.add(new Teams(resultSet.getString(1)));
+                        TeamsMembers.add(new Teams(resultSet.getString(1)));
                         
-                        ////////////////////
-                        String SelectedTeammemberName = resultSet.getString(1);
-                        try {
-                            String sqlSt = "SELECT Role FROM Users where (U_name = '" +  SelectedTeammemberName + "')";
-                            preparedStatement = connection.prepareStatement(sqlSt);
-                            resultSet = (ResultSet) preparedStatement.executeQuery();
-                            System.out.println("names-------------------------");
-                           // while (resultSet.next()) {
-                                System.out.println(resultSet.getString(1));
-                                TeamsMembers.add(new Teams(SelectedTeammemberName,resultSet.getString(1) ));
-
-                            //}
-                        } catch (SQLException ex) {
-                            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        
-                        ////////////////////
+//                        ////////////////////
+//                        String SelectedTeammemberName = resultSet.getString(1);
+//                        try {
+//                            String sqlSt = "SELECT Role FROM Users where (U_name = '" +  SelectedTeammemberName + "')";
+//                            preparedStatement = connection.prepareStatement(sqlSt);
+//                            resultSet = (ResultSet) preparedStatement.executeQuery();
+//                            System.out.println("names-------------------------");
+//                           // while (resultSet.next()) {
+//                                System.out.println(resultSet.getString(1));
+//                                TeamsMembers.add(new Teams(SelectedTeammemberName,resultSet.getString(1) ));
+//
+//                            //}
+//                        } catch (SQLException ex) {
+//                            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
+//                        
+//                        ////////////////////
                         
                         
                     }

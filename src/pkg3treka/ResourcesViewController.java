@@ -146,7 +146,7 @@ public class ResourcesViewController implements Initializable {
             e.printStackTrace();
         }
 
-            CloseConnection();
+           // CloseConnection();
         }
     }
     
@@ -189,7 +189,7 @@ public class ResourcesViewController implements Initializable {
             DBConnection.infoBox("Error Saving Data", "Fail", null);
             e.printStackTrace();
         }
-            CloseConnection();
+            //CloseConnection();
         }
     }
 
@@ -232,7 +232,7 @@ public class ResourcesViewController implements Initializable {
             DBConnection.infoBox("Error Saving Data", "Fail", null);
             e.printStackTrace();
         }
-            CloseConnection();
+            //CloseConnection();
         }
     }
 
@@ -277,7 +277,7 @@ public class ResourcesViewController implements Initializable {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         rolesTable.setItems(RoleInfoData);
-         CloseConnection();
+        // CloseConnection();
     }
     
     public void loadAllAccessInformation(){
@@ -300,7 +300,7 @@ public class ResourcesViewController implements Initializable {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         accessLevelTable.setItems(AccessInfoData);
-         CloseConnection();
+        // CloseConnection();
     }
     
     public void loadAllEmploymentTypeInformation(){
@@ -323,6 +323,6 @@ public class ResourcesViewController implements Initializable {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         employeeTypeTable.setItems(EmployementTypeInfoData);
-         CloseConnection();
+         //CloseConnection();
     }
 }
