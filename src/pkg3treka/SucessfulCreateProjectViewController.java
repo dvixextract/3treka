@@ -32,7 +32,10 @@ public class SucessfulCreateProjectViewController implements Initializable  {
 
     @FXML
     void handleCreateTasksButtonAction(ActionEvent event) {
+    Stage stage = (Stage) createTasksButton.getScene().getWindow();
+    stage.close();
 
+       // DBConnection.infoBox("Feature is curently under construction", "Sorry", "Unable to add to table");
     }
 
 
