@@ -7,6 +7,7 @@ package pkg3treka;
 
 import java.net.URL;
 import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -19,10 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import org.apache.commons.lang3.time.StopWatch;
@@ -93,6 +91,18 @@ public class UserTimeSheetsViewController implements Initializable {
     private TableColumn<TaskEvent, String> allTaskDuration;
 
     @FXML
+    private TableColumn<TaskEvent, String> periodTaskNumber;
+
+    @FXML
+    private TableColumn<TaskEvent, String> periodProjectNumber;
+
+    @FXML
+    private TableColumn<TaskEvent, String> periodTaskDate;
+
+    @FXML
+    private TableColumn<TaskEvent, String> periodTaskDuration;
+
+    @FXML
     private TableColumn<TaskEvent, String> todayTaskNumber;
 
     @FXML
@@ -114,6 +124,9 @@ public class UserTimeSheetsViewController implements Initializable {
     private Button closeBtn;
 
     @FXML
+    private Button revealSheetsForPeriod;
+
+    @FXML
     private TableView<Task> projectsTask;
 
     @FXML
@@ -133,10 +146,19 @@ public class UserTimeSheetsViewController implements Initializable {
     private TableView<TaskEvent> allTimeSheets;
 
     @FXML
+    private TableView<TaskEvent> periodicTimeSheets;
+
+    @FXML
     private TableView<TaskEvent> todayTimeSheets;
 
     @FXML
     private TableView<TaskProject> granularSheet;
+
+    @FXML
+    private DatePicker fromPeriodDate;
+
+    @FXML
+    private DatePicker toPeriodDate;
 
 
     private ObservableList<Projects> allProjectsData = FXCollections.observableArrayList();
@@ -148,6 +170,8 @@ public class UserTimeSheetsViewController implements Initializable {
     private ObservableList<TaskEvent> allTaskEventsData = FXCollections.observableArrayList();
 
     private ObservableList<TaskEvent> todayTaskEventsData = FXCollections.observableArrayList();
+
+    private ObservableList<TaskEvent> periodicTaskEventsData = FXCollections.observableArrayList();
 
 
     private StopWatch stopWatch = new StopWatch();
@@ -257,6 +281,7 @@ public class UserTimeSheetsViewController implements Initializable {
         setTaskSheetInfoCellTable();
         setTimeSheetsInfoCellTable();
         setTodayTimeSheetInfoCellTable();
+        setPeriodicTimeSheetInfoCellTable();
         loadAllProjectInformation();
         loadAllUserTimeSheets();
         loadTodayUserTimeSheets();
@@ -418,5 +443,46 @@ public class UserTimeSheetsViewController implements Initializable {
         todayProjectNumber.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("projectNumber"));
         todayTaskDate.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("date"));
         todayTaskDuration.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("duration"));
+    }
+
+    private void setPeriodicTimeSheetInfoCellTable() {
+        periodTaskNumber.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("taskNumber"));
+        periodProjectNumber.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("projectNumber"));
+        periodTaskDate.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("date"));
+        periodTaskDuration.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("duration"));
+    }
+
+    @FXML
+    void handleShowSheetsForPeriod(ActionEvent event) {
+
+        if ((fromPeriodDate.getValue() == null) || (toPeriodDate.getValue() == null)) {
+            DBConnection.infoBox("Error please select valid period", "Select period", null);
+        } else {
+            getSheetsForPeriods();
+        }
+
+
+    }
+
+    private void getSheetsForPeriods() {
+        java.sql.Date date1 = java.sql.Date.valueOf(fromPeriodDate.getValue());
+        java.sql.Date date2 = java.sql.Date.valueOf(toPeriodDate.getValue());
+
+        try {
+            String sql = "SELECT * FROM task_event where task_event_date >=? AND task_event_date <=? ";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setDate(1, date1);
+            preparedStatement.setDate(2, date2);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                periodicTaskEventsData.add(new TaskEvent(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getDate(5)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex);
+        }
+        periodicTimeSheets.getItems().clear();
+        periodicTimeSheets.setItems(periodicTaskEventsData);
     }
 }
