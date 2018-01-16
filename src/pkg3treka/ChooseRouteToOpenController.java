@@ -33,7 +33,7 @@ public class ChooseRouteToOpenController implements Initializable {
 
     @FXML
     private Button UserPageButton;
-    
+
     @FXML
     void handleAdminPageButtonAction(ActionEvent event) {
         Stage stage = (Stage) adminPageButton.getScene().getWindow();
@@ -64,7 +64,7 @@ public class ChooseRouteToOpenController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-            
+
 //    }catch(Exception e){
 //        DBConnection.infoBox("Error Saving Data", "Fail", null);
 //        e.printStackTrace();
@@ -74,10 +74,10 @@ public class ChooseRouteToOpenController implements Initializable {
             throw new RuntimeException(ex);
         }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

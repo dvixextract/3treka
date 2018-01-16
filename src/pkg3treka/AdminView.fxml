@@ -304,11 +304,11 @@
                                                                   <Insets top="10.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Button fx:id="deleteTaskBtnCreateTask" mnemonicParsing="false" onAction="#handleDeleteTaskAction" prefHeight="39.0" prefWidth="127.0" text="DELETE" textFill="#dd0e0e">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" top="10.0" />
-                                                               </HBox.margin>
-                                                            </Button>
+                                                            <!--<Button fx:id="deleteTaskBtnCreateTask" mnemonicParsing="false" onAction="#handleDeleteTaskAction" prefHeight="39.0" prefWidth="127.0" text="DELETE" textFill="#dd0e0e">-->
+                                                               <!--<HBox.margin>-->
+                                                                  <!--<Insets left="10.0" top="10.0" />-->
+                                                               <!--</HBox.margin>-->
+                                                            <!--</Button>-->
                                                          </children>
                                                          <padding>
                                                             <Insets left="10.0" />
@@ -336,7 +336,8 @@
                                           <ComboBox fx:id="createTaskSelectTeamCombobox" layoutX="499.0" layoutY="14.0" prefHeight="27.0" prefWidth="350.0" promptText="Teams" />
                                        </children>
                                     </AnchorPane>
-                                 </content></Tab>
+                                 </content>
+                            </Tab>
                             <Tab text="Incomplete">
                                  <content>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" />
@@ -429,11 +430,11 @@
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="105.0" prefWidth="278.0" style="-fx-background-image: blue;" text="Kelatoni" textFill="#a43030">
-               <font>
-                  <Font size="56.0" />
-               </font>
-            </Label>
+            <!--<Label prefHeight="105.0" prefWidth="278.0" style="-fx-background-image: blue;" text="Kelatoni" textFill="#a43030">-->
+               <!--<font>-->
+                  <!--<Font size="56.0" />-->
+               <!--</font>-->
+            <!--</Label>-->
          </children>
       </HBox>
    </top>

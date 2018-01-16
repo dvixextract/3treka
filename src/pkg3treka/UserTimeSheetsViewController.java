@@ -6,12 +6,9 @@
 package pkg3treka;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.ResourceBundle;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,7 +63,7 @@ public class UserTimeSheetsViewController implements Initializable {
     private TableColumn<TaskProject, String> taskDescriptionColumnTimeSheetTable;
 
     @FXML
-    private TableColumn<TaskProject, String> dayColumnTimesheetTable;
+    private TableColumn<TaskProject, String> statusColumnTimesheetTable;
 
     @FXML
     private TableColumn<Projects, String> projectNumberColumnTableProject;
@@ -82,6 +79,30 @@ public class UserTimeSheetsViewController implements Initializable {
 
     @FXML
     private TableColumn<Task, String> taskDescriptionColumnTableTask;
+
+    @FXML
+    private TableColumn<TaskEvent, String> allTaskNumber;
+
+    @FXML
+    private TableColumn<TaskEvent, String> allProjectNumber;
+
+    @FXML
+    private TableColumn<TaskEvent, String> allTaskDate;
+
+    @FXML
+    private TableColumn<TaskEvent, String> allTaskDuration;
+
+    @FXML
+    private TableColumn<TaskEvent, String> todayTaskNumber;
+
+    @FXML
+    private TableColumn<TaskEvent, String> todayProjectNumber;
+
+    @FXML
+    private TableColumn<TaskEvent, String> todayTaskDate;
+
+    @FXML
+    private TableColumn<TaskEvent, String> todayTaskDuration;
 
     @FXML
     private Button startBtn;
@@ -109,6 +130,12 @@ public class UserTimeSheetsViewController implements Initializable {
     private TableView<Task> taskTimeSheet;
 
     @FXML
+    private TableView<TaskEvent> allTimeSheets;
+
+    @FXML
+    private TableView<TaskEvent> todayTimeSheets;
+
+    @FXML
     private TableView<TaskProject> granularSheet;
 
 
@@ -117,6 +144,11 @@ public class UserTimeSheetsViewController implements Initializable {
     private ObservableList<Task> allTasksData = FXCollections.observableArrayList();
 
     private ObservableList<TaskProject> taskTimeSheetsData = FXCollections.observableArrayList();
+
+    private ObservableList<TaskEvent> allTaskEventsData = FXCollections.observableArrayList();
+
+    private ObservableList<TaskEvent> todayTaskEventsData = FXCollections.observableArrayList();
+
 
     private StopWatch stopWatch = new StopWatch();
 
@@ -137,10 +169,23 @@ public class UserTimeSheetsViewController implements Initializable {
 
     @FXML
     void closeButtonEventAction(ActionEvent event) {
-        if (stopWatch.isStarted()) {
+        if (stopWatch.isStarted() && taskTimeSheets.getSelectionModel().getSelectedItem() != null) {
+            saveDetails();
             stopWatch.stop();
+            stopWatch.reset();
+            int projectNumber = (Integer.valueOf(taskTimeSheets.getSelectionModel().getSelectedItem().getProjectNumber()));
+            String projectName = taskTimeSheets.getSelectionModel().getSelectedItem().getProjectName();
+            int taskCode = (Integer.valueOf(taskTimeSheets.getSelectionModel().getSelectedItem().getTaskCode()));
+            String taskName = taskTimeSheets.getSelectionModel().getSelectedItem().getTaskName();
+            String taskDescription = taskTimeSheets.getSelectionModel().getSelectedItem().getTaskDescription();
+            String presentStatus = "STOPPED";
+            taskTimeSheets.getItems().clear();
+            taskTimeSheetsData.add(new TaskProject(projectNumber, projectName, taskCode, taskName, taskDescription, presentStatus));
+            taskTimeSheets.setItems(taskTimeSheetsData);
+        } else {
+            DBConnection.infoBox("Error please select an ongoing task", "Select task", null);
         }
-        saveDetails();
+
     }
 
     private void saveDetails() {
@@ -149,13 +194,15 @@ public class UserTimeSheetsViewController implements Initializable {
         int taskCode = (Integer.valueOf(taskTimeSheets.getSelectionModel().getSelectedItem().getTaskCode()));
         long duration = stopWatch.getTime(TimeUnit.MINUTES);
 
-        String sql = " insert into task_event (project_num, task_num, duration)"
-                + " values (?, ?, ?)";
+        String sql = " insert into task_event (project_num, task_num, duration, task_event_date)"
+                + " values (?, ?, ?, ?)";
+        java.util.Date date = new java.util.Date();
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, projectNumber);
             preparedStatement.setInt(2, taskCode);
             preparedStatement.setLong(3, duration);
+            preparedStatement.setDate(4, new java.sql.Date(date.getTime()));
             preparedStatement.execute();
 
         } catch (Exception e) {
@@ -166,16 +213,38 @@ public class UserTimeSheetsViewController implements Initializable {
     @FXML
     void handleStartButtonEventAction(ActionEvent event) {
 
-        if (!stopWatch.isStarted()) {
+        if (!stopWatch.isStarted() && taskTimeSheets.getSelectionModel().getSelectedItem() != null) {
             stopWatch.start();
+            int projectNumber = (Integer.valueOf(taskTimeSheets.getSelectionModel().getSelectedItem().getProjectNumber()));
+            String projectName = taskTimeSheets.getSelectionModel().getSelectedItem().getProjectName();
+            int taskCode = (Integer.valueOf(taskTimeSheets.getSelectionModel().getSelectedItem().getTaskCode()));
+            String taskName = taskTimeSheets.getSelectionModel().getSelectedItem().getTaskName();
+            String taskDescription = taskTimeSheets.getSelectionModel().getSelectedItem().getTaskDescription();
+            String presentStatus = "RUNNING";
+            taskTimeSheets.getItems().clear();
+            taskTimeSheetsData.add(new TaskProject(projectNumber, projectName, taskCode, taskName, taskDescription, presentStatus));
+            taskTimeSheets.setItems(taskTimeSheetsData);
+        } else {
+            DBConnection.infoBox("Error please select a stopped task", "Select task", null);
         }
     }
 
     @FXML
     void pauseButtonEventAction(ActionEvent event) {
 
-        if (stopWatch.isStarted()) {
+        if (stopWatch.isStarted() && taskTimeSheets.getSelectionModel().getSelectedItem() != null) {
             stopWatch.suspend();
+            int projectNumber = (Integer.valueOf(taskTimeSheets.getSelectionModel().getSelectedItem().getProjectNumber()));
+            String projectName = taskTimeSheets.getSelectionModel().getSelectedItem().getProjectName();
+            int taskCode = (Integer.valueOf(taskTimeSheets.getSelectionModel().getSelectedItem().getTaskCode()));
+            String taskName = taskTimeSheets.getSelectionModel().getSelectedItem().getTaskName();
+            String taskDescription = taskTimeSheets.getSelectionModel().getSelectedItem().getTaskDescription();
+            String presentStatus = "PAUSED";
+            taskTimeSheets.getItems().clear();
+            taskTimeSheetsData.add(new TaskProject(projectNumber, projectName, taskCode, taskName, taskDescription, presentStatus));
+            taskTimeSheets.setItems(taskTimeSheetsData);
+        } else {
+            DBConnection.infoBox("Error please select a running task", "Select task", null);
         }
 
     }
@@ -186,8 +255,46 @@ public class UserTimeSheetsViewController implements Initializable {
         setProjectsTaskInfoCellTable();
         setAllProjectsInfoCellTable();
         setTaskSheetInfoCellTable();
+        setTimeSheetsInfoCellTable();
+        setTodayTimeSheetInfoCellTable();
         loadAllProjectInformation();
+        loadAllUserTimeSheets();
+        loadTodayUserTimeSheets();
         start();
+    }
+
+    private void loadAllUserTimeSheets() {
+        try {
+            String sql = "SELECT * FROM task_event";
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                allTaskEventsData.add(new TaskEvent(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getDate(5)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex);
+        }
+        allTimeSheets.setItems(allTaskEventsData);
+    }
+
+    private void loadTodayUserTimeSheets() {
+        java.util.Date date = new java.util.Date();
+        try {
+            String sql = "SELECT * FROM task_event where task_event_date =?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setDate(1, new java.sql.Date(date.getTime()));
+            resultSet = (ResultSet) preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                todayTaskEventsData.add(new TaskEvent(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getDate(5)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex);
+        }
+        todayTimeSheets.setItems(todayTaskEventsData);
     }
 
     public void loadAllProjectInformation() {
@@ -197,7 +304,6 @@ public class UserTimeSheetsViewController implements Initializable {
             resultSet = (ResultSet) preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-
                 allProjectsData.add(new Projects(resultSet.getString(1), resultSet.getString(2)));
             }
         } catch (SQLException ex) {
@@ -214,7 +320,6 @@ public class UserTimeSheetsViewController implements Initializable {
             resultSet = (ResultSet) preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-
                 allProjectsData.add(new Projects(resultSet.getString(1), resultSet.getString(2)));
             }
         } catch (SQLException ex) {
@@ -232,14 +337,12 @@ public class UserTimeSheetsViewController implements Initializable {
             resultSet = (ResultSet) preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-
                 allTasksData.add(new Task(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(6)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
             throw new RuntimeException(ex);
         }
-
         projectsTask.setItems(allTasksData);
     }
 
@@ -251,8 +354,7 @@ public class UserTimeSheetsViewController implements Initializable {
             resultSet = (ResultSet) preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-
-                taskTimeSheetsData.add(new TaskProject(resultSet.getInt(4), "Test", resultSet.getInt(1), resultSet.getString(2), resultSet.getString(6)));
+                taskTimeSheetsData.add(new TaskProject(resultSet.getInt(4), "Test", resultSet.getInt(1), resultSet.getString(2), resultSet.getString(6), "STOPED"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
@@ -264,25 +366,21 @@ public class UserTimeSheetsViewController implements Initializable {
 
 
     public void start() {
-
         allProjects.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
             @Override
             public void handle(MouseEvent event) {
                 projectsTask.getItems().clear();
                 loadProjectsTaskInformation(Integer.valueOf(allProjects.getSelectionModel().getSelectedItem().getProjCode()));
             }
-
         });
 
         projectsTask.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 taskTimeSheets.getItems().clear();
-                loadtaskTimeSheetsData(Integer.valueOf(projectsTask.getSelectionModel().getSelectedItem().getTaskId()));
+                loadtaskTimeSheetsData(Integer.valueOf(projectsTask.getSelectionModel().getSelectedItem().getTaskNumber()));
             }
         });
-
     }
 
     public void setAllProjectsInfoCellTable() {
@@ -293,9 +391,9 @@ public class UserTimeSheetsViewController implements Initializable {
 
     public void setProjectsTaskInfoCellTable() {
 
-        taskCodeColumnTableTask.setCellValueFactory(new PropertyValueFactory<Task, String>("taskId"));
+        taskCodeColumnTableTask.setCellValueFactory(new PropertyValueFactory<Task, String>("taskNumber"));
         taskNameColumnTableTask.setCellValueFactory(new PropertyValueFactory<Task, String>("taskName"));
-        taskDescriptionColumnTableTask.setCellValueFactory(new PropertyValueFactory<Task, String>("taskDescription"));
+        taskDescriptionColumnTableTask.setCellValueFactory(new PropertyValueFactory<Task, String>("taskInformation"));
     }
 
     private void setTaskSheetInfoCellTable() {
@@ -305,8 +403,20 @@ public class UserTimeSheetsViewController implements Initializable {
         taskCodeColumnTimeSheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("taskCode"));
         taskNameColumnTimeSheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("taskName"));
         taskDescriptionColumnTimeSheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("taskDescription"));
-//        dayColumnTimesheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("taskDescription"));
+        statusColumnTimesheetTable.setCellValueFactory(new PropertyValueFactory<TaskProject, String>("presentStatus"));
     }
 
+    private void setTimeSheetsInfoCellTable() {
+        allTaskNumber.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("taskNumber"));
+        allProjectNumber.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("projectNumber"));
+        allTaskDate.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("date"));
+        allTaskDuration.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("duration"));
+    }
 
+    private void setTodayTimeSheetInfoCellTable() {
+        todayTaskNumber.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("taskNumber"));
+        todayProjectNumber.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("projectNumber"));
+        todayTaskDate.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("date"));
+        todayTaskDuration.setCellValueFactory(new PropertyValueFactory<TaskEvent, String>("duration"));
+    }
 }

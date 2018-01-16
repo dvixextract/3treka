@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.util.Date;
 
 /**
- *
  * @author User
  */
 public class Task {
@@ -18,9 +17,9 @@ public class Task {
     private String taskFromDate;
     private String taskToDate;
     private int taskTimeSpan;
-    
-    
-    public Task (int taskNum,String taskNam, int projCode,String taskStats,String taskInformation,String taskTeamMemberAssigned ,String taskFromdate,String taskTodate, int timeFrame){
+
+
+    public Task(int taskNum, String taskNam, int projCode, String taskStats, String taskInformation, String taskTeamMemberAssigned, String taskFromdate, String taskTodate, int timeFrame) {
 
         this.taskNumber = taskNum;
         this.taskName = taskNam;
@@ -31,9 +30,10 @@ public class Task {
         this.taskInformation = taskInformation;
         this.taskTimeSpan = timeFrame;
         this.projectCode = projCode;
-        
+
     }
-        public Task (int taskNum,String taskNam, int projCode,String taskStats,String taskInformation,String taskTeamMemberAssigned , int timeFrame){
+
+    public Task(int taskNum, String taskNam, int projCode, String taskStats, String taskInformation, String taskTeamMemberAssigned, int timeFrame) {
 
         this.taskNumber = taskNum;
         this.taskName = taskNam;
@@ -42,11 +42,19 @@ public class Task {
         this.taskInformation = taskInformation;
         this.taskTimeSpan = timeFrame;
         this.projectCode = projCode;
-        
+
     }
-    
+
     Task() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Task(int taskNum, String taskName, String taskInformation) {
+        this.taskNumber = taskNum;
+        this.taskName = taskName;
+        this.taskInformation = taskInformation;
+
+
     }
 
     /**
@@ -174,9 +182,7 @@ public class Task {
     public void setProjectCode(int projectCode) {
         this.projectCode = projectCode;
     }
-    
 
-    
-    
+
 }
 

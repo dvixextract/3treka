@@ -15,13 +15,24 @@ public class TaskProject {
 
     private String taskDescription;
 
-    public TaskProject(int projectNumber, String getProjectName, int taskCode, String taskName, String taskDescription) {
+    private String presentStatus;
+
+    public TaskProject(int projectNumber, String getProjectName, int taskCode, String taskName, String taskDescription, String presentStatus) {
 
         this.projectNumber = projectNumber;
         this.projectName = getProjectName;
         this.taskCode = taskCode;
         this.taskName = taskName;
         this.taskDescription = taskDescription;
+        this.presentStatus = presentStatus;
+    }
+
+    public String getPresentStatus() {
+        return presentStatus;
+    }
+
+    public void setPresentStatus(String presentStatus) {
+        this.presentStatus = presentStatus;
     }
 
     public int getProjectNumber() {

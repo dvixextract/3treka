@@ -31,29 +31,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import static javafx.scene.layout.Region.USE_PREF_SIZE;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -69,6 +52,169 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     /**
      * Initializes the controller class.
      */
+    /*@FXML
+    public TabPane AdminTabPane;
+
+    @FXML
+    private TableColumn<Projects, String> duration;
+
+    @FXML
+    private TableView<Projects> AllProjectsTable;
+
+    @FXML
+    private TableColumn<Projects, String> Project_Name;
+
+    @FXML
+    private TableColumn<Projects, String> Project_Code;
+
+    @FXML
+    private TableColumn<Projects, String> NumberOF_Sprints;
+
+    @FXML
+    private TableColumn<Projects, String> Num_Tasks;
+
+    @FXML
+    private TableColumn<Projects, String> TM_Assgn;
+
+    @FXML
+    private TableColumn<Projects, String> Project_Desc;
+
+    @FXML
+    private TextField ProjectSearch;
+
+    @FXML
+    private TableView<User> ListAllEmployees;
+
+    @FXML
+    private TableColumn<User, String> E_name;
+
+    @FXML
+    private TableColumn<User, String> E_surname;
+
+    @FXML
+    private TableColumn<User, String> E_type;
+
+    @FXML
+    private TableColumn<User, String> Acc_level;
+
+    @FXML
+    private TableColumn<User, String> R_ole;
+
+    @FXML
+    private TableColumn<User, String> P_hone;
+
+    @FXML
+    private TableColumn<User, String> E_mail;
+
+    @FXML
+    private TextField searchEmployee;
+
+    @FXML
+    private TextField teamname;
+
+    @FXML
+    private Button addResources;
+
+    @FXML
+    private Button saveTeam;
+
+    @FXML
+    private TableView<User> Employees;
+
+    @FXML
+    private TableColumn<User, String> EID;
+
+    @FXML
+    private TableColumn<User, String> Ename;
+
+    @FXML
+    private TableColumn<User, String> Erole;
+
+    @FXML
+    private Button createEmployee;
+
+    @FXML
+    private TableColumn<User, String> AccessLvl;
+
+    @FXML
+    private ListView<String> listvw;
+
+    @FXML
+    private TextField Projectname;
+
+    @FXML
+    private TextField TasksNumber;
+
+    @FXML
+    private TextField ProjectCode;
+
+    @FXML
+    private TextField SprintsNumber;
+
+    @FXML
+    private TextField CompleteProject;
+
+    @FXML
+    private ComboBox<String> AssignTeam;
+
+    @FXML
+    private TextArea ProjectDescription;
+
+    @FXML
+    private Button saveNewProject;
+
+    @FXML
+    private Label label;
+
+    @FXML
+    private ComboBox<String> projectSelectedCombobox;
+
+    @FXML
+    private ComboBox<String> createTaskSelectTeamCombobox;
+
+
+    @FXML
+    private GridPane newTaskGrid;
+
+    @FXML
+    private Label  taskNumberCreateTask;
+
+    @FXML
+    private TextArea taskInformationTextArea;
+
+    @FXML
+    private TextField taskTimeFrameTextField;
+
+    @FXML
+    private ComboBox<String> createTaskSelectTeamCombobox;
+
+    @FXML
+    private Button addTasksButton;
+
+    @FXML
+    private Button saveTasksButton;
+
+
+    @FXML
+    private Label taskCompletionStatusLabel;
+
+    @FXML
+    private TextField taskNameTextBox;
+
+    private String mmber;
+
+    private ObservableList<User> masterData = FXCollections.observableArrayList();
+    private ObservableList<User> AllUserData = FXCollections.observableArrayList();
+    private ObservableList<Projects> AllProjectsData = FXCollections.observableArrayList();
+    private ObservableList<User> filteredData = FXCollections.observableArrayList();
+    private ObservableList<String> masterData3;
+    ArrayList<String> Team_Members = new ArrayList<String>();
+    ObservableList TeamList = FXCollections.observableArrayList();
+    ObservableList ProjectList = FXCollections.observableArrayList();
+    ObservableList<String> ClickOutput = FXCollections.observableArrayList();
+    //ObservableList<String> SelectedTeamMembers = FXCollections.observableArrayList();
+    ArrayList<String> SelectedTeamMembers = new ArrayList<String>();*/
+
     @FXML
     public TabPane AdminTabPane;
 
@@ -134,6 +280,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
     @FXML
     private Button saveTeam;
+
     @FXML
     private TableView<User> Employees;
 
@@ -185,24 +332,25 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     @FXML
     private ComboBox<String> projectSelectedCombobox;
 
-    @FXML
-    private ComboBox<String> createTaskSelectTeamCombobox;
+//    @FXML
+//    private ComboBox<String> createTaskSelectTeamCombobox;
 
 
     @FXML
     private GridPane newTaskGrid;
 
-    @FXML
-    private Label taskNumberLabel;
+//    @FXML
+//    private Label  taskNumberCreateTask;
 
     @FXML
     private TextArea taskInformationTextArea;
+
 
     @FXML
     private TextField taskTimeFrameTextField;
 
     @FXML
-    private ComboBox<String> assignTaskToTeamLeadCombobox;
+    private ComboBox<String> createTaskSelectTeamCombobox;
 
     @FXML
     private Button addTasksButton;
@@ -219,8 +367,8 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
 
     private String mmber;
 
-      // Begining of Create Task UI Components
-        @FXML
+    // Begining of Create Task UI Components
+    @FXML
     private Label taskNumberCreateTask;
 
     @FXML
@@ -236,7 +384,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     private DatePicker toDateCreateTask;
 
     @FXML
-    private ComboBox<?> teamHeadComboBoxCreateTask;
+    private ComboBox<String> teamHeadComboBoxCreateTask;
 
     @FXML
     private TextArea taskInformationCreateTask;
@@ -253,14 +401,42 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     @FXML
     private HBox hboxCreateTask;
 
-   //End of Create Task UI Components
+    @FXML
+    private TableView<Task> createTaskTable;
 
+    @FXML
+    private TableColumn<Task, Integer> taskNumberCreateTaskColumn;
 
+    @FXML
+    private TableColumn<Task, String> taskStatusCreateTaskColumn;
 
-    //private ObservableList<Car> cars = FXCollections.observableArrayList();
+    @FXML
+    private TableColumn<Task, String> taskNameCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, String> taskInformationCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, String> fromDateCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, String> toDateCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, String> teamMemberAssignedCreateTaskColumn;
+
+    @FXML
+    private TableColumn<Task, Integer> timeSpanColumn;
+
+    @FXML
+    private TableColumn<Task, Integer> projectCodeColumnCreateTask;
+
+    //End of Create Task UI Components
+
 
     private ObservableList<User> masterData = FXCollections.observableArrayList();
     private ObservableList<User> AllUserData = FXCollections.observableArrayList();
+    private ObservableList<Task> AllTaskData = FXCollections.observableArrayList();
     private ObservableList<Projects> AllProjectsData = FXCollections.observableArrayList();
     private ObservableList<User> filteredData = FXCollections.observableArrayList();
     private ObservableList<String> masterData3;
@@ -270,6 +446,7 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
     ObservableList<String> ClickOutput = FXCollections.observableArrayList();
     //ObservableList<String> SelectedTeamMembers = FXCollections.observableArrayList();
     ArrayList<String> SelectedTeamMembers = new ArrayList<String>();
+    private int taskCount = 0;
 
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -442,44 +619,19 @@ public class AdminViewController extends SucessfulCreateProjectViewController {
         });
         start();
 
-    tabChange();
-
+        tabChange();
 
 
     }
 
-/*
-
-
-public void start(Stage primaryStage) {
-//    cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
-
-  //  cars.addAll(new Car(CAR_TYPE.CAR1_tetbeeeee), new Car(CAR_TYPE.CAR2_iububdfcxkndns), new Car(CAR_TYPE.CAR3_nkrebsbcnevjds));
-
-    ListView<Car> carsListView = new ListView<>();
-    carsListView.setCellFactory(c -> new CarListCell());
-    carsListView.setItems(cars);
-
-    StackPane root = new StackPane();
-    root.getChildren().add(carsListView);
-
-       Scene scene = new Scene(root, 800, 320);
-
-    primaryStage.setTitle("Cars list view");
-    primaryStage.setScene(scene);
-    primaryStage.show();
-}
-
-
-*/
-
-
     public void tabChange() {
 
         AdminTabPane.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
-            taskNumberLabel.setText("");
+            String test = Integer.valueOf(getTotalNumberOfTasks() + 1).toString();
+            System.out.println(Integer.valueOf(getTotalNumberOfTasks() + 1).toString());
+            taskNumberCreateTask.setText(test);
             projectSelectedCombobox.getItems().clear();
-            assignTaskToTeamLeadCombobox.getItems().clear();
+            createTaskSelectTeamCombobox.getItems().clear();
             createTaskSelectTeamCombobox.getItems().clear();
             AssignTeam.getItems().clear();
             loadTeamsDataFromDatabase();
@@ -660,9 +812,12 @@ public void start(Stage primaryStage) {
             resultSet = (ResultSet) preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                assignTaskToTeamLeadCombobox.getItems().add(resultSet.getString(2) + " " + resultSet.getString(3));
-                taskNumberLabel.setText(Integer.valueOf(getTotalNumberOfTasks() + 1).toString());
-                taskCompletionStatusLabel.setText("Incomplete");
+                teamHeadComboBoxCreateTask.getItems().add(resultSet.getString(2) + " " + resultSet.getString(3));
+                System.out.println(resultSet.getString(2));
+                System.out.println("gets here!");
+//               taskNumberCreateTask.setText(Integer.valueOf(getTotalNumberOfTasks() + 1).toString());
+//               taskNumberCreateTask.setText(( Integer.valueOf(getTotalNumberOfTasks() + 1)).toString() );
+                taskStatusCreateTask.setText("Incomplete");
 
             }
         } catch (SQLException ex) {
@@ -673,11 +828,13 @@ public void start(Stage primaryStage) {
 
     public int getTotalNumberOfTasks() {
 
+        // int task_Num = 0;
         try {
-            String sql = "SELECT * FROM task";
+            String sql = "SELECT COUNT(*) AS total FROM task";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = (ResultSet) preparedStatement.executeQuery();
-            return resultSet.getFetchSize();
+//            System.out.println("========================= " + resultSet.getFetchSize() + 1);
+            return resultSet.getInt("total");
         } catch (SQLException ex) {
             //Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
             throw new RuntimeException(ex);
@@ -704,13 +861,14 @@ public void start(Stage primaryStage) {
 
     public void createTask() {
 
-        int taskNumber = Integer.parseInt(taskNumberLabel.getText());
-        String taskName = taskNameTextBox.getText();
-        String taskStatus = taskCompletionStatusLabel.getText();
-        String taskcompletionTime = taskTimeFrameTextField.getText();
+       int taskNumber = Integer.parseInt(taskNumberCreateTask.getText());
+        //int taskNumber = 3;
+        String taskName = taskNameCreateTask.getText();
+        String taskStatus = taskStatusCreateTask.getText();
+        String taskcompletionTime = "0";//taskTimeFrameTextField.getText();
         int projectId = getProjectId(projectSelectedCombobox.getValue());
-        String taskDescription = taskInformationTextArea.getText();
-        String teamLead = createTaskSelectTeamCombobox.getValue();
+        String taskDescription = taskInformationCreateTask.getText();
+        String teamLead = teamHeadComboBoxCreateTask.getValue();
 
         String sql = " insert into Task (T_id, T_name, T_timespan, P_projectCode, T_status, T_Description, T_lead)"
                 + " values (?, ?, ?, ?, ?,?,?)";
@@ -858,98 +1016,57 @@ public void start(Stage primaryStage) {
         Employees.getSortOrder().addAll(sortOrder);
     }
 
+    @FXML
+    void handleAddTasksButtonAction(ActionEvent event) {
+
+        //
+//        AllTaskData.add(new Task(  Integer.parseInt(taskNumberCreateTask.getText()), taskStatusCreateTask.getText(), fromDateCreateTask.getValue(),
+//                toDateCreateTask.getValue(), (String) teamHeadComboBoxCreateTask.getValue(), taskInformationCreateTask.getText(), getProjectId(projectSelectedCombobox.getValue()) ));
+//
+//        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//        String datTo = df.format(toDateCreateTask.getValue());
+//        String datFrom = df.format(fromDateCreateTask.getValue());
+
+        AllTaskData.add(new Task(
+                Integer.parseInt(taskNumberCreateTask.getText()),
+                taskNameCreateTask.getText(),
+                getProjectId(projectSelectedCombobox.getValue()),
+                taskStatusCreateTask.getText(),
+                taskInformationCreateTask.getText(),
+                (String) teamHeadComboBoxCreateTask.getValue(),
+//                fromDateCreateTask.getValue().toString(),
+//                toDateCreateTask.getValue().toString(),
+//                fromDateCreateTask.getEditor().getText(),
+//                toDateCreateTask.getEditor().getText(),
+                timeSpan()));
+        createTaskTable.setItems(AllTaskData);
+
+    }
+
+    private int timeSpan() {
+        int toFromDate = 0;
+        return toFromDate;
+    }
+
+    @FXML
+    void handleAddNewTaskAction(ActionEvent event) {
+
+        if (taskNameCreateTask.getText() == null || taskNameCreateTask.getText() == " " || taskNameCreateTask.getText().isEmpty() ||
+
+                teamHeadComboBoxCreateTask.getValue() == null || teamHeadComboBoxCreateTask.getValue().isEmpty() || teamHeadComboBoxCreateTask.getValue() == "Team Lead" ||
+                taskInformationCreateTask.getText() == null || taskInformationCreateTask.getText().isEmpty() || taskInformationCreateTask.getText() == " "
+                ) {
+            DBConnection.infoBox("Please enter text in missing fields", "Error Adding Data", "nil");
+        } else {
+
+            //addTaskToTable();
+
+        }
+    }
 
     @FXML
     void handleSaveTasksButtonAction(ActionEvent event) {
         createTask();
     }
-    @FXML
-    void handleAddTasksButtonAction(ActionEvent event) {
-
-    }
-
-   //Create Task UI Components
-/*
-
-
-
-
-
-
-    private class CarListCell extends ListCell<Car> {
-
-
-
-
-
-    public CarListCell() {
-
-
-        hboxCreateTask.getChildren().addAll(taskNumberCreateTask,taskStatusCreateTask,taskNameCreateTask,fromDateCreateTask,toDateCreateTask, teamHeadComboBoxCreateTask);
-        vboxCreateTask.getChildren().addAll(hboxCreateTask,taskInformationCreateTask);
-        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-        setGraphic(vboxCreateTask);
-    }
-
-    @Override
-    protected void updateItem(Car item, boolean empty) {
-         System.out.println("in here yey");
-        super.updateItem(item, empty);
-        if (item == null || empty) {
-            setText(null);
-            setGraphic(null);
-        } else {
-            setGraphic(vboxCreateTask);
-            AddNewTaskBtnCreateTask.setOnAction(e -> {
-                 System.out.println("i have new Task Event called");
-                Car newCar = new Car((CAR_TYPE) teamHeadComboBoxCreateTask.getValue());
-                cars.add(newCar);
-            });
-            deleteTaskBtnCreateTask.setOnAction(e -> {
-                cars.remove(item);
-            });
-        }
-    }
-
-}
-    */
-private enum CAR_TYPE {
-    CAR1_tetbeeeee, CAR2_iububdfcxkndns, CAR3_nkrebsbcnevjds;
-}
-
-private class Car {
-
-    private CAR_TYPE type;
-
-    public Car(CAR_TYPE type) {
-        this.type = type;
-    }
-
-    public CAR_TYPE getType() {
-        return type;
-    }
-
-    public void setType(CAR_TYPE type) {
-        this.type = type;
-    }
-}
-
-
-
-
-
-    @FXML
-    void handleDeleteTaskAction(ActionEvent event) {
-
-    }
-/*
-
-    @FXML
-    void handleAddNewTaskAction(ActionEvent event) {
-        System.out.println("Add new Task Event called");
-     Car newCar = new Car((CAR_TYPE) teamHeadComboBoxCreateTask.getValue());
-     cars.add(newCar);
-    }
-*/
 
 }

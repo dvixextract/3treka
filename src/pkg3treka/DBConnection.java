@@ -16,12 +16,12 @@ import javafx.scene.control.Alert.AlertType;
  * @author User
  */
 public class DBConnection {
-    private static Connection conn;
+   /*   private static Connection conn;
     private static String url = "jdbc:sqlite:C:/kelatoni/3trekka.db";
     private static String user = "root";//Username of database
     private static String pass = "lebo";//Password of database
 
-    public static Connection connect() throws SQLException {
+  public static Connection connect() throws SQLException {
         try {
 //       Class.forName("com.mysql.jdbc.Driver").newInstance();
             Class.forName("org.sqlite.JDBC").newInstance();
@@ -35,6 +35,25 @@ public class DBConnection {
 //     conn = DriverManager.getConnection(url,user,pass);
         conn = DriverManager.getConnection(url);
         System.out.println("CONNECTED!!");
+        return conn;
+    }*/
+
+    private static Connection conn;
+    private static String url = "jdbc:mysql://localhost:3306/3trekka";
+    private static String user = "root";//Username of database
+    private static String pass = "lebo";//Password of database
+
+    public static Connection connect() throws SQLException {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (ClassNotFoundException cnfe) {
+            System.err.println("Error: " + cnfe.getMessage());
+        } catch (InstantiationException ie) {
+            System.err.println("Error: " + ie.getMessage());
+        } catch (IllegalAccessException iae) {
+            System.err.println("Error: " + iae.getMessage());
+        }
+        conn = DriverManager.getConnection(url, user, pass);
         return conn;
     }
 
